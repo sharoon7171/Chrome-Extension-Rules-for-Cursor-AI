@@ -1,5 +1,7 @@
 # Cursor AI Rules for Chrome Extension Development
 
+**Created by [sqtech.dev](https://sqtech.dev)**
+
 This repository contains comprehensive Cursor AI rules designed to ensure professional, compliant, and efficient Chrome extension development following the latest August 2025 Chrome Web Store policies.
 
 ## 🎯 Purpose
@@ -103,7 +105,9 @@ Once installed, Cursor AI will:
 
 ## 📝 License
 
-These rules are provided as-is for improving Cursor AI development workflows.
+This project is licensed under the [MIT License](LICENSE) - see the LICENSE file for details.
+
+**Free to use, modify, and distribute** - The MIT License allows anyone to use this code for any purpose with minimal restrictions.
 
 ## 🤝 Contributing
 
@@ -111,6 +115,14 @@ Feel free to submit improvements or additional rules that enhance the developmen
 
 ---
 
-**Last Updated:** August 2025
-**Compatible with:** Cursor AI with .mdc rule support
-**Target:** Chrome Extension Development with latest policies
+**Last Updated:** August 2025  
+**Compatible with:** Cursor AI with .mdc rule support  
+**Target:** Chrome Extension Development with latest policies  
+**Created by:** [sqtech.dev](https://sqtech.dev) - Professional Development Solutions
+
+---
+
+<div align="center">
+  <p><strong>Built with ❤️ by <a href="https://sqtech.dev">sqtech.dev</a></strong></p>
+  <p>Professional development tools and solutions for modern web applications</p>
+</div>
