@@ -67,9 +67,33 @@ These rules configure Cursor AI to:
 
 ## 📁 Installation
 
-1. Copy the `.cursor/rules/` directory to your project root
-2. Ensure all rule files have `alwaysApply: true` (already configured)
-3. Restart Cursor to apply the new rules
+### Quick Install (One Command)
+```bash
+# Clone, copy only .cursor directory, and clean up
+git clone https://github.com/yourusername/Chrome-Extension-Rules-for-Cursor-AI.git && cp -r Chrome-Extension-Rules-for-Cursor-AI/.cursor .cursor && rm -rf Chrome-Extension-Rules-for-Cursor-AI
+```
+
+### Manual Installation
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/Chrome-Extension-Rules-for-Cursor-AI.git
+   ```
+
+2. **Copy only the .cursor directory:**
+   ```bash
+   cp -r Chrome-Extension-Rules-for-Cursor-AI/.cursor .cursor
+   ```
+
+3. **Clean up:**
+   ```bash
+   rm -rf Chrome-Extension-Rules-for-Cursor-AI
+   ```
+
+4. **Restart Cursor** to apply the rules
+
+### What Gets Installed
+- **11 comprehensive rule files** for professional Chrome extension development
+- **Complete setup verification** and troubleshooting guides
 
 ## 🔧 Rule Configuration
 
