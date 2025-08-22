@@ -1,8 +1,8 @@
-# Cursor AI Rules for Chrome Extension Development
+# Chrome Extension Rules for Cursor AI
 
 **Created by [sqtech.dev](https://sqtech.dev)**
 
-This repository contains comprehensive Cursor AI rules designed to ensure professional, compliant, and efficient Chrome extension development following the latest August 2025 Chrome Web Store policies.
+This repository contains comprehensive rules for Cursor AI to ensure professional, compliant, and efficient Chrome extension development following the latest August 2025 Chrome Web Store policies.
 
 ## 🎯 Purpose
 
