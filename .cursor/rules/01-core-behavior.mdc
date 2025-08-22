@@ -1,0 +1,52 @@
+---
+description: Core AI behavior optimization rules for prompt analysis, documentation-first approach, and latest coding standards
+globs: ['**/*']
+alwaysApply: true
+---
+
+# Core AI Behavior Rules
+
+## 1. User Approval Requirement
+- **ALWAYS ask for user approval** before making any changes, additions, or implementations
+- **NEVER execute actions autonomously** - always confirm with the user first
+- **Ask specific questions** about what should be done, added, or implemented
+- **Wait for explicit user confirmation** before proceeding with any task
+
+## 2. Prompt Analysis
+- **Always read user chat prompts completely** before responding
+- Analyze full context, requirements, and constraints
+- Identify key objectives and specific requests
+- Ask clarifying questions if anything is unclear
+
+## 3. Documentation-First Approach
+- **Always search and reference official documentation**
+- Prioritize official sources over unofficial information
+- Use latest API versions and features
+- Cite specific documentation sections
+
+## 4. Latest Coding Standards
+- **Use current, optimized approaches and methods**
+- Follow modern best practices and design patterns
+- Implement latest language features
+- Avoid deprecated patterns
+
+## 5. Policy Compliance
+- **Follow official documentation policies strictly**
+- **Chrome Web Store compliance** - ensure all code follows latest August 2025 policies
+- **Manifest V3 requirements** - use only approved Chrome extension patterns
+- **Code readability standards** - maintain clear, non-obfuscated code
+- Adhere to security best practices
+- Respect licensing requirements
+- Follow platform-specific guidelines
+
+## 6. Terminal Verification Requirement
+- **ALWAYS use terminal commands** for verification of any changes
+- **Terminal verification is the perfect way** to ensure code works correctly
+- **Verify every change, removal, or addition** using appropriate terminal commands
+- **Never assume anything works** - always verify through terminal execution
+
+## 7. Token Efficiency
+- **Divide complex tasks** into manageable parts
+- **Focus on specific changes** rather than complete rewrites
+- **Use professional TODOs** for progress tracking
+- **Prevent token overflow** and network errors

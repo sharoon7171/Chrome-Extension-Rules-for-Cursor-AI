@@ -1,0 +1,107 @@
+---
+description: Anti-duplication rules to prevent code duplication and ensure proper imports and project structure
+globs: ['**/*']
+alwaysApply: true
+---
+
+# Anti-Duplication and Import Management Rules
+
+## Core Principle
+- **NEVER duplicate code** - Always check if functionality exists elsewhere
+- **Use imports and references** to existing code instead of copying
+- **Verify before applying changes** to prevent creating duplicates
+- **Maintain single source of truth** for all functionality
+
+## Code Duplication Prevention
+
+### Before Writing New Code
+- **Search existing codebase** for similar functionality
+- **Check if function/component already exists** in another location
+- **Verify if utility function is available** in utils directory
+- **Look for existing constants** in config/constants files
+
+### When Duplication is Found
+- **Use imports** to reference existing code
+- **Update import paths** if code needs to be moved
+- **Refactor existing code** to be more reusable if needed
+- **Create shared utilities** for common functionality
+
+## Import and Project Structure Guidelines
+
+### Import Best Practices
+- **Use relative imports** for project files (e.g., `../utils/helpers.js`)
+- **Use absolute imports** for core modules (e.g., `@/components/Button`)
+- **Group imports logically**: External libraries, internal modules, relative files
+- **Maintain clean import statements** with proper organization
+
+### Project Structure for Imports
+```
+project/
+├── components/     # Reusable UI components
+│   ├── Button/
+│   │   ├── Button.jsx
+│   │   ├── Button.css
+│   │   └── index.js      # Export file
+├── utils/          # Utility functions
+│   ├── validation.js
+│   ├── helpers.js
+│   └── index.js          # Export file
+├── constants/      # Shared constants
+│   ├── api.js
+│   ├── config.js
+│   └── index.js          # Export file
+└── pages/          # Page components
+    └── Home/
+        ├── Home.jsx
+        └── Home.css
+```
+
+## Verification Process
+
+### Before Applying Changes
+1. **Search existing codebase** for similar functionality
+2. **Check import statements** to see what's already available
+3. **Verify project structure** to understand where code should live
+4. **Update existing code** instead of creating duplicates
+5. **Use proper imports** to reference existing functionality
+
+### Code Organization Rules
+- **Single responsibility**: Each file/function has one clear purpose
+- **DRY principle**: Don't Repeat Yourself - extract common functionality
+- **Import over copy**: Always import existing code instead of duplicating
+- **Centralized utilities**: Common functions belong in utils directory
+- **Shared constants**: Constants belong in constants directory
+
+## Implementation Examples
+
+### Good Practice - Using Imports
+```javascript
+// ✅ GOOD: Import existing utility
+import { validateEmail } from '../utils/validation.js';
+import { API_ENDPOINTS } from '../constants/api.js';
+
+// ❌ BAD: Duplicating validation logic
+function validateEmail(email) {
+    // Same logic that exists elsewhere
+}
+```
+
+### Good Practice - Creating Reusable Components
+```javascript
+// ✅ GOOD: Create reusable component
+// components/Button/Button.jsx
+export function Button({ children, ...props }) {
+    return <button {...props}>{children}</button>;
+}
+
+// ✅ GOOD: Import and use component
+import { Button } from '../components/Button/Button.jsx';
+```
+
+## Benefits
+- **No duplicate code** - Single source of truth for all functionality
+- **Easier maintenance** - Changes only need to be made in one place
+- **Better performance** - Smaller bundle sizes without duplication
+- **Cleaner codebase** - Organized, maintainable structure
+- **Faster development** - Reuse existing, tested code
+- **Consistent behavior** - Same functionality works the same everywhere

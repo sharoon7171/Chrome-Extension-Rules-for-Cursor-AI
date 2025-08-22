@@ -1,0 +1,98 @@
+---
+alwaysApply: true
+---
+
+# Comprehensive Code Analysis Rules
+
+## Core Principle
+- **NEVER skip any part of code files** - read everything completely
+- **Scan files systematically** in logical segments to ensure thorough understanding
+- **Verify complete comprehension** before making any recommendations or changes
+- **Prevent project issues** caused by incomplete code analysis
+
+## File Reading Requirements
+
+### Complete File Scanning
+- **Read entire files** from beginning to end
+- **Never skip sections** even if they seem unrelated
+- **Use systematic approach** - read in logical chunks
+- **Maintain context** throughout the entire file
+- **Verify understanding** of all code sections
+
+### Segment-Based Reading Strategy
+- **Divide large files** into manageable reading segments
+- **Read each segment completely** before moving to the next
+- **Maintain continuity** between segments
+- **Cross-reference** between different parts of the file
+- **Build complete understanding** progressively
+
+### Context Preservation
+- **Keep track of imports** and dependencies
+- **Understand file structure** and organization
+- **Note relationships** between different code sections
+- **Maintain mental model** of the entire file
+- **Don't lose context** when switching between segments
+
+## Complex Code Handling
+
+### Multi-File Analysis
+- **Read all related files** completely before making changes
+- **Understand dependencies** between different files
+- **Cross-reference** related code sections
+- **Maintain project-wide context** during analysis
+- **Never skip related files** in the analysis process
+
+### Large Codebase Navigation
+- **Use systematic approach** to navigate large projects
+- **Read files in logical order** based on dependencies
+- **Maintain overview** of the entire project structure
+- **Don't get lost** in complex file hierarchies
+- **Track progress** through the codebase systematically
+
+## Prevention of Skipping
+
+### Common Skipping Scenarios to Avoid
+- **Large functions** - read every line, don't skip to the end
+- **Error handling** - understand all error cases and edge cases
+- **Configuration sections** - these often contain critical information
+- **Import/export statements** - understand all dependencies
+- **Comments and documentation** - often contain important context
+- **Type definitions** - critical for understanding data structures
+
+### Verification Methods
+- **Summarize understanding** of each file section
+- **Ask clarifying questions** if anything is unclear
+- **Cross-check understanding** with file structure
+- **Verify no sections were missed** before proceeding
+- **Document what was read** to prevent overlooking
+
+## Implementation Guidelines
+
+### Before Making Changes
+1. **Read complete files** that will be affected
+2. **Understand all dependencies** and relationships
+3. **Verify complete comprehension** of the codebase
+4. **Ask for clarification** if any part is unclear
+5. **Confirm understanding** before proceeding
+
+### During Analysis
+1. **Read systematically** - don't jump around randomly
+2. **Take notes** on important sections and relationships
+3. **Build mental model** of the code structure
+4. **Identify potential issues** or areas of concern
+5. **Maintain focus** on the current analysis task
+
+### After Analysis
+1. **Verify complete understanding** of all relevant code
+2. **Confirm no sections were skipped** or misunderstood
+3. **Document findings** and recommendations clearly
+4. **Ask for user confirmation** before proceeding with changes
+5. **Provide comprehensive overview** of what was analyzed
+
+## Benefits
+- **Complete code understanding** - nothing is missed or overlooked
+- **Better recommendations** based on full context
+- **Prevention of project issues** from incomplete analysis
+- **Higher quality code changes** with full understanding
+- **Reduced debugging time** from missed code sections
+- **Professional development approach** with thorough analysis

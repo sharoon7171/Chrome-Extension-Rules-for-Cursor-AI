@@ -1,0 +1,243 @@
+---
+description: Coding style rules for simple functions, no frameworks, and professional modular project structure
+globs: ['**/*']
+alwaysApply: true
+---
+
+# Coding Style and Project Structure Rules
+
+## Core Coding Principles
+- **Write code with simple style functions** - Keep functions clean and straightforward
+- **Use vanilla coding languages** - HTML, CSS, JavaScript, or any language without external dependencies
+- **NO component libraries or frameworks** - Build everything from scratch for full control
+- **Professional modular project structure** - Organize code logically and maintainably
+
+## Professional Project Structure
+
+### Directory Organization
+```
+project/
+├── pages/         # Page-specific files (divided into parts)
+│   ├── home/
+│   │   ├── home-header.html
+│   │   ├── home-main.html
+│   │   ├── home-footer.html
+│   │   └── home-styles.css
+│   └── about/
+│       ├── about-header.html
+│       ├── about-content.html
+│       └── about-styles.css
+├── components/    # Reusable UI components
+│   ├── header/
+│   │   ├── header-nav.html
+│   │   ├── header-logo.html
+│   │   └── header-styles.css
+│   └── footer/
+│       ├── footer-links.html
+│       ├── footer-social.html
+│       └── footer-styles.css
+├── styles/        # Global and shared styles
+│   ├── base/
+│   │   ├── reset.css
+│   │   ├── typography.css
+│   │   └── variables.css
+│   ├── layout/
+│   │   ├── grid.css
+│   │   ├── containers.css
+│   │   └── spacing.css
+│   └── themes/
+│       ├── light-theme.css
+│       └── dark-theme.css
+├── scripts/       # JavaScript functionality
+│   ├── core/
+│   │   ├── app.js
+│   │   ├── router.js
+│   │   └── state.js
+│   ├── utils/
+│   │   ├── validation.js
+│   │   ├── helpers.js
+│   │   └── api.js
+│   ├── hooks/
+│   │   ├── useLocalStorage.js
+│   │   ├── useFetch.js
+│   │   └── useForm.js
+│   └── components/
+│       ├── modal.js
+│       ├── dropdown.js
+│       └── carousel.js
+├── config/        # Configuration files
+│   ├── constants.js
+│   ├── settings.js
+│   └── environment.js
+├── assets/        # Media and resources
+│   ├── images/
+│   ├── fonts/
+│   └── icons/
+└── docs/          # Documentation
+    ├── api/
+    ├── components/
+    └── setup/
+```
+
+### File Division Principles
+- **Each file should be under 50 lines** for maximum readability
+- **Break large files into logical parts** (header, content, footer, etc.)
+- **Create separate files for different concerns** (HTML structure, styles, logic)
+- **Use descriptive naming** that indicates the specific part/function
+- **Organize by feature, not by type** for better maintainability
+
+## Code File Structure
+
+### HTML Files
+- Separate sections with clear comments
+- Semantic HTML structure
+- Accessibility considerations
+- Clean, readable markup
+
+### CSS Files
+- Organized by component or page
+- Logical grouping of styles
+- Consistent naming conventions
+- Responsive design principles
+
+### JavaScript Files
+- Simple, focused functions
+- Clear separation of concerns
+- Error handling and validation
+- Professional commenting and documentation
+
+## Implementation Guidelines
+
+### File Creation Rules
+- **Create directories and files ONLY when needed** - No empty or redundant structures
+- **Start with minimal structure** and expand as requirements grow
+- **Each file should serve a specific, immediate purpose**
+- **Avoid premature optimization** - build structure incrementally
+
+### Language-Specific Naming Conventions
+- **Python**: `snake_case` for functions/variables, `PascalCase` for classes, `UPPER_CASE` for constants
+- **JavaScript**: `camelCase` for variables/functions, `PascalCase` for classes, `UPPER_CASE` for constants
+- **Java**: `camelCase` for methods/variables, `PascalCase` for classes, `UPPER_CASE` for constants
+- **C#**: `camelCase` for variables, `PascalCase` for classes/methods/constants
+- **Go**: `PascalCase` for exported names, `camelCase` for unexported names
+
+### Indentation Standards
+- **Python**: 4 spaces per indentation level
+- **JavaScript**: 2 spaces per indentation level
+- **Java**: 4 spaces per indentation level
+- **C#**: 4 spaces per indentation level
+- **Go**: Tabs for indentation
+
+### Function Writing Style
+- Keep functions small and focused (single responsibility)
+- Use descriptive names that explain purpose
+- Include proper error handling and validation
+- Add comprehensive documentation for complex logic
+
+### Code Organization
+- Group related functionality together
+- Use consistent indentation and formatting
+- Implement proper separation of concerns
+- Create reusable utility functions
+
+### File Naming
+- Use descriptive, lowercase names with hyphens for HTML/CSS
+- Use language-appropriate naming conventions for each language
+- Group related files with prefixes
+- Maintain consistent naming patterns
+- Avoid abbreviations unless universally understood
+
+### File Size Guidelines
+- **HTML files**: Maximum 30-40 lines per file
+- **CSS files**: Maximum 40-50 lines per file  
+- **JavaScript files**: Maximum 30-50 lines per file
+- **Python files**: Maximum 40-60 lines per file
+- **Java/C# files**: Maximum 50-70 lines per file
+- **Go files**: Maximum 40-60 lines per file
+- **Break larger files** into logical, focused parts
+- **Each file should have one clear responsibility**
+
+## Latest Coding Standards (August 2025)
+
+### Current Language Versions
+- **JavaScript**: ECMAScript 2025 (ES2025) - Latest stable release
+- **Python**: Python 3.14.0 - Fourth beta released July 2025
+- **Java**: Java 19 - Released 2022 with virtual threads
+- **C#**: C# 11 - Released 2022 with raw string literals
+- **Go**: Go 1.20 - Released 2022 with performance enhancements
+
+### Latest Language Features (August 2025)
+
+#### JavaScript (ECMAScript 2025)
+- **Iterator Object**: Functional interfaces with lazy evaluation
+- **Promise.try**: Enhanced promise handling
+- **Regex.Escape**: String escaping in regex patterns
+- **Modern ES2025 syntax**: Use latest ECMAScript features
+
+#### Python 3.14.0
+- **Latest syntax enhancements**: Use newest Python 3.14 features
+- **Standard library updates**: Leverage latest Python improvements
+- **Performance optimizations**: Take advantage of 3.14 speed improvements
+
+#### Java 19
+- **Virtual Threads**: Use for improved concurrency and performance
+- **Enhanced performance**: Leverage Java 19 optimizations
+- **Modern Java patterns**: Follow latest Java best practices
+
+#### C# 11
+- **Raw String Literals**: Better multi-line and complex string handling
+- **Latest C# features**: Use C# 11 language enhancements
+- **Performance improvements**: Leverage latest .NET optimizations
+
+#### Go 1.20
+- **New language features**: Implement latest Go capabilities
+- **Standard library improvements**: Use enhanced Go libraries
+- **Performance enhancements**: Leverage Go 1.20 optimizations
+
+### Documentation Standards
+- **Python**: Use docstrings (`""" """`) for module, class, and function documentation
+- **JavaScript**: Use JSDoc comments (`/** */`) for functions and classes
+- **Java**: Use Javadoc comments (`/** */`) for classes and methods
+- **C#**: Use XML documentation comments (`///`) for classes and methods
+- **Go**: Use regular comments (`//`) immediately preceding declarations
+
+### Error Handling Standards
+- **Python**: Use exceptions to handle errors; avoid using return codes
+- **JavaScript**: Use `try...catch` blocks for synchronous code and `.catch()` for promises
+- **Java**: Use exceptions; avoid using error codes
+- **C#**: Use exceptions; avoid using error codes
+- **Go**: Use error return values; avoid exceptions
+
+### Modular Architecture Standards
+- **Python**: Organize by feature/functionality (e.g., `auth/`, `payments/`)
+- **JavaScript (Node.js)**: Organize by component (e.g., `controllers/`, `models/`, `routes/`)
+- **Java**: Organize by feature in packages (e.g., `com.example.auth`, `com.example.payment`)
+- **C#**: Organize by functionality in namespaces (e.g., `ProjectName.Auth`, `ProjectName.Payments`)
+- **Go**: Organize by functionality in packages (e.g., `auth`, `payments`)
+
+## Version Management & Best Practices
+
+### Always Use Latest Versions
+- **JavaScript**: Always target ECMAScript 2025 (ES2025) features
+- **Python**: Target Python 3.14.0+ for latest syntax and performance
+- **Java**: Use Java 19+ for virtual threads and performance features
+- **C#**: Target C# 11+ for raw string literals and modern features
+- **Go**: Use Go 1.20+ for latest language capabilities
+
+### Feature Adoption Guidelines
+- **Implement latest syntax** as soon as stable versions are available
+- **Use modern language features** for better performance and readability
+- **Stay updated** with language release cycles and new features
+- **Test compatibility** before production deployment
+- **Document version requirements** clearly in project files
+
+## Benefits
+- **Full control** over code behavior and performance
+- **No framework dependencies** or version conflicts
+- **Professional structure** that's easy to maintain
+- **Modular design** for scalability and reusability
+- **Clean, readable code** that's easy to debug
+- **Latest language standards** for optimal performance
+- **Industry best practices** for maintainability
+- **Future-proof code** using cutting-edge language features
+- **Maximum performance** from latest language optimizations

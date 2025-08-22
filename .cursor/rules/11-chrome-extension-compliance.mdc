@@ -1,0 +1,163 @@
+---
+description: Chrome extension compliance rules to ensure codebase follows latest August 2025 Chrome Web Store policies
+globs: ['**/*']
+alwaysApply: true
+---
+
+# Chrome Extension Compliance Rules (August 2025)
+
+## Core Principle
+- **ALWAYS ensure compliance** with the latest Chrome Web Store Program Policies
+- **Regular policy verification** to maintain functionality and avoid removal
+- **Proactive compliance checks** before any code changes or updates
+- **Stay updated** with Chrome Web Store policy changes and requirements
+
+## Latest Chrome Web Store Policies (August 2025)
+
+### 1. Code Readability Requirements
+- **NO code obfuscation** - all code must be easily readable and understandable
+- **External resources must be readable** - third-party code must be transparent
+- **Minification is permitted** under specific conditions only
+- **Clear code structure** - maintain professional, understandable codebase
+- **Document all external dependencies** and their purposes
+
+### 2. Manifest V3 Compliance (MANDATORY)
+- **Use Manifest V3 exclusively** - Manifest V2 is deprecated
+- **NO remote code execution** - all code must be bundled with extension
+- **Service Workers only** - background scripts must use service workers
+- **Declarative Net Request** - use for network request modifications
+- **Limited host permissions** - request only necessary permissions
+
+### 3. API Usage Requirements
+- **Use Chrome APIs as intended** - follow official API documentation
+- **NO API bypassing** - don't use methods that circumvent existing APIs
+- **Proper permission declarations** - request only required permissions
+- **Official Chrome extension APIs only** - avoid deprecated or unofficial APIs
+- **Follow Chrome extension best practices** for all API implementations
+
+### 4. Affiliate Programs and Monetization
+- **Transparent affiliate activities** - clearly disclose all affiliate links
+- **Direct user benefits required** - provide discounts, cashback, or value
+- **Clear disclosure** - inform users about affiliate relationships
+- **NO deceptive practices** - be honest about monetization methods
+- **User-focused benefits** - ensure affiliate programs benefit users directly
+
+### 5. Privacy and Data Protection
+- **Minimal data collection** - collect only necessary user data
+- **Clear privacy policy** - document all data collection and usage
+- **User consent required** - get explicit permission for data collection
+- **Secure data handling** - implement proper security measures
+- **Data retention limits** - don't store data longer than necessary
+
+## Compliance Verification Process
+
+### Before Any Code Changes
+1. **Review current Chrome Web Store policies** - check for recent updates
+2. **Audit existing code** - ensure current compliance status
+3. **Identify potential issues** - flag any non-compliant code patterns
+4. **Plan compliance updates** - create strategy for addressing issues
+5. **Ask for user approval** before implementing compliance changes
+
+### During Development
+1. **Follow Manifest V3 standards** - use only approved patterns
+2. **Implement proper permissions** - request minimal required access
+3. **Use official APIs only** - avoid deprecated or unofficial methods
+4. **Maintain code readability** - keep all code clear and understandable
+5. **Document compliance decisions** - explain why specific approaches were chosen
+
+### After Implementation
+1. **Test extension functionality** - verify all features work correctly
+2. **Verify policy compliance** - check against latest requirements
+3. **Update documentation** - ensure privacy policy and terms are current
+4. **Prepare for review** - ready extension for Chrome Web Store submission
+5. **Monitor for policy updates** - stay alert for future changes
+
+## Key Compliance Areas to Monitor
+
+### Code Structure Requirements
+- **Clear, readable code** without obfuscation
+- **Proper file organization** following Chrome extension standards
+- **Documented external dependencies** with justification
+- **No remote code execution** - all scripts bundled locally
+- **Service worker implementation** for background processes
+
+### Permission Management
+- **Minimal permissions** - request only what's absolutely necessary
+- **Clear permission justification** - document why each permission is needed
+- **User-friendly permission requests** - explain benefits to users
+- **Regular permission audits** - remove unused permissions
+- **Host permission specificity** - avoid broad host permissions
+
+### Security Requirements
+- **Content Security Policy** - implement strict CSP headers
+- **Secure communication** - use HTTPS for all external requests
+- **Input validation** - sanitize all user inputs
+- **XSS prevention** - protect against cross-site scripting
+- **Data encryption** - secure sensitive user data
+
+### User Experience Standards
+- **Clear functionality description** - explain what extension does
+- **Intuitive user interface** - design for easy user interaction
+- **Performance optimization** - ensure fast loading and operation
+- **Error handling** - provide helpful error messages
+- **Accessibility compliance** - support users with disabilities
+
+## Compliance Verification Commands
+
+### Policy Review Commands
+```bash
+# Check extension manifest
+cat manifest.json | jq '.'
+
+# Verify file structure
+find . -name "*.js" -o -name "*.html" -o -name "*.css" | head -20
+
+# Check for remote code execution
+grep -r "eval\|Function\|setTimeout.*string" --include="*.js" .
+
+# Verify service worker implementation
+ls -la background.js service-worker.js 2>/dev/null || echo "Service worker files not found"
+```
+
+### Security Verification Commands
+```bash
+# Check for secure HTTPS usage
+grep -r "http://" --include="*.js" --include="*.html" .
+
+# Verify CSP implementation
+grep -r "Content-Security-Policy" --include="*.html" .
+
+# Check permissions in manifest
+cat manifest.json | jq '.permissions'
+
+# Verify no external script loading
+grep -r "<script.*src.*http" --include="*.html" .
+```
+
+## Regular Compliance Schedule
+
+### Monthly Tasks
+- **Review Chrome Web Store policy updates** - check for new requirements
+- **Audit codebase compliance** - verify current code meets standards
+- **Update permissions** - remove unnecessary permissions
+- **Test extension functionality** - ensure everything works correctly
+
+### Quarterly Tasks
+- **Comprehensive policy review** - deep dive into all policy areas
+- **Documentation updates** - refresh privacy policy and terms
+- **Security audit** - review all security implementations
+- **Performance optimization** - improve extension efficiency
+
+### Before Each Release
+- **Full compliance check** - verify all policy requirements
+- **Code readability review** - ensure all code is clear and documented
+- **Permission audit** - confirm minimal necessary permissions
+- **Testing verification** - validate all functionality works correctly
+
+## Benefits
+- **Avoid Chrome Web Store removal** - maintain compliance with policies
+- **Future-proof extension** - stay ahead of policy changes
+- **User trust** - maintain transparent, secure extension
+- **Professional standards** - follow industry best practices
+- **Reduced review time** - faster Chrome Web Store approval process
+- **Legal protection** - comply with privacy and data protection laws

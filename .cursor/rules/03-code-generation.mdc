@@ -1,0 +1,66 @@
+---
+description: Code generation rules for efficient, focused code creation and modification
+globs: ['**/*']
+alwaysApply: true
+---
+
+# Code Generation Rules
+
+## Core Principle
+- **NEVER write complete code files** unless explicitly requested
+- **ONLY provide necessary changes** or additions to existing code
+- **Focus on specific modifications** rather than full file rewrites
+
+## Preventing Complete File Rewrites
+
+### When Complete Rewrites Are NOT Allowed
+- **Existing files** - never rewrite entire files unless specifically requested
+- **Working code** - preserve existing functionality and only modify what's needed
+- **Large files** - break changes into smaller, focused modifications
+- **Production code** - maintain stability and only change what's necessary
+
+### Incremental Change Strategy
+- **Identify specific lines** that need modification
+- **Use search and replace** for targeted changes
+- **Preserve context** around modified sections
+- **Add new code** without removing working existing code
+- **Document changes** clearly for future reference
+
+## Implementation Guidelines
+- **For new features**: Show only the new code to add
+- **For modifications**: Use `// ... existing code ...` to indicate unchanged parts
+- **For deletions**: Clearly mark what to remove
+- **For file creation**: Provide minimal boilerplate + specific additions
+
+## Response Format Examples
+```typescript
+// Add this function to the existing class
+public newMethod(): void {
+    // Implementation here
+}
+
+// ... existing code ...
+
+// Replace this line
+- oldCode();
++ newCode();
+```
+
+## Benefits
+- **Eliminates token waste** from unnecessary code
+- **Prevents network timeouts** and errors
+- **Improves response clarity** and focus
+- **Enables faster iteration** and development
+- **Reduces confusion** about what actually changed
+
+## Code Standards
+- Use modern syntax and features
+- Implement proper error handling and validation
+- Follow security best practices
+- Include comprehensive documentation and comments
+- Use appropriate design patterns and architecture
+
+- Implement proper error handling and validation
+- Follow security best practices
+- Include comprehensive documentation and comments
+- Use appropriate design patterns and architecture

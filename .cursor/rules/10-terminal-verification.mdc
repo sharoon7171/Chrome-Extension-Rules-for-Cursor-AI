@@ -1,0 +1,145 @@
+---
+description: Terminal verification rules to ensure Cursor AI always uses terminal commands for perfect verification of changes, removals, and additions
+globs: ['**/*']
+alwaysApply: true
+---
+
+# Terminal Verification Rules
+
+## Core Principle
+- **ALWAYS use terminal commands** for verification of any changes, removals, or additions
+- **Terminal verification is the perfect way** to ensure tasks are completed without missing anything
+- **Never rely on assumptions** - always verify through actual execution
+- **Terminal commands provide definitive proof** that changes work correctly
+
+## Mandatory Terminal Verification
+
+### For Code Changes
+- **Test execution**: Run code to verify it works as expected
+- **Syntax checking**: Use language-specific linters and compilers
+- **Dependency verification**: Check imports and package requirements
+- **Build verification**: Ensure projects compile and build successfully
+
+### For File Operations
+- **File existence**: Use `ls`, `find`, or `stat` commands to verify files exist
+- **File content**: Use `cat`, `head`, `tail` to verify file contents
+- **File permissions**: Use `ls -la` to check file permissions
+- **Directory structure**: Use `tree` or `ls -R` to verify folder organization
+
+### For Project Status
+- **Git status**: Use `git status`, `git log`, `git diff` for repository verification
+- **Package management**: Use `npm list`, `pip list`, `composer show` for dependencies
+- **Environment verification**: Check versions with `node -v`, `python --version`, etc.
+- **Process verification**: Use `ps`, `top`, or service status commands
+
+## Terminal Verification Process
+
+### Before Any Change
+1. **Plan verification commands** that will prove the change worked
+2. **Document expected outcomes** for each verification step
+3. **Prepare rollback commands** in case verification fails
+4. **Ask user approval** for both the change and verification plan
+
+### During Implementation
+1. **Execute changes systematically** with immediate verification
+2. **Run verification commands** after each significant step
+3. **Document actual results** vs expected outcomes
+4. **Stop immediately** if verification shows any issues
+
+### After Implementation
+1. **Run comprehensive verification suite** using terminal commands
+2. **Test all affected functionality** through terminal execution
+3. **Verify no side effects** by checking related systems
+4. **Document verification results** for user review
+5. **Ask for final user confirmation** based on verification results
+
+## Essential Terminal Commands by Category
+
+### Code Execution and Testing
+```bash
+# JavaScript/Node.js
+node script.js
+npm test
+npm run build
+npm audit
+
+# Python
+python script.py
+python -m pytest
+pip install -r requirements.txt
+python -m py_compile file.py
+
+# General
+make
+./configure && make && make test
+```
+
+### File System Verification
+```bash
+# File operations
+ls -la filename
+find . -name "pattern"
+stat filename
+du -sh directory/
+
+# Content verification
+cat filename
+head -n 10 filename
+tail -f logfile
+diff file1 file2
+```
+
+### Git and Version Control
+```bash
+# Repository status
+git status
+git log --oneline -10
+git diff
+git branch -a
+
+# Verification
+git fsck
+git remote -v
+git config --list
+```
+
+### Dependencies and Environment
+```bash
+# Package managers
+npm list
+pip list
+composer show
+gem list
+
+# Environment
+echo $PATH
+printenv
+which command
+command --version
+```
+
+## Verification Success Criteria
+
+### Must Verify These Aspects
+- **Code executes without errors** - run and test all modified code
+- **All dependencies are satisfied** - check imports and requirements
+- **Build processes complete successfully** - compile and package
+- **No syntax or linting errors** - use appropriate checkers
+- **File operations completed correctly** - verify file states
+- **Git operations succeeded** - check repository status
+- **Environment is properly configured** - verify system state
+
+### Verification Failure Response
+- **Stop all operations immediately** if verification fails
+- **Report exact terminal output** showing the failure
+- **Provide specific error analysis** based on terminal results
+- **Suggest corrective actions** with terminal commands
+- **Ask user for guidance** before proceeding
+
+## Benefits
+- **100% accuracy** - terminal commands provide definitive proof
+- **Complete verification** - nothing is missed or assumed
+- **Immediate feedback** - know instantly if changes work
+- **Debugging information** - terminal output shows exact issues
+- **Confidence** - verified changes are guaranteed to work
+- **Professional approach** - industry standard verification practices
