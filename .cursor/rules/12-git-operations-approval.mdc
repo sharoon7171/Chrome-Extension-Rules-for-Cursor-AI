@@ -1,6 +1,6 @@
 ---
 description: Git operations approval rules to ensure push/pull operations only happen after user confirmation and code verification
-globs: [\"**/*\"]
+globs: ['**/*']
 alwaysApply: true
 ---
 

@@ -1,4 +1,6 @@
 ---
+description: Comprehensive code analysis rules to ensure complete file scanning and understanding without skipping any sections
+globs: ['**/*']
 alwaysApply: true
 ---
 

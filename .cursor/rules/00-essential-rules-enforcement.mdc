@@ -1,0 +1,172 @@
+---
+description: Essential rules enforcement to ensure Cursor AI agent cannot start or function without all required rules being present and active
+globs: ['**/*']
+alwaysApply: true
+---
+
+# Essential Rules Enforcement (CRITICAL - DO NOT REMOVE)
+
+## Core Principle
+- **Cursor AI agent MUST NOT start or function without ALL required rules**
+- **ALL rules are MANDATORY and cannot be bypassed**
+- **This rule file MUST be loaded FIRST before any AI operations**
+- **Failure to load rules results in immediate termination of AI operations**
+
+## Required Rules Check
+
+### MANDATORY Rule Files (All Must Be Present)
+1. **00-essential-rules-enforcement.mdc** - This file (CRITICAL)
+2. **01-core-behavior.mdc** - Core AI behavior optimization
+3. **02-task-management.mdc** - Task division and management
+4. **03-code-generation.mdc** - Code generation rules
+5. **04-file-handling.mdc** - File operation guidelines
+6. **05-coding-style-and-structure.mdc** - Coding standards and structure
+7. **06-anti-duplication-and-imports.mdc** - Import management
+8. **07-comprehensive-verification.mdc** - Complete verification
+9. **08-user-approval-required.mdc** - User approval requirements
+10. **11-chrome-extension-compliance.mdc** - Chrome extension compliance
+11. **10-terminal-verification.mdc** - Terminal verification
+12. **12-git-operations-approval.mdc** - Git operations approval
+
+### Rule Loading Verification
+- **Check rule file existence** before starting any AI operations
+- **Verify rule file integrity** - ensure no corruption or missing content
+- **Confirm rule activation** - all rules must be `alwaysApply: true`
+- **Validate rule scope** - all rules must apply to `['**/*']`
+
+## AI Agent Startup Requirements
+
+### Before Any AI Operation
+1. **Load all rule files** - verify presence and content
+2. **Validate rule structure** - check YAML frontmatter
+3. **Confirm rule activation** - ensure `alwaysApply: true`
+4. **Verify rule scope** - confirm `globs: ['**/*']`
+5. **Test rule application** - ensure rules are active
+
+### Rule Loading Failure Response
+- **Immediate termination** of AI operations if rules fail to load
+- **Error reporting** - show which rules are missing or corrupted
+- **No fallback behavior** - AI cannot operate without rules
+- **User notification** - inform user of rule loading failure
+
+## Rule Enforcement Mechanisms
+
+### File System Checks
+```bash
+# Verify all rule files exist
+ls -la .cursor/rules/*.mdc
+
+# Check rule file count (should be 12)
+find .cursor/rules -name "*.mdc" | wc -l
+
+# Verify rule file integrity
+find .cursor/rules -name "*.mjs" -exec file {} \;
+```
+
+### Rule Content Validation
+```bash
+# Check for required YAML frontmatter
+grep -L "description:" .cursor/rules/*.mdc
+grep -L "globs:" .cursor/rules/*.mdc
+grep -L "alwaysApply:" .cursor/rules/*.mdc
+
+# Verify alwaysApply: true
+grep -L "alwaysApply: true" .cursor/rules/*.mdc
+
+# Check globs pattern
+grep -L "globs: \['\*\*/\*'\]" .cursor/rules/*.mdc
+```
+
+### Rule Application Test
+```bash
+# Test rule loading
+node -e "console.log('Rules loaded successfully')"
+
+# Verify rule scope
+find . -name "*.mdc" -exec echo "Rule applies to: {}" \;
+```
+
+## Critical Safety Measures
+
+### Rule Tampering Prevention
+- **No rule modification** without explicit user approval
+- **Rule file backup** before any changes
+- **Version control** for all rule files
+- **Integrity checks** after any modifications
+
+### Emergency Rule Recovery
+- **Automatic backup restoration** if rules are corrupted
+- **Rule file regeneration** from templates if needed
+- **User notification** of any rule recovery actions
+- **Verification** that recovered rules are identical
+
+## Implementation Requirements
+
+### Cursor AI Integration
+- **Load rules on startup** - before any AI operations
+- **Verify rule presence** - check all 12 required files
+- **Validate rule content** - ensure proper structure
+- **Activate all rules** - set `alwaysApply: true`
+
+### Rule Dependencies
+- **Sequential loading** - load rules in numbered order
+- **Dependency checking** - ensure no circular dependencies
+- **Load order validation** - verify rules load correctly
+- **Conflict resolution** - handle any rule conflicts
+
+## Benefits of Essential Rules Enforcement
+
+### AI Agent Safety
+- **Prevents unauthorized operations** without proper rules
+- **Ensures consistent behavior** across all AI operations
+- **Maintains code quality** through enforced standards
+- **Protects project integrity** with mandatory guidelines
+
+### Development Consistency
+- **Standardized workflows** across all team members
+- **Predictable AI behavior** in all project contexts
+- **Quality assurance** through enforced rules
+- **Professional standards** maintained automatically
+
+### Compliance and Security
+- **Chrome extension compliance** enforced automatically
+- **Security best practices** applied consistently
+- **User approval requirements** never bypassed
+- **Code verification** always performed
+
+## Emergency Procedures
+
+### If Rules Are Missing
+1. **Stop all AI operations immediately**
+2. **Notify user of missing rules**
+3. **Attempt rule restoration** from backups
+4. **Verify rule integrity** after restoration
+5. **Resume operations** only after rule verification
+
+### If Rules Are Corrupted
+1. **Terminate AI operations**
+2. **Identify corrupted rule files**
+3. **Restore from version control**
+4. **Validate restored rules**
+5. **Restart AI operations**
+
+## Rule Maintenance
+
+### Regular Rule Checks
+- **Daily verification** of rule file existence
+- **Weekly integrity checks** of rule content
+- **Monthly rule updates** for latest policies
+- **Quarterly rule audits** for completeness
+
+### Rule Update Procedures
+1. **Backup current rules** before any changes
+2. **Update rule content** with new requirements
+3. **Verify rule syntax** and structure
+4. **Test rule application** in development
+5. **Deploy updated rules** to production
+
+## Conclusion
+
+This essential rules enforcement file ensures that Cursor AI cannot operate without all required rules being present and active. It serves as the foundation for all AI operations and must never be removed or modified without proper authorization.
+
+**Remember: No AI operations without complete rule compliance!**

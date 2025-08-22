@@ -1,5 +1,5 @@
 ---
-description: Coding style rules for simple functions, no frameworks, and professional modular project structure
+description: Coding style rules for simple functions, no frameworks, and professional modular project structure with .mjs module support
 globs: ['**/*']
 alwaysApply: true
 ---
@@ -12,6 +12,44 @@ alwaysApply: true
 - **NO component libraries or frameworks** - Build everything from scratch for full control
 - **STRICT professional modular project structure** - Organize code logically with mandatory separation of concerns
 - **MANDATORY logical file division** - Each file must serve one specific purpose only
+- **Support .mjs file extensions** for ES6+ modules and modern JavaScript syntax
+
+## ⚠️ CRITICAL .mjs File Usage Rules (Chrome Extensions)
+
+### ✅ ALLOWED .mjs Files in Chrome Extensions
+- **Background service workers** - when manifest.json specifies `"type": "module"`
+- **Popup/options page scripts** - when HTML uses `type="module"`
+- **Utility modules** - shared functionality between scripts
+- **Type definition files** - when using TypeScript with .mjs
+- **Any JavaScript file with import/export statements**
+
+### ❌ NOT ALLOWED .mjs Files in Chrome Extensions
+- **Content scripts** - Chrome does NOT support ES modules in content scripts
+- **HTML files** - must use .html extension
+- **CSS files** - must use .css extension
+- **JSON files** - must use .json extension
+- **Image files** - must use appropriate image extensions (.png, .jpg, .svg, etc.)
+- **Configuration files** - manifest.json, package.json, etc.
+- **Documentation files** - README files, markdown files
+- **Build tool configs** - webpack.config.js, babel.config.js, etc.
+- **Any non-JavaScript files** - .mjs is ONLY for ES6+ modules
+
+### Chrome Extension File Requirements
+```
+✅ CORRECT:
+- background.mjs          # Background service worker with ES6+ modules
+- popup.mjs               # Popup script with import/export
+- utils.mjs               # Utility functions module
+- types.mjs               # TypeScript type definitions
+
+❌ INCORRECT:
+- content-script.mjs      # Content scripts cannot use ES modules
+- popup.html.mjs          # HTML should be .html
+- styles.css.mjs          # CSS should be .css
+- config.json.mjs         # JSON should be .json
+- README.md.mjs           # Documentation should be .md
+- manifest.json.mjs       # Extension manifest must be .json
+```
 
 ## STRICT Professional Project Structure
 
@@ -23,107 +61,107 @@ project/
 │   │   ├── home/
 │   │   │   ├── home.component.html
 │   │   │   ├── home.component.css
-│   │   │   ├── home.component.js
-│   │   │   ├── home.service.js
-│   │   │   └── home.types.js
+│   │   │   ├── home.component.mjs
+│   │   │   ├── home.service.mjs
+│   │   │   └── home.types.mjs
 │   │   ├── dashboard/
 │   │   │   ├── dashboard.component.html
 │   │   │   ├── dashboard.component.css
-│   │   │   ├── dashboard.component.js
-│   │   │   ├── dashboard.service.js
-│   │   │   └── dashboard.types.js
+│   │   │   ├── dashboard.component.mjs
+│   │   │   ├── dashboard.service.mjs
+│   │   │   └── dashboard.types.mjs
 │   │   └── auth/
 │   │       ├── login/
 │   │       │   ├── login.component.html
 │   │       │   ├── login.component.css
-│   │       │   ├── login.component.js
-│   │       │   └── login.service.js
+│   │       │   ├── login.component.mjs
+│   │       │   └── login.service.mjs
 │   │       └── register/
 │   │           ├── register.component.html
 │   │           ├── register.component.css
-│   │           ├── register.component.js
-│   │           └── register.service.js
+│   │           ├── register.component.mjs
+│   │           └── register.service.mjs
 │   ├── components/         # Reusable UI components (MANDATORY)
 │   │   ├── common/
 │   │   │   ├── button/
 │   │   │   │   ├── button.component.html
 │   │   │   │   ├── button.component.css
-│   │   │   │   ├── button.component.js
-│   │   │   │   └── button.types.js
+│   │   │   │   ├── button.component.mjs
+│   │   │   │   └── button.types.mjs
 │   │   │   ├── input/
 │   │   │   │   ├── input.component.html
 │   │   │   │   ├── input.component.css
-│   │   │   │   ├── input.component.js
-│   │   │   │   └── input.types.js
+│   │   │   │   ├── input.component.mjs
+│   │   │   │   └── input.types.mjs
 │   │   │   └── modal/
 │   │   │       ├── modal.component.html
 │   │   │       ├── modal.component.css
-│   │   │       ├── modal.component.js
-│   │   │       └── modal.types.js
+│   │   │       ├── modal.component.mjs
+│   │   │       └── modal.types.mjs
 │   │   ├── layout/
 │   │   │   ├── header/
 │   │   │   │   ├── header.component.html
 │   │   │   │   ├── header.component.css
-│   │   │   │   ├── header.component.js
-│   │   │   │   └── header.service.js
+│   │   │   │   ├── header.component.mjs
+│   │   │   │   └── header.service.mjs
 │   │   │   ├── sidebar/
 │   │   │   │   ├── sidebar.component.html
 │   │   │   │   ├── sidebar.component.css
-│   │   │   │   ├── sidebar.component.js
-│   │   │   │   └── sidebar.service.js
+│   │   │   │   ├── sidebar.component.mjs
+│   │   │   │   └── sidebar.service.mjs
 │   │   │   └── footer/
 │   │   │       ├── footer.component.html
 │   │   │       ├── footer.component.css
-│   │   │       ├── footer.component.js
-│   │   │       └── footer.service.js
+│   │   │       ├── footer.component.mjs
+│   │   │       └── footer.service.mjs
 │   │   └── business/
 │   │       ├── data-table/
 │   │       │   ├── data-table.component.html
 │   │       │   ├── data-table.component.css
-│   │       │   ├── data-table.component.js
-│   │       │   └── data-table.service.js
+│   │       │   ├── data-table.component.mjs
+│   │       │   └── data-table.service.mjs
 │   │       └── chart/
 │   │           ├── chart.component.html
 │   │           ├── chart.component.css
-│   │           ├── chart.component.js
-│   │           └── chart.service.js
+│   │           ├── chart.component.mjs
+│   │           └── chart.service.mjs
 │   ├── services/           # Business logic and data services (MANDATORY)
 │   │   ├── api/
-│   │   │   ├── api.client.js
-│   │   │   ├── api.config.js
-│   │   │   ├── api.interceptor.js
-│   │   │   └── api.types.js
+│   │   │   ├── api.client.mjs
+│   │   │   ├── api.config.mjs
+│   │   │   ├── api.interceptor.mjs
+│   │   │   └── api.types.mjs
 │   │   ├── auth/
-│   │   │   ├── auth.service.js
-│   │   │   ├── auth.guard.js
-│   │   │   └── auth.types.js
+│   │   │   ├── auth.service.mjs
+│   │   │   ├── auth.guard.mjs
+│   │   │   └── auth.types.mjs
 │   │   ├── storage/
-│   │   │   ├── local-storage.service.js
-│   │   │   ├── session-storage.service.js
-│   │   │   └── storage.types.js
+│   │   │   ├── local-storage.service.mjs
+│   │   │   ├── session-storage.service.mjs
+│   │   │   └── storage.types.mjs
 │   │   └── utils/
-│   │       ├── validation.service.js
-│   │       ├── formatting.service.js
-│   │       ├── date.service.js
-│   │       └── utils.types.js
+│   │       ├── validation.service.mjs
+│   │       ├── formatting.service.mjs
+│   │       ├── date.service.mjs
+│   │       └── utils.types.mjs
 │   ├── core/               # Core application logic (MANDATORY)
 │   │   ├── app/
-│   │   │   ├── app.core.js
-│   │   │   ├── app.config.js
-│   │   │   ├── app.routes.js
-│   │   │   └── app.types.js
+│   │   │   ├── app.core.mjs
+│   │   │   ├── app.config.mjs
+│   │   │   ├── app.routes.mjs
+│   │   │   └── app.types.mjs
 │   │   ├── state/
-│   │   │   ├── state.manager.js
-│   │   │   ├── state.store.js
-│   │   │   └── state.types.js
+│   │   │   ├── state.manager.mjs
+│   │   │   ├── state.store.mjs
+│   │   │   └── state.types.mjs
 │   │   ├── router/
-│   │   │   ├── router.core.js
-│   │   │   ├── router.guards.js
-│   │   │   └── router.types.js
+│   │   │   ├── router.core.mjs
+│   │   │   ├── router.guards.mjs
+│   │   │   └── router.types.mjs
 │   │   └── events/
-│   │       ├── event.bus.js
-│   │       ├── event.emitter.js
-│   │       └── event.types.js
+│   │       ├── event.bus.mjs
+│   │       ├── event.emitter.mjs
+│   │       └── event.types.mjs
 │   ├── styles/             # Global and shared styles (MANDATORY)
 │   │   ├── base/
 │   │   │   ├── base.reset.css
@@ -144,15 +182,15 @@ project/
 │   │       ├── component.forms.css
 │   │       └── component.navigation.css
 │   ├── types/              # Type definitions and interfaces (MANDATORY)
-│   │   ├── global.types.js
-│   │   ├── api.types.js
-│   │   ├── component.types.js
-│   │   └── service.types.js
+│   │   ├── global.types.mjs
+│   │   ├── api.types.mjs
+│   │   ├── component.types.mjs
+│   │   └── service.types.mjs
 │   └── constants/          # Application constants (MANDATORY)
-│       ├── app.constants.js
-│       ├── api.constants.js
-│       ├── ui.constants.js
-│       └── validation.constants.js
+│       ├── app.constants.mjs
+│       ├── api.constants.mjs
+│       ├── ui.constants.mjs
+│       └── validation.constants.mjs
 ├── public/                 # Public assets (MANDATORY)
 │   ├── assets/
 │   │   ├── images/
@@ -198,29 +236,29 @@ project/
 │       └── deployment.md
 ├── config/                 # Configuration files (MANDATORY)
 │   ├── build/
-│   │   ├── webpack.config.js
-│   │   ├── babel.config.js
-│   │   └── postcss.config.js
+│   │   ├── webpack.config.mjs
+│   │   ├── babel.config.mjs
+│   │   └── postcss.config.mjs
 │   ├── environment/
 │   │   ├── .env.development
 │   │   ├── .env.staging
 │   │   └── .env.production
 │   └── linting/
-│       ├── .eslintrc.js
-│       ├── .prettierrc.js
-│       └── .stylelintrc.js
+│       ├── .eslintrc.mjs
+│       ├── .prettierrc.mjs
+│       └── .stylelintrc.mjs
 └── scripts/                # Build and utility scripts (MANDATORY)
     ├── build/
-    │   ├── build.dev.js
-    │   ├── build.prod.js
-    │   └── build.analyze.js
+    │   ├── build.dev.mjs
+    │   ├── build.prod.mjs
+    │   └── build.analyze.mjs
     ├── deploy/
-    │   ├── deploy.staging.js
-    │   └── deploy.production.js
+    │   ├── deploy.staging.mjs
+    │   └── deploy.production.mjs
     └── utils/
-        ├── generate.component.js
-        ├── generate.service.js
-        └── cleanup.js
+        ├── generate.component.mjs
+        ├── generate.service.mjs
+        └── cleanup.mjs
 ```
 
 ### MANDATORY File Division Principles
@@ -231,6 +269,8 @@ project/
 - **TYPE DEFINITION files** - Every component and service must have corresponding type files
 - **CONSTANT separation** - All constants must be in dedicated constant files
 - **NO mixed concerns** - Never combine different types of functionality in one file
+- **ES6+ module support** - Use .mjs extensions for all JavaScript modules
+- **CORRECT file extensions** - .mjs ONLY for JavaScript modules, never for HTML/CSS/JSON
 
 ### MANDATORY File Naming Conventions
 
@@ -238,25 +278,25 @@ project/
 ```
 [component-name].component.html    # HTML structure
 [component-name].component.css     # Component styles
-[component-name].component.js      # Component logic
-[component-name].service.js        # Component-specific services
-[component-name].types.js          # Component type definitions
+[component-name].component.mjs     # Component logic (ES6+ modules)
+[component-name].service.mjs       # Component-specific services
+[component-name].types.mjs         # Component type definitions
 ```
 
 #### Service Files
 ```
-[service-name].service.js          # Service implementation
-[service-name].types.js            # Service type definitions
-[service-name].config.js           # Service configuration
-[service-name].interceptor.js      # Service interceptors
+[service-name].service.mjs         # Service implementation (ES6+ modules)
+[service-name].types.mjs           # Service type definitions
+[service-name].config.mjs          # Service configuration
+[service-name].interceptor.mjs     # Service interceptors
 ```
 
 #### Core Files
 ```
-[core-name].core.js                # Core functionality
-[core-name].config.js              # Core configuration
-[core-name].routes.js              # Routing logic
-[core-name].types.js               # Core type definitions
+[core-name].core.mjs               # Core functionality (ES6+ modules)
+[core-name].config.mjs             # Core configuration
+[core-name].routes.mjs             # Routing logic
+[core-name].types.mjs              # Core type definitions
 ```
 
 #### Style Files
@@ -270,11 +310,11 @@ component.[purpose].css            # Component styles
 
 #### Type Files
 ```
-[category-name].types.js           # Category-specific types
-global.types.js                    # Global type definitions
-api.types.js                       # API-related types
-component.types.js                 # Component types
-service.types.js                   # Service types
+[category-name].types.mjs          # Category-specific types (ES6+ modules)
+global.types.mjs                   # Global type definitions
+api.types.mjs                      # API-related types
+component.types.mjs                # Component types
+service.types.mjs                  # Service types
 ```
 
 ### MANDATORY Code Organization Rules
@@ -284,24 +324,30 @@ service.types.js                   # Service types
 - **Accessibility first** - Include ARIA labels and roles
 - **Clean markup** - No unnecessary divs or spans
 - **Component structure** - Each component must have a root element with component class
+- **Module script tags** - Use type="module" for .mjs files
+- **CORRECT extensions** - HTML files must use .html, never .mjs
 
 #### CSS Organization
 - **Component-scoped styles** - Use BEM methodology or CSS modules
 - **CSS custom properties** - Use CSS variables for theming
 - **Logical grouping** - Group related styles together
 - **Responsive design** - Mobile-first approach with breakpoints
+- **CORRECT extensions** - CSS files must use .css, never .mjs
 
 #### JavaScript Architecture
+- **ES6+ module syntax** - Use import/export statements exclusively
 - **Class-based components** - Use ES6 classes for components
 - **Service injection** - Inject dependencies through constructor
 - **Event-driven communication** - Use custom events for component communication
 - **State management** - Centralized state with proper immutability
+- **Module compatibility** - Ensure all modules work in Chrome extension context
+- **CORRECT extensions** - JavaScript modules use .mjs, regular scripts use .js
 
 ### MANDATORY Import and Export Structure
 
 #### Component Exports
 ```javascript
-// [component-name].component.js
+// [component-name].component.mjs
 export class ComponentName {
     constructor() {
         // Component initialization
@@ -316,7 +362,7 @@ export default ComponentName;
 
 #### Service Exports
 ```javascript
-// [service-name].service.js
+// [service-name].service.mjs
 export class ServiceName {
     constructor() {
         // Service initialization
@@ -331,7 +377,7 @@ export default ServiceName;
 
 #### Type Exports
 ```javascript
-// [category-name].types.js
+// [category-name].types.mjs
 export interface ComponentProps {
     // Component properties
 }
@@ -345,12 +391,30 @@ export enum ComponentEvents {
 }
 ```
 
+#### Module Import Examples
+```javascript
+// Import from local modules
+import { ComponentName } from './component-name.component.mjs';
+import { ServiceName } from '../services/service-name.service.mjs';
+
+// Import from constants
+import { API_ENDPOINTS } from '../constants/api.constants.mjs';
+
+// Import from types
+import type { ComponentProps } from './component-name.types.mjs';
+
+// Import with attributes (ES2025+)
+import data from './data.json' with { type: 'json' };
+```
+
 ### MANDATORY File Creation Rules
 - **Create complete component structure** - All component files must be created together
 - **Include type definitions** - Every component must have corresponding types
 - **Add to documentation** - Update component documentation immediately
 - **Create tests** - Unit tests must be created with components
 - **Update imports** - All related files must be updated with new imports
+- **Use .mjs extensions** - All JavaScript files must use .mjs for ES6+ modules
+- **VERIFY file types** - Ensure .mjs is only used for JavaScript modules
 
 ### MANDATORY Quality Standards
 - **ESLint compliance** - All JavaScript must pass linting
@@ -359,6 +423,9 @@ export enum ComponentEvents {
 - **Accessibility compliance** - WCAG 2.1 AA standards
 - **Performance optimization** - Lazy loading and code splitting
 - **Security best practices** - Input validation and XSS prevention
+- **ES6+ module compliance** - Use modern JavaScript features
+- **Chrome extension compatibility** - Ensure modules work in extension context
+- **File extension validation** - Prevent .mjs misuse
 
 ## Implementation Guidelines
 
@@ -368,6 +435,8 @@ export enum ComponentEvents {
 3. **Define types first** - Create type definitions before implementation
 4. **Plan dependencies** - Identify required services and utilities
 5. **Get user approval** - Confirm the planned structure
+6. **Verify .mjs compatibility** - Ensure Chrome extension support
+7. **Verify file type** - Ensure .mjs is only used for JavaScript modules
 
 ### Component Creation Process
 1. **Create type definitions** - Define interfaces and types
@@ -377,6 +446,8 @@ export enum ComponentEvents {
 5. **Update documentation** - Document component usage
 6. **Create tests** - Implement unit and integration tests
 7. **Update imports** - Update all related files
+8. **Verify module syntax** - Test .mjs import/export functionality
+9. **Verify file extensions** - Ensure .mjs is only used for JavaScript
 
 ### Service Creation Process
 1. **Define service interface** - Create type definitions
@@ -385,6 +456,8 @@ export enum ComponentEvents {
 4. **Add logging** - Implement service logging
 5. **Create tests** - Implement service tests
 6. **Update documentation** - Document service API
+7. **Verify module exports** - Test .mjs export functionality
+8. **Verify file extensions** - Ensure .mjs is only used for JavaScript
 
 ## Benefits of Strict Structure
 - **Predictable organization** - Every developer knows where to find code
@@ -395,8 +468,13 @@ export enum ComponentEvents {
 - **Scalability** - Easy to add new features without breaking existing code
 - **Code reusability** - Components can be easily reused across the application
 - **Professional standards** - Industry-standard architecture patterns
+- **Modern JavaScript support** - ES6+ modules with .mjs extensions
+- **Chrome extension compliance** - Full support for latest policies
+- **Future-proof architecture** - Ready for upcoming JavaScript features
+- **Prevent file extension mistakes** - Clear guidelines for .mjs usage
 
 - **Latest language standards** for optimal performance
 - **Industry best practices** for maintainability
 - **Future-proof code** using cutting-edge language features
 - **Maximum performance** from latest language optimizations
+- **ES6+ module system** for modern development workflows
