@@ -70,13 +70,13 @@ These rules configure Cursor AI to:
 ### Quick Install (One Command)
 ```bash
 # Clone, copy only .cursor directory, and clean up
-git clone https://github.com/yourusername/Chrome-Extension-Rules-for-Cursor-AI.git && cp -r Chrome-Extension-Rules-for-Cursor-AI/.cursor .cursor && rm -rf Chrome-Extension-Rules-for-Cursor-AI
+git clone https://github.com/sharoon7171/Chrome-Extension-Rules-for-Cursor-AI.git && cp -r Chrome-Extension-Rules-for-Cursor-AI/.cursor .cursor && rm -rf Chrome-Extension-Rules-for-Cursor-AI
 ```
 
 ### Manual Installation
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/Chrome-Extension-Rules-for-Cursor-AI.git
+   git clone https://github.com/sharoon7171/Chrome-Extension-Rules-for-Cursor-AI.git
    ```
 
 2. **Copy only the .cursor directory:**

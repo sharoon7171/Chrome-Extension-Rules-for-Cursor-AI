@@ -1,0 +1,148 @@
+---
+description: Git operations approval rules to ensure push/pull operations only happen after user confirmation and code verification
+globs: [\"**/*\"]
+alwaysApply: true
+---
+
+# Git Operations Approval Rules
+
+## Core Principle
+- **NEVER execute git push/pull operations** without explicit user approval
+- **ALWAYS ask for permission** before any git operations that modify remote repositories
+- **Allow code verification first** before proceeding with git operations
+- **Prevent accidental code deployment** or repository synchronization
+
+## Required User Approval for Git Operations
+
+### Git Push Operations
+- **Code commits to remote** - Ask before pushing any commits
+- **Branch updates** - Confirm before updating remote branches
+- **Tag releases** - Get approval before pushing tags
+- **Force pushes** - Require explicit permission for destructive operations
+- **Merge requests** - Confirm before merging to main/master branches
+
+### Git Pull Operations
+- **Remote updates** - Ask before pulling from remote repositories
+- **Branch synchronization** - Confirm before updating local branches
+- **Rebase operations** - Get approval before rebasing on remote changes
+- **Merge conflicts** - Require user decision on conflict resolution
+
+### Git Configuration Changes
+- **Remote URL changes** - Confirm before modifying repository sources
+- **Branch tracking** - Ask before setting up new branch tracking
+- **Credential updates** - Require approval for authentication changes
+
+## Approval Process for Git Operations
+
+### Before Any Git Operation
+1. **Describe the git operation** in detail (what will happen)
+2. **Explain the purpose** and expected outcome
+3. **Ask specific permission** - "Should I proceed with git [operation]?"
+4. **Wait for user confirmation** before executing
+5. **Allow code verification** if user requests it
+
+### Approval Questions Format
+```
+I need to perform a git [operation] because [reason].
+
+This will:
+- [specific action 1]
+- [specific action 2]
+- [specific action 3]
+
+Should I proceed with this git operation, or would you like to verify the code first?
+
+Please confirm if you want me to proceed.
+```
+
+### Code Verification Before Git Operations
+- **Allow user to review changes** before git operations
+- **Provide time for code inspection** and testing
+- **Wait for verification completion** before proceeding
+- **Respect user's verification timeline**
+
+## Git Operation Safety Measures
+
+### Before Push Operations
+1. **Show what will be pushed** - display commit history and changes
+2. **Highlight potential impacts** - explain what this push affects
+3. **Confirm branch safety** - ensure pushing to correct branch
+4. **Check for sensitive data** - verify no credentials or secrets
+
+### Before Pull Operations
+1. **Show what will be pulled** - display incoming changes
+2. **Highlight potential conflicts** - identify areas that might conflict
+3. **Confirm local changes safety** - ensure local work is preserved
+4. **Explain merge strategy** - clarify how conflicts will be resolved
+
+## Implementation Guidelines
+
+### Git Status Verification
+- **Always check git status first** before suggesting operations
+- **Show current branch and state** to user
+- **Identify uncommitted changes** that need attention
+- **Display remote status** and synchronization needs
+
+### Safe Git Commands
+```bash
+# Safe commands that don't modify remote (always allowed)
+git status
+git log --oneline -10
+git diff
+git branch -a
+git remote -v
+
+# Commands requiring approval
+git push [remote] [branch]     # REQUIRES APPROVAL
+git pull [remote] [branch]     # REQUIRES APPROVAL
+git fetch [remote]              # REQUIRES APPROVAL
+git merge [branch]              # REQUIRES APPROVAL
+git rebase [branch]             # REQUIRES APPROVAL
+```
+
+### Emergency Git Operations
+- **Only in critical situations** with explicit user emergency approval
+- **Document emergency reason** and user approval
+- **Follow up with proper verification** after emergency operation
+- **Review and learn** from emergency situations
+
+## Code Verification Integration
+
+### Pre-Git Verification Steps
+1. **Code review completion** - ensure all changes are reviewed
+2. **Testing verification** - confirm code passes all tests
+3. **Build verification** - ensure project builds successfully
+4. **Linting checks** - verify code meets quality standards
+5. **Security review** - check for security vulnerabilities
+
+### Verification Commands
+```bash
+# Code verification commands (always allowed)
+npm test
+npm run build
+npm run lint
+python -m pytest
+make test
+```
+
+## User Control and Safety
+
+### User Rights
+- **Veto any git operation** at any time
+- **Request code verification** before git operations
+- **Set verification requirements** for different operation types
+- **Control timing** of git operations
+
+### Safety Features
+- **No automatic git operations** - everything requires explicit approval
+- **Clear operation descriptions** - user knows exactly what will happen
+- **Rollback information** - provide commands to undo if needed
+- **Impact assessment** - explain consequences of each operation
+
+## Benefits
+- **Prevents accidental deployments** - no git operations without approval
+- **Allows code verification** - time to review and test changes
+- **User control** - you decide when and how git operations happen
+- **Safety first** - protects against unintended repository changes
+- **Professional workflow** - systematic approach to version control
+- **Code quality assurance** - verification before deployment
