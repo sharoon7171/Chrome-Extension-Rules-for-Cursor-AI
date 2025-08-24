@@ -1,8 +1,11 @@
 ---
-description: Core AI behavior optimization rules for prompt analysis, user approval requirements, and task management with clear separation of terminal vs editor usage
+description: Core AI behavior optimization rules for prompt analysis, user approval requirements, and task management with terminal-only operations for all tasks
 globs: ['**/*']
 alwaysApply: true
 ---
+
+# Core AI Behavior and User Approval Rules
+
 
 # Core AI Behavior and User Approval Rules
 
@@ -100,7 +103,7 @@ Please confirm if you want me to proceed with these changes.
 ### MANDATORY Terminal Usage for Scanning and Understanding
 - **ALWAYS use terminal commands FIRST** for scanning and understanding codebase
 - **Terminal commands are for finding what to edit** - NOT for editing code
-- **Use terminal to identify exact locations** for changes before using Cursor AI editor
+- **Use terminal to identify exact locations** for changes
 - **Never assume anything** - always scan through terminal first
 - **Follow terminal-first scanning approach** for all operations
 
@@ -139,32 +142,32 @@ grep -n "import" filename.mjs
 - **Immediate results** - See file structure instantly
 - **Version control friendly** - Easy to track what was scanned
 
-## 7. Cursor AI Editor Usage (CRITICAL - 100% Compliance)
+## 7. Terminal-Only Operations (CRITICAL - 100% Compliance)
 
-### MANDATORY Cursor AI Editor Usage for Code Changes
-- **ALWAYS use Cursor AI editor** for ALL actual code changes
-- **Terminal scanning is ONLY for understanding** - never for editing
-- **Use Cursor AI editor for** adding, editing, deleting, or modifying code
-- **Cursor AI editor is the ONLY way** to make code changes
-- **Terminal commands are FORBIDDEN** for code modifications
+### MANDATORY Terminal-Only Usage for All Operations
+- **ALWAYS use terminal** for ALL operations
+- **Terminal scanning is for understanding AND all operations including editing**
+- **Use terminal for** adding, editing, deleting, or modifying code
+- **Terminal is the ONLY way** to perform all operations
+- **Terminal commands are REQUIRED for ALL operations including code modifications**
 
-### Cursor AI Editor Actions (MANDATORY)
-- **✅ File creation** - Use Cursor AI editor for new files
-- **✅ Code writing** - Use Cursor AI editor for code changes
-- **✅ File modification** - Use Cursor AI editor for edits
-- **✅ Content generation** - Use Cursor AI editor for new content
-- **✅ Code refactoring** - Use Cursor AI editor for restructuring
+### Terminal Actions (MANDATORY)
+- **✅ File creation** - Use terminal for new files
+- **✅ Code writing** - Use terminal for code changes
+- **✅ File modification** - Use terminal for edits
+- **✅ Content generation** - Use terminal for new content
+- **✅ Code refactoring** - Use terminal for restructuring
 
-### Terminal Commands Actions (FORBIDDEN for Code Changes)
-- **❌ File creation** - Never use terminal for creating files with content
-- **❌ Code writing** - Never use terminal for writing code
-- **❌ File modification** - Never use terminal for editing code
-- **❌ Content generation** - Never use terminal for generating content
-- **❌ Code refactoring** - Never use terminal for restructuring code
+### Terminal Commands Actions (ALLOWED for All Operations)
+- **✅ File creation** - Use terminal for creating files with content
+- **✅ Code writing** - Use terminal for writing code
+- **✅ File modification** - Use terminal for editing code
+- **✅ Content generation** - Use terminal for generating content
+- **✅ Code refactoring** - Use terminal for restructuring code
 
-## 8. Workflow: Terminal First, Then Cursor AI Editor
+## 8. Workflow: Terminal-Only Operations
 
-### Step 1: Terminal Scanning (MANDATORY)
+### Step 1: Terminal Scanning and Understanding (MANDATORY)
 ```bash
 # Use terminal to understand the codebase
 wc -l filename.mjs                    # Get line count
@@ -174,11 +177,11 @@ tail -50 filename.mjs                 # Read end
 grep -n "pattern" filename.mjs        # Find specific content
 ```
 
-### Step 2: Cursor AI Editor Changes (MANDATORY)
-- **After terminal scanning**, use Cursor AI editor for all code changes
+### Step 2: Terminal Operations (MANDATORY)
+- **After terminal scanning**, use terminal for all operations
 - **Terminal scanning provides context** for what needs to be changed
-- **Cursor AI editor implements the changes** based on terminal understanding
-- **No code changes through terminal** - only through Cursor AI editor
+- **Terminal implements all changes** based on scanning understanding
+- **All operations through terminal** - no external editors needed
 
 ### Step 3: Verification (MANDATORY)
 - **Use terminal commands** to verify changes were applied correctly
@@ -201,16 +204,16 @@ grep -n "pattern" filename.mjs        # Find specific content
 - **Focus on specific functionality** rather than complete rewrites
 - **Maintain context** across task segments
 
-## 11. 🚨 **NEW CRITICAL RULE: FILE REWRITE PREVENTION (100% COMPLIANCE)**
+## 10. Anti-File Rewrite Prevention (CRITICAL - 100% COMPLIANCE)
 
-### Rule 1: NEVER Rewrite Entire Files
+### Rule 1: NEVER Rewrite Existing Files
 - **EXISTING FILES ARE OFF-LIMITS** for complete rewrites
 - **ONLY modify specific lines** that need changes
 - **PRESERVE ALL existing code** unless explicitly told to remove
-- **USE Cursor AI editor** for targeted modifications
+- **USE terminal** for targeted modifications
 - **SHOW ONLY what needs to change** - never the entire file
 
-### Rule 2: Mandatory Minimal Change Format
+### Rule 2: Mandatory Change Format
 ```
 // ONLY show the specific change needed:
 
@@ -233,38 +236,24 @@ newCode();
 // ... existing code ...
 ```
 
-### Rule 3: File Rewrite Prevention Workflow
-1. **Check if file exists** - if yes, use incremental changes only
-2. **Identify specific lines** that need modification
-3. **Show only changes** - never rewrite entire file
-4. **Preserve context** - show 2-3 lines before and after changes
-5. **Use line numbers** - reference exact locations for changes
+### Rule 3: File Rewrite Prevention
+- **If file exists**: ONLY show changes, never rewrite
+- **If file is new**: Provide minimal boilerplate + specific additions
+- **If file is large**: Break into smaller, focused modifications
+- **If file is complex**: Use incremental approach, one change at a time
 
-### Rule 4: Anti-Rewrite Enforcement
-- **If file > 100 lines**: Use incremental changes only
-- **If file > 500 lines**: Break into multiple small changes
-- **If file > 1000 lines**: Use Cursor AI editor with incremental changes only
-- **Maximum change scope**: 50 lines per change
-- **Multiple changes**: Break into separate operations
+### Rule 4: Token Efficiency Enforcement
+- **Prevent token overflow** by showing minimal changes
+- **Avoid network timeouts** from unnecessary code generation
+- **Focus on specific functionality** rather than complete rewrites
+- **Maintain context** across task segments
 
-### Rule 5: File Rewrite Violation Penalties
-- **File Rewrite Violation**: If Cursor AI rewrites entire files
-  - **Penalty**: Must immediately stop and use incremental changes
-  - **Verification**: Must prove only specific lines were changed
-  - **Documentation**: Must document the violation and correction
-
-### Rule 6: Change Size Violation Penalties
-- **Large Change Violation**: If Cursor AI makes changes > 50 lines
-  - **Penalty**: Must break into smaller, focused changes
-  - **Verification**: Must prove changes are under 50 lines each
-  - **Documentation**: Must document the violation and correction
-
-## 12. Rule Violation Penalties (NEW - ENFORCEMENT)
+## 11. Rule Violation Penalties (ENFORCEMENT)
 
 ### Penalties for Not Following Rules
 - **Terminal Command Violation**: If Cursor AI uses terminal for code changes
-  - **Penalty**: Must immediately switch to Cursor AI editor
-  - **Verification**: Must prove Cursor AI editor was used for changes
+  - **Penalty**: Must immediately switch to terminal
+  - **Verification**: Must prove terminal was used for changes
   - **Documentation**: Must document the violation
 
 - **User Approval Violation**: If Cursor AI acts without user approval
@@ -279,11 +268,7 @@ newCode();
 
 ## Conclusion
 
-These core behavior and user approval rules ensure that Cursor AI always acts with proper user approval, uses terminal commands for scanning and understanding, and uses Cursor AI editor for all code changes. The clear separation prevents confusion and ensures proper workflow.
+These core behavior and user approval rules ensure that Cursor AI always acts with proper user approval, uses terminal commands for all operations including scanning, understanding, and code changes. The clear separation prevents confusion and ensures proper workflow.
 
-**Remember: Terminal for scanning, Cursor AI editor for code changes, user approval always required!**
+**Remember: Terminal for everything, user approval always required!**
 
-
-These core behavior and user approval rules ensure that Cursor AI always acts with proper user approval, uses terminal commands for scanning and understanding, and uses Cursor AI editor for all code changes. The clear separation prevents confusion and ensures proper workflow.
-
-**Remember: Terminal for scanning, Cursor AI editor for code changes, user approval always required!**

@@ -6,6 +6,9 @@ alwaysApply: true
 
 # Essential Rules Enforcement (CRITICAL - DO NOT REMOVE)
 
+
+# Essential Rules Enforcement (CRITICAL - DO NOT REMOVE)
+
 ## Core Principle
 - **Cursor AI agent MUST NOT start or function without ALL required rules**
 - **ALL rules are MANDATORY and cannot be bypassed**
@@ -17,7 +20,7 @@ alwaysApply: true
 ### MANDATORY Rule Files (All Must Be Present)
 1. **00-essential-rules-enforcement.mdc** - This file (CRITICAL)
 2. **01-core-behavior-and-approval.mdc** - Core AI behavior and user approval
-3. **02-code-generation-and-structure.mdc** - Development rules and project structure
+3. **02-code-generation-and-structure.mdc** - Development rules and .mjs module support
 4. **03-verification-and-analysis.mdc** - Quality assurance and verification
 5. **04-chrome-extension-compliance.mdc** - Chrome extension specific requirements
 6. **05-git-operations.mdc** - Version control and repository management
@@ -187,7 +190,7 @@ find . -name "*.mdc" -exec echo "Rule applies to: {}" \;
 5. **07-anti-file-rewrite-enforcement.mdc** - Anti-file rewrite enforcement (NEW)
 
 **IMPORTANT RULES (Must be followed 95% of the time):**
-6. **02-code-generation-and-structure.mdc** - Project structure compliance
+6. **02-code-generation-and-structure.mdc** - .mjs module compliance
 7. **05-git-operations.mdc** - Git operations approval
 8. **06-responsive-design-compliance.mdc** - Responsive design requirements
 
@@ -229,7 +232,7 @@ done
 - [ ] No rule bypassing detected
 - [ ] User approval is always requested
 - [ ] Terminal verification is always used
-- [ ] Project structure is always followed
+- [ ] .mjs module usage is always followed
 - [ ] Chrome extension compliance is maintained
 - [ ] Responsive design requirements are met
 - [ ] Anti-file rewrite rules are enforced
@@ -249,3 +252,54 @@ This essential rules enforcement file ensures that Cursor AI cannot operate with
 - **Rules active**: ✅ 8/8
 
 **Status: ALL RULES VERIFIED - CURSOR AI CAN START**
+
+## 🚨 **CRITICAL RULE: TERMINAL-ONLY OPERATIONS (100% COMPLIANCE)**
+
+### Core Principle
+- **ALWAYS use terminal for ALL operations** - no exceptions
+- **NEVER use external editors** for code changes
+- **Terminal is the ONLY tool** for all tasks
+- **Complete file reading mandatory** before any operations
+- **Verify everything through terminal** commands
+
+### Rule 1: Terminal-Only Enforcement (CRITICAL)
+- **NO CURSOR EDITOR USAGE** under any circumstances
+- **NO AI CODE GENERATION** without terminal execution
+- **ALL CODE CHANGES** must go through terminal commands
+- **ALL FILE OPERATIONS** must use terminal commands
+- **Terminal scanning mandatory** before any operations
+
+### Rule 2: Strict Penalty System for Editor Usage
+- **FIRST VIOLATION**: Warning + immediate switch to terminal
+- **SECOND VIOLATION**: 24-hour suspension from all operations
+- **THIRD VIOLATION**: Complete task restart with user supervision
+- **FOURTH VIOLATION**: User must manually approve all future operations
+
+### Rule 3: Terminal Command Requirements
+- **File creation**: Use `cat > filename` or `echo "content" > filename`
+- **File editing**: Use `sed` commands for line modifications
+- **File reading**: Use `cat`, `head`, `tail`, `sed` for scanning
+- **File deletion**: Use `rm` commands
+- **Directory operations**: Use `mkdir`, `rmdir`, `ls` commands
+
+### Rule 4: Violation Detection and Response
+```bash
+# If Cursor AI uses editor instead of terminal:
+echo "🚨 CURSOR EDITOR VIOLATION DETECTED"
+echo "Penalty: Immediate operation suspension"
+echo "Required: Switch to terminal commands only"
+echo "Violation Level: [1-4]"
+echo "Action Required: [Warning/Suspension/Restart/Manual Approval]"
+```
+
+### Rule 5: Emergency Enforcement
+```bash
+# Emergency enforcement commands
+echo "🚨 ENFORCING TERMINAL-ONLY OPERATIONS"
+echo "Cursor AI must use terminal for ALL operations"
+echo "No exceptions allowed"
+echo "Penalties enforced immediately"
+```
+
+
+9. **08-project-structure-standards.mdc** - Project structure and organization standards

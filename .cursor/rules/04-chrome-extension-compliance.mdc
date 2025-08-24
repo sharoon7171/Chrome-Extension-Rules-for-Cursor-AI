@@ -126,7 +126,7 @@ alwaysApply: true
 - **Avoid mentioning README files** unless relevant
 - **Keep responses concise** and to the point
 - **Use appropriate file patterns** for rule application
-- **Maintain clean project structure**
+- **Maintain clean code organization**
 
 ### When to Apply
 - Only create README.md when user specifically asks

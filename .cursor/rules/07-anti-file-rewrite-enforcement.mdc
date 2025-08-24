@@ -19,7 +19,7 @@ alwaysApply: true
 - **EXISTING FILES CANNOT BE REWRITTEN** under any circumstances
 - **ONLY modify specific lines** that need changes
 - **PRESERVE ALL existing code** unless explicitly told to remove
-- **USE Cursor AI editor** for targeted modifications
+- **USE terminal** for targeted modifications
 - **SHOW ONLY what needs to change** - never the entire file
 
 ### Rule 2: Mandatory Change Format
@@ -268,7 +268,7 @@ echo "Violation: Missing markers - add proper documentation"
 ### If File Rewrite is Detected
 1. **STOP immediately** - don't continue with rewrite
 2. **Switch to incremental changes** - show only what needs to change
-3. **Use Cursor AI editor** - target specific lines only
+3. **Use terminal** - target specific lines only
 4. **Preserve existing code** - don't remove working functionality
 5. **Document the violation** - record what went wrong
 6. **Apply penalties** - follow violation correction procedures

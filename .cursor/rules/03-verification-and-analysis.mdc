@@ -13,7 +13,156 @@ alwaysApply: true
 - **Maintain code quality** through systematic verification processes
 - **ALWAYS require user approval** before making any changes or implementations
 
-## 1. Comprehensive Verification Requirements (CRITICAL - 100% Compliance)
+## 1. 🚨 **NEW CRITICAL RULE: MANDATORY COMPLETE FILE READING (100% COMPLIANCE)**
+
+### Core Principle
+- **ALWAYS read complete files** - no matter how large they are
+- **NEVER skip any lines** - read every single line of code
+- **Use terminal commands** to read files completely
+- **Divide large files into segments** but read ALL segments
+- **Verify total line count** before and after reading
+
+### Rule 1: Complete File Reading Requirements
+- **Get total line count first** using `wc -l filename`
+- **Read entire file** using `cat filename` for smaller files
+- **Divide large files** into 100-200 line segments using `sed`
+- **Read each segment completely** before moving to next
+- **Verify no lines were missed** by counting total lines read
+- **Use line numbers** to track reading progress
+
+### Rule 2: Terminal Commands for Complete Reading
+
+### Rule 2.1: 🚨 **MAXIMUM SCANNING DEPTH GUIDELINES (MANDATORY)**
+
+### Core Principle
+- **Optimize scanning depth** for maximum code readability and comprehension
+- **Balance segment size** with terminal performance and Cursor AI processing capability
+- **Ensure complete coverage** while maintaining optimal scanning speed
+- **Adapt segment size** based on code complexity and file structure
+
+### Rule 2.1.1: Optimized Segment Sizes for Maximum Scanning
+- **Files ≤ 1000 lines**: Read entire file with `cat filename` (optimal for complete understanding)
+- **Files 1001-3000 lines**: Divide into **150-line segments** (optimal balance of speed and comprehension)
+- **Files 3001-8000 lines**: Divide into **200-line segments** (maintains context while improving speed)
+- **Files 8001-20000 lines**: Divide into **300-line segments** (efficient processing for large files)
+- **Files 20001-50000 lines**: Divide into **400-line segments** (maximum efficiency for very large files)
+- **Files > 50000 lines**: Divide into **500-line segments** (terminal-optimized for massive files)
+- **Maximum segment size**: 500 lines (terminal performance limit)
+- **Minimum segment size**: 150 lines (minimum for context preservation)
+
+### Rule 2.1.2: Advanced Scanning Optimization
+- **Use `wc -l` first**: Always get exact line count before planning segments
+- **Analyze file structure**: Use `head -20` and `tail -20` to understand file organization
+- **Identify code patterns**: Use `grep -n "function|class|import"` to map structure
+- **Optimize segment boundaries**: Align segments with logical code blocks when possible
+- **Monitor terminal performance**: If segments are too large, reduce size dynamically
+
+### Rule 2.1.3: Terminal Performance Optimization
+- **Memory management**: Use `sed` with line ranges to avoid loading entire file into memory
+- **Processing speed**: Balance segment size with terminal command execution time
+- **Context preservation**: Ensure segments overlap slightly (5-10 lines) for continuity
+- **Progress tracking**: Use `echo` commands to show scanning progress
+- **Files ≤ 500 lines**: Read entire file with `cat filename`
+- **Files 501-1000 lines**: Divide into 200-line segments
+- **Files 1001-2000 lines**: Divide into 250-line segments
+- **Files 2001-5000 lines**: Divide into 300-line segments
+- **Files 5001-10000 lines**: Divide into 400-line segments
+- **Files > 10000 lines**: Divide into 500-line segments
+- **Maximum segment size**: 500 lines (for readability)
+- **Minimum segment size**: 100 lines (for efficiency)
+
+### Rule 2.2: 🚨 **MAXIMUM SCANNING DEPTH EXAMPLES**
+
+### Example 1: Optimized 3000-line file (150-line segments)
+```bash
+# Get exact line count and analyze structure
+wc -l large-file.mjs                    # Output: 3000 large-file.mjs
+head -20 large-file.mjs                 # Analyze file structure
+
+# Divide into 150-line segments for maximum comprehension
+sed -n '1,150p' large-file.mjs      # Segment 1: Lines 1-150
+sed -n '151,300p' large-file.mjs     # Segment 2: Lines 151-300
+sed -n '301,450p' large-file.mjs     # Segment 3: Lines 301-450
+sed -n '451,600p' large-file.mjs     # Segment 4: Lines 451-600
+# ... continue with 150-line segments
+sed -n '2851,3000p' large-file.mjs  # Segment 20: Lines 2851-3000
+
+# Total: 20 segments of 150 lines each (optimal for Cursor AI)
+```
+
+### Example 2: Large 15000-line file (300-line segments)
+```bash
+# Get line count and structure analysis
+wc -l massive-file.mjs                  # Output: 15000 massive-file.mjs
+
+# Divide into 300-line segments for efficient processing
+sed -n '1,300p' massive-file.mjs     # Segment 1: Lines 1-300
+sed -n '301,600p' massive-file.mjs    # Segment 2: Lines 301-600
+sed -n '601,900p' massive-file.mjs    # Segment 3: Lines 601-900
+# ... continue with 300-line segments
+sed -n '14701,15000p' massive-file.mjs # Segment 50: Lines 14701-15000
+
+# Total: 50 segments of 300 lines each (terminal-optimized)
+```
+
+### Example 3: Massive 100000-line file (500-line segments)
+```bash
+# Get line count for massive file
+wc -l huge-file.mjs                     # Output: 100000 huge-file.mjs
+
+# Divide into 500-line segments (terminal performance limit)
+sed -n '1,500p' huge-file.mjs        # Segment 1: Lines 1-500
+sed -n '501,1000p' huge-file.mjs      # Segment 2: Lines 501-1000
+sed -n '1001,1500p' huge-file.mjs     # Segment 3: Lines 1001-1500
+# ... continue with 500-line segments
+sed -n '99501,100000p' huge-file.mjs  # Segment 200: Lines 99501-100000
+
+# Total: 200 segments of 500 lines each (maximum terminal efficiency)
+```
+```bash
+# Example: 1500-line file
+wc -l large-file.mjs                    # Get total: 1500
+sed -n '1,200p' large-file.mjs      # Read lines 1-200
+sed -n '201,400p' large-file.mjs    # Read lines 201-400
+sed -n '401,600p' large-file.mjs    # Read lines 401-600
+sed -n '601,800p' large-file.mjs    # Read lines 601-800
+sed -n '801,1000p' large-file.mjs   # Read lines 801-1000
+sed -n '1001,1200p' large-file.mjs  # Read lines 1001-1200
+sed -n '1201,1400p' large-file.mjs  # Read lines 1201-1400
+sed -n '1401,1500p' large-file.mjs  # Read lines 1401-1500
+```
+
+### Rule 2.3: 🚨 **MAXIMUM SCANNING DEPTH VERIFICATION**
+- **Count total segments**: Calculate how many segments needed
+- **Verify no gaps**: Ensure consecutive line ranges
+- **Check completion**: Verify all lines are covered
+- **Document progress**: Track which segments have been read
+```bash
+# Get file size and line count
+wc -l filename.mjs
+ls -lh filename.mjs
+
+# Read entire file (use for smaller files)
+cat filename.mjs
+cat -n filename.mjs
+
+# Read large files in segments
+sed -n '1,200p' filename.mjs
+sed -n '201,400p' filename.mjs
+sed -n '401,600p' filename.mjs
+
+# Find specific content
+grep -n "pattern" filename.mjs
+grep -n -A 5 -B 5 "pattern" filename.mjs
+```
+
+### Rule 3: File Reading Violation Penalties
+- **Incomplete Reading Violation**: If Cursor AI doesn't read complete files
+  - **Penalty**: Must immediately read entire file using terminal commands
+  - **Verification**: Must prove complete file reading
+  - **Documentation**: Must document the violation
+
+## 2. Comprehensive Verification Requirements (CRITICAL - 100% Compliance)
 
 ## 🚨 **NEW CRITICAL RULE: MANDATORY FILE SCANNING BEFORE ANY OPERATIONS (100% COMPLIANCE)**
 
@@ -110,14 +259,14 @@ grep -n "pattern" filename.mjs        # Find specific content
 #### Large Codebase Navigation
 - **Use systematic approach** to navigate large projects
 - **Read files in logical order** based on dependencies
-- **Maintain overview** of the entire project structure
+- **Maintain overview** of the entire codebase
 - **Don't get lost** in complex file hierarchies
 - **Track progress** through the codebase systematically
 
 ### Prevention of Skipping
 
 #### Common Skipping Scenarios to Avoid
-- **Large functions** - read every line, don't skip to the end
+- **Divide files into specific segment sizes** based on file size for manageable reading
 - **Error handling** - understand all error cases and edge cases
 - **Configuration sections** - these often contain critical information
 - **Import/export statements** - understand all dependencies
@@ -455,7 +604,7 @@ echo "✅ Complete file reading: $(grep -c "complete.*file.*reading" task_execut
 
 # Step 3: Verify Code Generation Rules
 echo "🎯 VERIFYING CODE GENERATION RULES..."
-echo "✅ Project structure: $(grep -c "project.*structure" task_execution.log 2>/dev/null || echo "0")"
+echo "✅ .mjs module usage: $(grep -c "mjs.*module" task_execution.log 2>/dev/null || echo "0")"
 echo "✅ No duplication: $(grep -c "no.*duplication" task_execution.log 2>/dev/null || echo "0")"
 echo "✅ File extensions: $(grep -c "correct.*file.*extensions" task_execution.log 2>/dev/null || echo "0")"
 
@@ -611,3 +760,11 @@ These verification and analysis rules ensure that Cursor AI never skips code ana
 
 **Remember: Complete file reading mandatory, verification always required, context never lost!**
 
+
+## 🚨 **MAXIMUM SCANNING DEPTH ADVANCED TECHNIQUES**
+
+### Advanced Scanning Techniques for Maximum Depth
+- **Structure Analysis Before Scanning**: Use `head -50` and `tail -50` to understand file organization
+- **Code Pattern Mapping**: Use `grep -n "function\|class\|import"` to identify code structure
+- **Progress Tracking**: Use `echo` commands to show scanning progress for large files
+- **Cursor AI Optimization**: 150-300 line segments provide optimal context for AI comprehension
