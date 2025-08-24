@@ -1,5 +1,5 @@
 ---
-description: Chrome extension compliance rules to ensure codebase follows latest August 2025 Chrome Web Store policies
+description: Chrome extension compliance rules to ensure codebase follows latest August 2025 Chrome Web Store policies with proper file handling
 globs: ['**/*']
 alwaysApply: true
 ---
@@ -13,9 +13,9 @@ alwaysApply: true
 - **Stay updated** with Chrome Web Store policy changes and requirements
 - **Support .mjs modules** for modern ES6+ module syntax compliance
 
-## Latest Chrome Web Store Policies (August 2025)
+## 1. Latest Chrome Web Store Policies (August 2025)
 
-### 1. Code Readability Requirements
+### Code Readability Requirements
 - **NO code obfuscation** - all code must be easily readable and understandable
 - **External resources must be readable** - third-party code must be transparent
 - **Minification is permitted** under specific conditions only
@@ -23,7 +23,7 @@ alwaysApply: true
 - **Document all external dependencies** and their purposes
 - **Support .mjs file extensions** for explicit ES module identification
 
-### 2. Manifest V3 Compliance (MANDATORY)
+### Manifest V3 Compliance (MANDATORY)
 - **Use Manifest V3 exclusively** - Manifest V2 is deprecated
 - **NO remote code execution** - all code must be bundled with extension
 - **Service Workers only** - background scripts must use service workers
@@ -31,7 +31,7 @@ alwaysApply: true
 - **Limited host permissions** - request only necessary permissions
 - **ES6+ module support** - use .mjs files for modern module syntax
 
-### 3. Module System Requirements (NEW - August 2025)
+### Module System Requirements (NEW - August 2025)
 - **Support .mjs file extensions** for ES6+ modules
 - **Use type="module" in HTML** for script tags with .mjs files
 - **Proper MIME type configuration** - serve .mjs files as text/javascript
@@ -39,16 +39,16 @@ alwaysApply: true
 - **Bundle optimization** - consider bundling for performance while maintaining readability
 - **Module compatibility** - ensure all modules work in Chrome extension environment
 
-### 4. .mjs File Usage Rules (CRITICAL - Prevent Mistakes)
+## 2. ⚠️ CRITICAL .mjs File Usage Rules (Chrome Extensions)
 
-#### ✅ ALLOWED .mjs Files
+### ✅ ALLOWED .mjs Files in Chrome Extensions
 - **Background service workers** - when manifest.json specifies `"type": "module"`
 - **Popup/options page scripts** - when HTML uses `type="module"`
 - **Utility modules** - shared functionality between scripts
 - **Type definition files** - when using TypeScript with .mjs
 - **Any JavaScript file with import/export statements**
 
-#### ❌ NOT ALLOWED .mjs Files
+### ❌ NOT ALLOWED .mjs Files in Chrome Extensions
 - **Content scripts** - Chrome does NOT support ES modules in content scripts
 - **HTML files** - must use .html extension
 - **CSS files** - must use .css extension
@@ -59,7 +59,7 @@ alwaysApply: true
 - **Build tool configs** - webpack.config.js, babel.config.js, etc.
 - **Any non-JavaScript files** - .mjs is ONLY for ES6+ modules
 
-#### File Extension Guidelines
+### File Extension Guidelines
 ```
 ✅ CORRECT:
 - background.mjs          # Background service worker with ES6+ modules
@@ -76,7 +76,7 @@ alwaysApply: true
 - manifest.json.mjs       # Extension manifest must be .json
 ```
 
-#### Chrome Extension File Requirements
+### Chrome Extension File Requirements
 - **manifest.json** - MUST be .json, never .mjs
 - **background scripts** - CAN be .mjs ONLY if manifest specifies `"type": "module"`
 - **content scripts** - CANNOT be .mjs (Chrome limitation)
@@ -86,7 +86,7 @@ alwaysApply: true
 - **options scripts** - CAN be .mjs if HTML uses `type="module"`
 - **service workers** - CAN be .mjs if manifest specifies `"type": "module"`
 
-### 5. API Usage Requirements
+## 3. API Usage Requirements
 - **Use Chrome APIs as intended** - follow official API documentation
 - **NO API bypassing** - don't use methods that circumvent existing APIs
 - **Proper permission declarations** - request only required permissions
@@ -94,21 +94,47 @@ alwaysApply: true
 - **Follow Chrome extension best practices** for all API implementations
 - **ES6+ module API usage** - ensure Chrome APIs work with .mjs modules
 
-### 6. Affiliate Programs and Monetization
+## 4. Affiliate Programs and Monetization
 - **Transparent affiliate activities** - clearly disclose all affiliate links
 - **Direct user benefits required** - provide discounts, cashback, or value
 - **Clear disclosure** - inform users about affiliate relationships
 - **NO deceptive practices** - be honest about monetization methods
 - **User-focused benefits** - ensure affiliate programs benefit users directly
 
-### 7. Privacy and Data Protection
+## 5. Privacy and Data Protection
 - **Minimal data collection** - collect only necessary user data
 - **Clear privacy policy** - document all data collection and usage
 - **User consent required** - get explicit permission for data collection
 - **Secure data handling** - implement proper security measures
 - **Data retention limits** - don't store data longer than necessary
 
-## Compliance Verification Process
+## 6. File Handling Rules (NEW - CONSOLIDATED)
+
+### README.md Files
+- **Do NOT create or read README.md files** unless explicitly instructed
+- **Do NOT suggest creating README files** without user request
+- **Do NOT reference README.md** in responses unless specifically asked
+
+### Why These Rules Exist
+- Prevents unnecessary token usage
+- Avoids creating files the user doesn't need
+- Keeps responses focused and efficient
+- Reduces network error risks from long responses
+
+### File Operation Guidelines
+- **Focus on actual requested tasks**
+- **Avoid mentioning README files** unless relevant
+- **Keep responses concise** and to the point
+- **Use appropriate file patterns** for rule application
+- **Maintain clean project structure**
+
+### When to Apply
+- Only create README.md when user specifically asks
+- Only read existing README.md when user requests it
+- Only suggest README.md creation when user asks for documentation help
+- Apply to all file operations and chat interactions
+
+## 7. Compliance Verification Process
 
 ### Before Any Code Changes
 1. **Review current Chrome Web Store policies** - check for recent updates
@@ -137,7 +163,7 @@ alwaysApply: true
 6. **Prepare for review** - ready extension for Chrome Web Store submission
 7. **Monitor for policy updates** - stay alert for future changes
 
-## Key Compliance Areas to Monitor
+## 8. Key Compliance Areas to Monitor
 
 ### Code Structure Requirements
 - **Clear, readable code** without obfuscation
@@ -180,63 +206,18 @@ alwaysApply: true
 - **Accessibility compliance** - support users with disabilities
 - **Module loading performance** - optimize .mjs module loading
 
-## Compliance Verification Commands
+## 9. Compliance Verification Commands
 
 ### Policy Review Commands
 ```bash
 # Check extension manifest
 cat manifest.json | jq '.'
 
-# Verify file structure including .mjs files
-find . -name "*.js" -o -name "*.mjs" -o -name "*.html" -o -name "*.css" | head -20
-
-# Check for remote code execution
-grep -r "eval\|Function\|setTimeout.*string" --include="*.js" --include="*.mjs" .
-
 # Verify service worker implementation
 ls -la background.js service-worker.js 2>/dev/null || echo "Service worker files not found"
 
-# Check for .mjs module usage
-find . -name "*.mjs" -exec echo "Found .mjs file: {}" \;
-
-# Verify .mjs files are actually JavaScript modules
-find . -name "*.mjs" -exec grep -l "import\|export" {} \;
-```
-
-### File Extension Validation Commands
-```bash
-# Check for incorrect .mjs file usage
-find . -name "*.mjs" -exec file {} \; | grep -v "JavaScript"
-
-# Verify HTML files don't have .mjs extension
-find . -name "*.mjs" -exec grep -l "<!DOCTYPE\|<html\|<head\|<body" {} \;
-
-# Verify CSS files don't have .mjs extension
-find . -name "*.mjs" -exec grep -l "color\|background\|margin\|padding" {} \;
-
-# Verify JSON files don't have .mjs extension
-find . -name "*.mjs" -exec grep -l "^\s*[{\[]" {} \;
-
-# Check for proper file extensions
-ls -la *.html *.css *.json *.mjs 2>/dev/null || echo "No files found"
-```
-
-### Module System Verification Commands
-```bash
-# Verify .mjs file syntax
-find . -name "*.mjs" -exec node --check {} \;
-
-# Check import/export syntax in .mjs files
-grep -r "import\|export" --include="*.mjs" .
-
-# Verify module compatibility
-node -e "import('./path/to/module.mjs').catch(console.error)"
-
-# Check for proper MIME type configuration
-grep -r "type=\"module\"" --include="*.html" .
-
-# Verify no CommonJS syntax in .mjs files
-grep -r "require\|module.exports" --include="*.mjs" .
+# Check for remote code execution
+grep -r "eval\|Function\|setTimeout.*string" --include="*.js" --include="*.mjs" .
 ```
 
 ### Security Verification Commands
@@ -255,12 +236,21 @@ grep -r "<script.*src.*http" --include="*.html" .
 
 # Check for secure module imports
 grep -r "import.*http" --include="*.mjs" .
-
-# Verify file extension security
-find . -name "*.mjs" -exec sh -c 'if ! grep -q "import\|export" "$1"; then echo "WARNING: $1 may not be a valid JavaScript module"; fi' _ {} \;
 ```
 
-## Regular Compliance Schedule
+### File Extension Verification Commands
+```bash
+# Check for correct .mjs usage
+find . -name "*.mjs" -exec file {} \;
+
+# Verify no .mjs files in wrong locations
+find . -name "*.mjs" -not -path "./src/coding/javascript/*" -not -path "./src/types/*" -not -path "./src/constants/*"
+
+# Check for wrong file extensions
+find . -name "*.html.mjs" -o -name "*.css.mjs" -o -name "*.json.mjs"
+```
+
+## 10. Regular Compliance Schedule
 
 ### Monthly Tasks
 - **Review Chrome Web Store policy updates** - check for new requirements
@@ -286,6 +276,42 @@ find . -name "*.mjs" -exec sh -c 'if ! grep -q "import\|export" "$1"; then echo 
 - **Module compatibility test** - verify .mjs modules work in extension context
 - **File extension validation** - confirm .mjs is only used for JavaScript modules
 
+## 11. Rule Violation Penalties (NEW - ENFORCEMENT)
+
+### Penalties for Not Following Rules
+- **File Extension Violation**: If Cursor AI uses wrong file extensions
+  - **Penalty**: Must immediately correct file extensions
+  - **Verification**: Must prove correct file types
+  - **Documentation**: Must document the violation
+
+- **Compliance Violation**: If Cursor AI creates non-compliant code
+  - **Penalty**: Must immediately fix compliance issues
+  - **Verification**: Must prove compliance
+  - **Documentation**: Must document the violation
+
+- **Module Violation**: If Cursor AI misuses .mjs files
+  - **Penalty**: Must immediately correct module usage
+  - **Verification**: Must prove proper module implementation
+  - **Documentation**: Must document the violation
+
+### Rule Testing Mechanism
+```bash
+# Test rule compliance
+echo "🎯 TESTING CHROME EXTENSION COMPLIANCE RULES..."
+
+# Test 1: File Extensions
+echo "Test 1: Correct File Extensions Required"
+echo "If Cursor AI uses wrong extensions, rule violation detected"
+
+# Test 2: Compliance
+echo "Test 2: Chrome Extension Compliance Required"
+echo "If Cursor AI creates non-compliant code, rule violation detected"
+
+# Test 3: Module Usage
+echo "Test 3: Proper Module Usage Required"
+echo "If Cursor AI misuses .mjs files, rule violation detected"
+```
+
 ## Benefits
 - **Avoid Chrome Web Store removal** - maintain compliance with policies
 - **Future-proof extension** - stay ahead of policy changes
@@ -297,8 +323,9 @@ find . -name "*.mjs" -exec sh -c 'if ! grep -q "import\|export" "$1"; then echo 
 - **Performance benefits** - leverage modern JavaScript module system
 - **Prevent file extension mistakes** - avoid .mjs misuse
 - **Clear development guidelines** - know exactly when to use .mjs
-- **Future-proof extension** - stay ahead of policy changes
-- **User trust** - maintain transparent, secure extension
-- **Professional standards** - follow industry best practices
-- **Reduced review time** - faster Chrome Web Store approval process
-- **Legal protection** - comply with privacy and data protection laws
+
+## Conclusion
+
+These Chrome extension compliance rules ensure that all code follows the latest August 2025 Chrome Web Store policies, uses proper file extensions, and maintains security and user privacy standards. Compliance is mandatory for all extension development.
+
+**Remember: Manifest V3 only, proper file extensions, .mjs for modules only, compliance always required!**

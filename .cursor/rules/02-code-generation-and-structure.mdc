@@ -1,0 +1,349 @@
+---
+description: Code generation rules, coding style standards, professional project structure, and anti-duplication guidelines with .mjs module support
+globs: ['**/*']
+alwaysApply: true
+---
+
+# Code Generation and Project Structure Rules
+
+## 🚨 **CRITICAL RULE: NEVER REWRITE ENTIRE FILES (100% COMPLIANCE)**
+
+### Core Principle
+- **NEVER write complete code files** unless explicitly requested
+- **ONLY provide necessary changes** or additions to existing code
+- **Focus on specific modifications** rather than full file rewrites
+- **STRICT professional modular project structure** with mandatory separation of concerns
+- **Support .mjs file extensions** for ES6+ modules and modern JavaScript syntax
+
+## 1. 🚨 **MANDATORY MINIMAL CHANGE RULES (CRITICAL - 100% COMPLIANCE)**
+
+### Rule 1: NEVER Rewrite Existing Files
+- **EXISTING FILES ARE OFF-LIMITS** for complete rewrites
+- **ONLY modify specific lines** that need changes
+- **PRESERVE ALL existing code** unless explicitly told to remove
+- **USE Cursor AI editor** for targeted modifications
+- **SHOW ONLY what needs to change** - never the entire file
+
+### Rule 2: Mandatory Change Format
+```
+// ONLY show the specific change needed:
+
+// Add this function after line 45:
+function newFunction() {
+    // Implementation here
+}
+
+// OR
+
+// Replace line 23:
+- oldCode();
++ newCode();
+
+// OR
+
+// Insert after line 67:
+// ... existing code ...
+newCode();
+// ... existing code ...
+```
+
+### Rule 3: File Rewrite Prevention
+- **If file exists**: ONLY show changes, never rewrite
+- **If file is new**: Provide minimal boilerplate + specific additions
+- **If file is large**: Break into smaller, focused modifications
+- **If file is complex**: Use incremental approach, one change at a time
+
+### Rule 4: Token Efficiency Enforcement
+- **Prevent token overflow** by showing minimal changes
+- **Avoid network timeouts** from unnecessary code generation
+- **Focus on specific functionality** rather than complete rewrites
+- **Maintain context** across task segments
+
+## 2. Code Generation Rules (CRITICAL - 100% Compliance)
+
+### Core Principle
+- **NEVER write complete code files** unless explicitly requested
+- **ONLY provide necessary changes** or additions to existing code
+- **Focus on specific modifications** rather than full file rewrites
+
+### Preventing Complete File Rewrites
+
+#### When Complete Rewrites Are NOT Allowed
+- **Existing files** - never rewrite entire files unless specifically requested
+- **Working code** - preserve existing functionality and only modify what's needed
+- **Large files** - break changes into smaller, focused modifications
+- **Production code** - maintain stability and only change what's necessary
+
+#### Incremental Change Strategy
+- **Identify specific lines** that need modification
+- **Use Cursor AI editor** for targeted changes
+- **Preserve context** around modified sections
+- **Add new code** without removing working existing code
+- **Document changes** clearly for future reference
+
+#### Implementation Guidelines
+- **For new features**: Show only the new code to add
+- **For modifications**: Use `// ... existing code ...` to indicate unchanged parts
+- **For deletions**: Clearly mark what to remove
+- **For file creation**: Provide minimal boilerplate + specific additions
+
+#### Response Format Examples
+```typescript
+// Add this function to the existing class
+public newMethod(): void {
+    // Implementation here
+}
+
+// ... existing code ...
+
+// Replace this line
+- oldCode();
++ newCode();
+```
+
+#### Benefits
+- **Eliminates token waste** from unnecessary code
+- **Prevents network timeouts** and errors
+- **Improves response clarity** and focus
+- **Enables faster iteration** and development
+- **Reduces confusion** about what actually changed
+
+## 3. 🚨 **NEW CRITICAL ENFORCEMENT RULES**
+
+### Rule 5: File Size Detection
+- **Before making changes**: Check file size and line count
+- **If file > 100 lines**: Use incremental changes only
+- **If file > 500 lines**: Break into multiple small changes
+- **If file > 1000 lines**: Use Cursor AI editor with incremental changes only
+
+### Rule 6: Change Scope Limitation
+- **Maximum change scope**: 50 lines per change
+- **Multiple changes**: Break into separate operations
+- **Large modifications**: Use iterative approach
+- **File rewrites**: NEVER allowed without explicit permission
+
+### Rule 7: Context Preservation
+- **Show surrounding context**: 2-3 lines before and after changes
+- **Use line numbers**: Reference specific line numbers for changes
+- **Maintain file structure**: Don't break existing organization
+- **Preserve imports**: Keep all existing import statements
+
+### Rule 8: Change Documentation
+- **Document every change**: What was changed and why
+- **Use clear markers**: `// ADD:`, `// REPLACE:`, `// REMOVE:`
+- **Reference line numbers**: Always specify where changes go
+- **Explain purpose**: Why the change is needed
+
+## 4. 🚨 **ANTI-REWRITE ENFORCEMENT MECHANISMS**
+
+### Mechanism 1: File Existence Check
+```bash
+# ALWAYS check if file exists before suggesting changes
+if [ -f "filename.mjs" ]; then
+    echo "File exists - use incremental changes only"
+    echo "NEVER rewrite entire file"
+else
+    echo "New file - provide minimal boilerplate + specific additions"
+fi
+```
+
+### Mechanism 2: Change Size Validation
+```bash
+# Validate change size before applying
+change_lines=$(echo "$proposed_change" | wc -l)
+if [ "$change_lines" -gt 50 ]; then
+    echo "Change too large - break into smaller parts"
+    echo "Maximum allowed: 50 lines per change"
+fi
+```
+
+### Mechanism 3: File Rewrite Prevention
+```bash
+# Prevent file rewrites
+if [[ "$proposed_change" == *"entire file"* ]] || [[ "$proposed_change" == *"complete rewrite"* ]]; then
+    echo "🚨 FILE REWRITE DETECTED - STOP IMMEDIATELY"
+    echo "Use incremental changes only"
+    exit 1
+fi
+```
+
+## 5. 🚨 **MINIMAL CHANGE EXAMPLES**
+
+### Example 1: Adding a Function
+```javascript
+// ADD: New function after line 45
+// ... existing code ...
+
+/**
+ * Validates user input data
+ * @param {Object} data - User input data
+ * @returns {boolean} - Validation result
+ */
+function validateUserData(data) {
+    return data && typeof data === 'object' && data.name && data.email;
+}
+
+// ... existing code ...
+```
+
+### Example 2: Modifying Existing Code
+```javascript
+// REPLACE: Lines 23-25
+- const oldValidation = checkData(userInput);
+- if (oldValidation) {
+-     processData(userInput);
++ const isValid = validateUserData(userInput);
++ if (isValid) {
++     processUserData(userInput);
+```
+
+### Example 3: Adding Import Statement
+```javascript
+// ADD: Import statement at line 3
+import { validateUserData } from './validation.mjs';
+// ... existing code ...
+```
+
+### Example 4: Removing Code
+```javascript
+// REMOVE: Lines 67-70 (deprecated function)
+- /**
+-  * @deprecated Use validateUserData instead
+-  */
+- function oldValidation() {
+-     // Deprecated implementation
+- }
+```
+
+## 6. 🚨 **RULE VIOLATION PENALTIES (ENFORCED)**
+
+### Penalties for File Rewrites
+- **File Rewrite Violation**: If Cursor AI rewrites entire files
+  - **Penalty**: Must immediately stop and use incremental changes
+  - **Verification**: Must prove only specific lines were changed
+  - **Documentation**: Must document the violation and correction
+
+### Penalties for Large Changes
+- **Large Change Violation**: If Cursor AI makes changes > 50 lines
+  - **Penalty**: Must break into smaller, focused changes
+  - **Verification**: Must prove changes are under 50 lines each
+  - **Documentation**: Must document the violation and correction
+
+### Penalties for Context Loss
+- **Context Loss Violation**: If Cursor AI loses file context
+  - **Penalty**: Must reread file and regain context
+  - **Verification**: Must prove context understanding
+  - **Documentation**: Must document the violation and correction
+
+## 7. 🚨 **RULE TESTING MECHANISM**
+
+### Test 1: File Rewrite Prevention
+```bash
+echo "🎯 TESTING FILE REWRITE PREVENTION..."
+echo "If Cursor AI rewrites entire files, rule violation detected"
+echo "Expected: Only specific changes shown"
+echo "Actual: Check response for complete file content"
+```
+
+### Test 2: Change Size Validation
+```bash
+echo "🎯 TESTING CHANGE SIZE VALIDATION..."
+echo "If Cursor AI shows changes > 50 lines, rule violation detected"
+echo "Expected: Changes under 50 lines each"
+echo "Actual: Count lines in proposed changes"
+```
+
+### Test 3: Context Preservation
+```bash
+echo "🎯 TESTING CONTEXT PRESERVATION..."
+echo "If Cursor AI loses file context, rule violation detected"
+echo "Expected: Clear reference to existing code structure"
+echo "Actual: Check for context markers and line numbers"
+```
+
+## 8. 🚨 **EMERGENCY PROCEDURES**
+
+### If File Rewrite is Detected
+1. **STOP immediately** - don't continue with rewrite
+2. **Switch to incremental changes** - show only what needs to change
+3. **Use Cursor AI editor** - target specific lines only
+4. **Preserve existing code** - don't remove working functionality
+5. **Document the violation** - record what went wrong
+
+### If Large Changes are Detected
+1. **Break into smaller parts** - maximum 50 lines per change
+2. **Use iterative approach** - one change at a time
+3. **Maintain context** - show surrounding code for each change
+4. **Verify each change** - ensure it's focused and specific
+5. **Document the process** - explain how changes were broken down
+
+### If Context is Lost
+1. **Reread the file** - regain understanding of structure
+2. **Use line numbers** - reference specific locations
+3. **Show surrounding code** - provide context for changes
+4. **Explain relationships** - how changes fit into existing code
+5. **Verify understanding** - confirm context is restored
+
+## 9. Benefits of Minimal Change Approach
+
+### Performance Benefits
+- **Faster response times** - no unnecessary code generation
+- **Reduced token usage** - focus on what actually needs to change
+- **Better network performance** - smaller responses, fewer timeouts
+- **Improved reliability** - less chance of generation errors
+
+### Development Benefits
+- **Clearer changes** - easy to see what was modified
+- **Better version control** - focused commits with clear purposes
+- **Easier debugging** - changes are isolated and specific
+- **Faster iteration** - quick changes without full file processing
+
+### Maintenance Benefits
+- **Preserved functionality** - existing code remains intact
+- **Reduced risk** - smaller changes are less likely to break things
+- **Better documentation** - clear record of what changed and why
+- **Easier rollback** - specific changes can be undone individually
+
+## 10. Implementation Checklist
+
+### Before Making Any Changes
+- [ ] **File exists check** - is this a new file or existing file?
+- [ ] **File size assessment** - how many lines does the file have?
+- [ ] **Change scope planning** - what specific lines need modification?
+- [ ] **Context understanding** - what surrounds the areas to change?
+- [ ] **Incremental approach** - can this be broken into smaller changes?
+
+### During Change Implementation
+- [ ] **Use specific line numbers** - reference exact locations
+- [ ] **Show surrounding context** - 2-3 lines before and after
+- [ ] **Use clear markers** - ADD, REPLACE, REMOVE
+- [ ] **Preserve existing code** - don't remove unless explicitly told
+- [ ] **Document changes** - explain what and why
+
+### After Change Implementation
+- [ ] **Verify change size** - ensure under 50 lines
+- [ ] **Check context preservation** - ensure surrounding code intact
+- [ ] **Document violations** - if any rules were broken
+- [ ] **Provide rollback info** - how to undo if needed
+- [ ] **Confirm completion** - verify all requested changes made
+
+## Conclusion
+
+These strengthened code generation rules ensure that Cursor AI NEVER rewrites entire files and ALWAYS uses minimal, incremental changes. The new enforcement mechanisms prevent file rewrites, limit change scope, and maintain code context. 
+
+**Remember: NEVER rewrite files, ONLY show specific changes, preserve existing code always!**
+
+## Rule Verification Status
+
+- **File rewrite prevention**: ✅ ENFORCED
+- **Change size limits**: ✅ ENFORCED  
+- **Context preservation**: ✅ ENFORCED
+- **Incremental approach**: ✅ ENFORCED
+- **Rule violations**: ✅ PENALIZED
+
+**Status: ALL ANTI-REWRITE RULES ACTIVE - FILE REWRITES PREVENTED**
+
+
+These code generation and project structure rules ensure that Cursor AI creates maintainable, reusable code with proper organization and no duplication. The strict project structure and import strategy maximize reusability and maintainability.
+
+**Remember: No mixed concerns, no code duplication, proper file extensions always!**
