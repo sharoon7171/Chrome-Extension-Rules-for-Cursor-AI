@@ -59,470 +59,370 @@ newCode();
 - **Focus on specific functionality** rather than complete rewrites
 - **Maintain context** across task segments
 
-## 2. 🚨 **ULTRA-MEGA-MODULAR PROJECT STRUCTURE ENFORCEMENT (CRITICAL - 100% COMPLIANCE)**
+## 2. 🚨 **PROFESSIONAL COMMON CODE STRUCTURE ENFORCEMENT (CRITICAL - 100% COMPLIANCE)**
 
 ### Core Principle
-- **ULTRA-MEGA-MODULAR project structure** with MAXIMUM separation of concerns
-- **EVERY SINGLE FUNCTION gets its own directory** with multiple files for maximum reusability
-- **EVERY SINGLE STYLE gets its own directory** with multiple files for maximum reusability
-- **EVERY SINGLE COMPONENT gets its own directory** with multiple files for maximum reusability
-- **File type separation** - HTML (.html), CSS (.css), JavaScript (.js/.mjs), Logic (.js/.mjs), Functions (.js/.mjs) in separate directories
-- **Component separation** - Each component maintains its own organization
+- **SIMPLE, PROFESSIONAL project structure** with STRICT common code organization
+- **NO CODE DUPLICATION - EVER!** This is a MANDATORY, NON-NEGOTIABLE RULE
+- **ALL shared code goes in common directory** - utils, components, services, hooks, constants, types, styles
+- **BEFORE adding ANY new code**: Check if it already exists somewhere
+- **If code exists**: Move it to common location and reuse
+- **If code doesn't exist**: Create it in common location for future reuse
 - **Professional Chrome extension structure** - follow Manifest V3 best practices
 - **Vanilla JavaScript approach** - NO frameworks, NO libraries, NO TypeScript
 - **Chrome extension compliance** - Use .js for regular scripts, .mjs for ES6 modules as per Chrome 136+ policies
 - **MAXIMUM REUSABILITY** - Every piece of code can be reused anywhere in the project
 
-### Rule 1: Mandatory File Type Separation
+### Rule 1: Mandatory Common Code Organization
 ```
 src/
-├── coding/                    # MAIN FILE TYPE SEPARATION
-│   ├── html/                 # ALL HTML files from all components (.html)
-│   ├── css/                  # ALL CSS files from all components (.css)
-│   ├── javascript/           # ALL JavaScript files from all components (.js/.mjs)
-│   ├── logic/                # ALL Business logic files from all components (.js/.mjs)
-│   ├── functions/            # ALL Utility functions from all components (.js/.mjs)
-│   ├── common/               # ALL Shared/common files
-│   ├── types/                # ALL Type definitions
-│   └── constants/            # ALL Constants and configuration
+├── common/                    # ALL SHARED CODE GOES HERE (MANDATORY)
+│   ├── utils/                # Utility functions (formatDate, validateEmail, etc.)
+│   ├── components/           # Reusable UI components (Button, Modal, Input, etc.)
+│   ├── hooks/                # Custom hooks (useAuth, useStorage, etc.)
+│   ├── services/             # Business logic services (apiService, storageService, etc.)
+│   ├── constants/            # App constants and configuration
+│   ├── types/                # Type definitions and interfaces
+│   └── styles/               # Common CSS styles and themes
+├── pages/                     # Page-specific code
+│   ├── popup/                # Popup page
+│   ├── options/              # Options page
+│   └── background/           # Background service worker
+├── content/                   # Content scripts
+└── assets/                    # Icons, images, etc.
 ```
 
-### Rule 1.1: ULTRA-MEGA-MODULAR APPROACH (NEW - CRITICAL)
-- **EVERY SINGLE FUNCTION gets its own directory** with multiple files
-- **EVERY SINGLE STYLE gets its own directory** with multiple files
-- **EVERY SINGLE COMPONENT gets its own directory** with multiple files
+### Rule 1.1: STRICT COMMON CODE APPROACH (NEW - CRITICAL)
+- **NO CODE DUPLICATION - EVER!** This is a MANDATORY, NON-NEGOTIABLE RULE
+- **BEFORE adding ANY new code**: Search entire project for similar functionality
+- **If similar code exists**: Move it to common location and reuse
+- **If no similar code**: Create in common location for future reuse
 - **MAXIMUM REUSABILITY** - if you create a button, you can reuse it everywhere
-- **ULTRA-SEPARATION** - even within options page, every option gets its own directory
+- **COMMON CODE FIRST** - always check common before creating new
 
-#### Example: Button Component Ultra-Modular Structure
+#### Example: Button Component Common Structure
 ```
 src/
-├── components/
-│   └── Button/                    # Button component directory
-│       ├── Button.html            # Goes to coding/html/Button/
-│       ├── Button.css             # Goes to coding/css/Button/
-│       ├── Button.mjs             # Goes to coding/javascript/Button/
-│       ├── Button.logic.mjs       # Goes to coding/logic/Button/
-│       ├── Button.functions.mjs   # Goes to coding/functions/Button/
-│       └── index.mjs              # Export file
-├── coding/
-│   ├── html/
-│   │   └── Button/                # Button HTML subdirectory
-│   │       ├── Button.html        # Main button HTML
-│   │       ├── Button.icon.html   # Button icon HTML
-│   │       └── Button.text.html   # Button text HTML
-│   ├── css/
-│   │   └── Button/                # Button CSS subdirectory
-│   │       ├── Button.css         # Main button styles
-│   │       ├── Button.states.css  # Button state styles
-│   │       ├── Button.sizes.css   # Button size variations
-│   │       └── Button.themes.css  # Button theme variations
-│   ├── javascript/
-│   │   └── Button/                # Button JS subdirectory
-│   │       ├── Button.mjs         # Main button functionality
-│   │       ├── Button.events.mjs  # Button event handlers
-│   │       ├── Button.animation.mjs # Button animations
-│   │       └── Button.validation.mjs # Button validation
-│   ├── logic/
-│   │   └── Button/                # Button logic subdirectory
-│   │       ├── Button.logic.mjs   # Main button logic
-│   │       ├── Button.state.mjs   # Button state management
-│   │       └── Button.behavior.mjs # Button behavior logic
-│   └── functions/
-│       └── Button/                # Button functions subdirectory
-│           ├── Button.functions.mjs # Main button functions
-│           ├── Button.helpers.mjs  # Button helper functions
-│           ├── Button.utils.mjs    # Button utility functions
-│           └── Button.constants.mjs # Button constants
-```
-
-#### Example: Options Page Ultra-Mega-Modular Structure (NEW)
-```
-src/
+├── common/
+│   └── components/
+│       └── Button/                # Button component in common
+│           ├── Button.mjs          # Button component logic (ES6 module)
+│           ├── Button.css          # Button styles
+│           └── Button.html         # Button HTML template
 ├── pages/
-│   └── Options/                    # Options page directory
-│       ├── Options.html            # Goes to coding/html/Options/
-│       ├── Options.css             # Goes to coding/css/Options/
-│       ├── Options.mjs             # Goes to coding/javascript/Options/
-│       ├── Options.logic.mjs       # Goes to coding/logic/Options/
-│       ├── Options.functions.mjs   # Goes to coding/functions/Options/
-│       └── index.mjs               # Export file
-├── coding/
-│   ├── html/
-│   │   └── Options/                # Options HTML subdirectory
-│   │       ├── Options.html        # Main options page HTML
-│   │       ├── Options.header.html # Options header HTML
-│   │       ├── Options.sidebar.html # Options sidebar HTML
-│   │       ├── Options.content.html # Options content HTML
-│   │       └── Options.footer.html # Options footer HTML
-│   ├── css/
-│   │   └── Options/                # Options CSS subdirectory
-│   │       ├── Options.css         # Main options styles
-│   │       ├── Options.layout.css  # Options layout styles
-│   │       ├── Options.theme.css   # Options theme styles
-│   │       ├── Options.responsive.css # Options responsive styles
-│   │       └── Options.animations.css # Options animation styles
-│   ├── javascript/
-│   │   └── Options/                # Options JS subdirectory
-│   │       ├── Options.mjs         # Main options functionality
-│   │       ├── Options.navigation.mjs # Options navigation
-│   │       ├── Options.settings.mjs # Options settings management
-│   │       ├── Options.validation.mjs # Options validation
-│   │       └── Options.storage.mjs # Options storage handling
-│   ├── logic/
-│   │   └── Options/                # Options logic subdirectory
-│   │       ├── Options.logic.mjs   # Main options logic
-│   │       ├── Options.state.mjs   # Options state management
-│   │       ├── Options.config.mjs  # Options configuration logic
-│   │       └── Options.permissions.mjs # Options permissions logic
-│   └── functions/
-│       └── Options/                # Options functions subdirectory
-│           ├── Options.functions.mjs # Main options functions
-│           ├── Options.helpers.mjs  # Options helper functions
-│           ├── Options.utils.mjs    # Options utility functions
-│           └── Options.constants.mjs # Options constants
+│   ├── popup/
+│   │   └── popup.mjs              # Import Button from common (ES6 module)
+│   └── options/
+│       └── options.mjs            # Import Button from common (ES6 module)
+└── content/
+    └── content.mjs                # Import Button from common (ES6 module)
 ```
 
-### Rule 1.2: ULTRA-MEGA-MODULAR BENEFITS (NEW - CRITICAL)
-- **MAXIMUM REUSABILITY** - Every piece of code can be reused anywhere
-- **EASY MAINTENANCE** - Each function/style/component is isolated
-- **CLEAR ORGANIZATION** - Everything has its logical place
-- **TEAM COLLABORATION** - Multiple developers can work on different parts
-- **VERSION CONTROL** - Easy to track changes to specific functionality
-- **TESTING** - Each piece can be tested independently
-- **SCALABILITY** - Easy to add new features without affecting existing code
+#### Example: Options Page Common Structure (NEW)
+```
+src/
+├── common/
+│   ├── components/
+│   │   ├── Header/                 # Header component in common
+│   │   ├── Sidebar/                # Sidebar component in common
+│   │   ├── Form/                   # Form components in common
+│   │   └── Button/                 # Button component in common
+│   ├── services/
+│   │   ├── storageService.mjs      # Storage service in common (ES6 module)
+│   │   └── configService.mjs       # Config service in common (ES6 module)
+│   └── utils/
+│       └── validationUtils.mjs     # Validation utils in common (ES6 module)
+├── pages/
+│   └── options/                    # Options page (simple structure)
+│       ├── options.html            # Main options HTML
+│       ├── options.css             # Options-specific styles
+│       └── options.mjs             # Options-specific logic (imports from common, ES6 module)
+```
+
+### Rule 1.2: STRICT COMMON CODE BENEFITS (NEW - CRITICAL)
+- **NO CODE DUPLICATION** - Single source of truth for all functionality
+- **EASY MAINTENANCE** - Fix bugs in one place, affects everywhere
+- **CLEAR ORGANIZATION** - Simple, professional structure
+- **TEAM COLLABORATION** - Clear structure for multiple developers
+- **VERSION CONTROL** - Easy to track changes to common code
+- **TESTING** - Test common code once, works everywhere
+- **SCALABILITY** - Easy to add new features using existing common code
 
 #### Example: Reusing Button Component Everywhere
 ```
 # In Popup page - reuse Button component
-import { Button } from '../../components/Button/index.mjs';
+import { Button } from '../common/components/Button/Button.mjs';
 
 # In Options page - reuse Button component  
-import { Button } from '../../components/Button/index.mjs';
+import { Button } from '../common/components/Button/Button.mjs';
 
 # In Content script - reuse Button component
-import { Button } from '../../components/Button/index.mjs';
+import { Button } from '../common/components/Button/Button.mjs';
 
-# In Background script - reuse Button logic
-import { ButtonLogic } from '../../components/Button/Button.logic.mjs';
+# In Background script - reuse Button component
+import { Button } from '../common/components/Button/Button.mjs';
 ```
 
 #### Example: Reusing Button Styles Everywhere
 ```css
 /* In Popup.css - reuse Button styles */
-@import url('../coding/css/Button/Button.css');
-@import url('../coding/css/Button/Button.states.css');
+@import url('../common/components/Button/Button.css');
 
 /* In Options.css - reuse Button styles */
-@import url('../coding/css/Button/Button.css');
-@import url('../coding/css/Button/Button.themes.css');
+@import url('../common/components/Button/Button.css');
 
 /* In Content.css - reuse Button styles */
-@import url('../coding/css/Button/Button.css');
-@import url('../coding/css/Button/Button.sizes.css');
+@import url('../common/components/Button/Button.css');
 ```
 
-### Rule 1.3: ULTRA-MEGA-MODULAR CREATION WORKFLOW (NEW - CRITICAL)
+### Rule 1.3: STRICT COMMON CODE WORKFLOW (NEW - CRITICAL)
 
-### Rule 1.4: AUTOMATIC ORGANIZATION INTELLIGENCE (NEW - CRITICAL)
-- **Cursor AI MUST automatically detect** what components/elements are needed
-- **NO need for user to specify** individual components like "create button, create checkbox"
-- **Automatically analyze requirements** and create all necessary components
-- **Intelligent component detection** based on functionality description
-- **Automatic dependency creation** for all required UI elements
+#### **🚨 MANDATORY COMMON CODE RULES (NON-NEGOTIABLE)**
 
-#### Automatic Component Detection Examples:
+##### **Rule 1: Code Duplication Prevention (100% COMPLIANCE)**
+- **BEFORE adding ANY new code**: Search entire project for similar functionality
+- **If similar code exists**: Move it to common location and reuse
+- **If no similar code**: Create in common location for future reuse
+- **NEVER create duplicate functionality** - this is a **ZERO TOLERANCE RULE**
+
+##### **Rule 2: Common Code Organization (100% COMPLIANCE)**
+- **ALL shared code** goes in `src/common/` directory
+- **ALL reusable components** go in `src/common/components/`
+- **ALL utility functions** go in `src/common/utils/`
+- **ALL business logic** goes in `src/common/services/`
+- **ALL shared styles** go in `src/common/styles/`
+
+##### **Rule 3: Code Reuse Verification (100% COMPLIANCE)**
+- **Before implementing ANY feature**: Check common code first
+- **Before creating ANY component**: Check if it exists in common
+- **Before writing ANY function**: Check if similar function exists
+- **Always import from common** instead of creating new
+
+### Rule 1.4: AUTOMATIC COMMON CODE INTELLIGENCE (NEW - CRITICAL)
+- **Cursor AI MUST automatically detect** what common code already exists
+- **BEFORE creating ANY new code**: Search entire project for similar functionality
+- **Automatically analyze requirements** and check common code first
+- **Intelligent code reuse detection** based on functionality description
+- **Automatic common code organization** for all shared functionality
+
+#### Automatic Common Code Detection Examples:
 
 **When User Says "Add Some Option":**
-**AUTOMATICALLY DETECT AND CREATE:**
+**AUTOMATICALLY DETECT AND CHECK:**
 
-1. **Form Components (Automatically Created):**
-   - Radio buttons for single selection
-   - Checkboxes for multiple selection
-   - Input fields for text input
-   - Select dropdowns for choices
-   - Tables for data display
-   - Labels for accessibility
+1. **Form Components (Check Common First):**
+   - Search for existing radio buttons, checkboxes, inputs
+   - If found: Import from common and reuse
+   - If not found: Create in common for future reuse
+   - NEVER create duplicate form components
 
-2. **Layout Components (Automatically Created):**
-   - Form containers
-   - Field groups
-   - Spacing elements
-   - Responsive wrappers
+2. **Layout Components (Check Common First):**
+   - Search for existing form containers, field groups
+   - If found: Import from common and reuse
+   - If not found: Create in common for future reuse
+   - NEVER create duplicate layout components
 
-3. **Interactive Components (Automatically Created):**
-   - Buttons for actions
-   - Toggle switches
-   - Sliders for ranges
-   - Color pickers if needed
+3. **Interactive Components (Check Common First):**
+   - Search for existing buttons, toggles, sliders
+   - If found: Import from common and reuse
+   - If not found: Create in common for future reuse
+   - NEVER create duplicate interactive components
 
 **When User Says "Create Settings Page":**
-**AUTOMATICALLY DETECT AND CREATE:**
+**AUTOMATICALLY DETECT AND CHECK:**
 
-1. **All Form Elements:**
-   - Text inputs
-   - Number inputs
-   - Checkboxes
-   - Radio buttons
-   - Select dropdowns
-   - Toggle switches
-   - Sliders
-   - Color pickers
-   - File uploads
+1. **All Form Elements (Check Common First):**
+   - Search for existing text inputs, checkboxes, radio buttons
+   - If found: Import from common and reuse
+   - If not found: Create in common for future reuse
+   - NEVER create duplicate form elements
 
-2. **All Layout Elements:**
-   - Headers
-   - Sidebars
-   - Content areas
-   - Footers
-   - Navigation menus
-   - Breadcrumbs
+2. **All Layout Elements (Check Common First):**
+   - Search for existing headers, sidebars, navigation
+   - If found: Import from common and reuse
+   - If not found: Create in common for future reuse
+   - NEVER create duplicate layout elements
 
-3. **All Interactive Elements:**
-   - Buttons (save, cancel, reset)
-   - Modals for confirmations
-   - Tooltips for help
-   - Progress indicators
+3. **All Interactive Elements (Check Common First):**
+   - Search for existing buttons, modals, tooltips
+   - If found: Import from common and reuse
+   - If not found: Create in common for future reuse
+   - NEVER create duplicate interactive elements
 
 **When User Says "Add Search Functionality":**
-**AUTOMATICALLY DETECT AND CREATE:**
+**AUTOMATICALLY DETECT AND CHECK:**
 
-1. **Search Components:**
-   - Search input field
-   - Search button
-   - Search results container
-   - Search filters
-   - Search suggestions
-   - Search history
+1. **Search Components (Check Common First):**
+   - Search for existing search inputs, buttons, result containers
+   - If found: Import from common and reuse
+   - If not found: Create in common for future reuse
+   - NEVER create duplicate search components
 
-2. **Results Components:**
-   - Result lists
-   - Result cards
-   - Pagination
-   - Sorting controls
-   - Filter controls
+2. **Results Components (Check Common First):**
+   - Search for existing result lists, cards, pagination
+   - If found: Import from common and reuse
+   - If not found: Create in common for future reuse
+   - NEVER create duplicate result components
 
 #### When User Says "Create Button Component"
-**AUTOMATICALLY CREATE:**
+**AUTOMATICALLY CHECK COMMON FIRST:**
 
-1. **Component Directory Structure:**
-   ```
-   src/components/Button/
-   ├── Button.html
-   ├── Button.css
-   ├── Button.mjs
-   ├── Button.logic.mjs
-   ├── Button.functions.mjs
-   └── index.mjs
+1. **Search for Existing Button (MANDATORY):**
+   ```bash
+   # Search entire project for button functionality
+   grep -r "button\|Button" src/
+   ls src/common/components/ | grep -i "button"
    ```
 
-2. **HTML Subdirectory Structure:**
-   ```
-   src/coding/html/Button/
-   ├── Button.html          # Main button HTML
-   ├── Button.icon.html     # Button icon HTML
-   ├── Button.text.html     # Button text HTML
-   └── Button.wrapper.html  # Button wrapper HTML
+2. **If Button Exists in Common:**
+   ```javascript
+   // ✅ REUSE EXISTING - Import from common
+   import { Button } from '../common/components/Button/Button.js';
    ```
 
-3. **CSS Subdirectory Structure:**
-   ```
-   src/coding/css/Button/
-   ├── Button.css           # Main button styles
-   ├── Button.states.css    # Button state styles (hover, active, disabled)
-   ├── Button.sizes.css     # Button size variations (small, medium, large)
-   ├── Button.themes.css    # Button theme variations (primary, secondary, danger)
-   ├── Button.layout.css    # Button layout styles
-   └── Button.animations.css # Button animation styles
+3. **If Button Doesn't Exist:**
+   ```javascript
+   // ✅ CREATE IN COMMON - Simple structure
+   src/common/components/Button/
+   ├── Button.mjs          # Button component logic (ES6 module)
+   ├── Button.css          # Button styles
+   └── Button.html         # Button HTML template
    ```
 
-4. **JavaScript Subdirectory Structure:**
-   ```
-   src/coding/javascript/Button/
-   ├── Button.mjs           # Main button functionality
-   ├── Button.events.mjs    # Button event handlers
-   ├── Button.animation.mjs # Button animations
-   ├── Button.validation.mjs # Button validation
-   └── Button.accessibility.mjs # Button accessibility features
-   ```
-
-5. **Logic Subdirectory Structure:**
-   ```
-   src/coding/logic/Button/
-   ├── Button.logic.mjs     # Main button logic
-   ├── Button.state.mjs     # Button state management
-   ├── Button.behavior.mjs  # Button behavior logic
-   └── Button.config.mjs    # Button configuration logic
-   ```
-
-6. **Functions Subdirectory Structure:**
-   ```
-   src/coding/functions/Button/
-   ├── Button.functions.mjs # Main button functions
-   ├── Button.helpers.mjs   # Button helper functions
-   ├── Button.utils.mjs     # Button utility functions
-   └── Button.constants.mjs # Button constants
-   ```
+4. **NEVER Create Duplicate Button Components**
 
 #### When User Says "Create Options Page"
-**AUTOMATICALLY CREATE:**
+**AUTOMATICALLY CHECK COMMON FIRST:**
 
-1. **Page Directory Structure:**
-   ```
-   src/pages/Options/
-   ├── Options.html
-   ├── Options.css
-   ├── Options.mjs
-   ├── Options.logic.mjs
-   ├── Options.functions.mjs
-   └── index.mjs
+1. **Search for Existing Components (MANDATORY):**
+   ```bash
+   # Search for existing form components, headers, sidebars
+   grep -r "form\|header\|sidebar\|navigation" src/
+   ls src/common/components/ | grep -E "(Form|Header|Sidebar|Navigation)"
    ```
 
-2. **HTML Subdirectory Structure:**
-   ```
-   src/coding/html/Options/
-   ├── Options.html         # Main options page HTML
-   ├── Options.header.html  # Options header HTML
-   ├── Options.sidebar.html # Options sidebar HTML
-   ├── Options.content.html # Options content HTML
-   ├── Options.footer.html  # Options footer HTML
-   └── Options.modal.html   # Options modal HTML
+2. **If Components Exist in Common:**
+   ```javascript
+   // ✅ REUSE EXISTING - Import from common
+   import { Form } from '../common/components/Form/Form.mjs';
+   import { Header } from '../common/components/Header/Header.mjs';
+   import { Sidebar } from '../common/components/Sidebar/Sidebar.mjs';
    ```
 
-3. **CSS Subdirectory Structure:**
-   ```
-   src/coding/css/Options/
-   ├── Options.css          # Main options styles
-   ├── Options.layout.css   # Options layout styles
-   ├── Options.theme.css    # Options theme styles
-   ├── Options.responsive.css # Options responsive styles
-   ├── Options.animations.css # Options animation styles
-   └── Options.print.css    # Options print styles
+3. **If Components Don't Exist:**
+   ```javascript
+   // ✅ CREATE IN COMMON - Simple structure
+   src/common/components/Form/     # Form components
+   src/common/components/Header/   # Header component
+   src/common/components/Sidebar/  # Sidebar component
    ```
 
-4. **JavaScript Subdirectory Structure:**
+4. **Options Page Structure (Simple):**
    ```
-   src/coding/javascript/Options/
-   ├── Options.mjs          # Main options functionality
-   ├── Options.navigation.mjs # Options navigation
-   ├── Options.settings.mjs # Options settings management
-   ├── Options.validation.mjs # Options validation
-   ├── Options.storage.mjs  # Options storage handling
-   └── Options.export.mjs   # Options export functionality
+   src/pages/options/
+   ├── options.html         # Main options HTML
+   ├── options.css          # Options-specific styles
+   └── options.mjs          # Options-specific logic (imports from common, ES6 module)
    ```
 
-5. **Logic Subdirectory Structure:**
-   ```
-   src/coding/logic/Options/
-   ├── Options.logic.mjs    # Main options logic
-   ├── Options.state.mjs    # Options state management
-   ├── Options.config.mjs   # Options configuration logic
-   ├── Options.permissions.mjs # Options permissions logic
-   └── Options.sync.mjs     # Options sync logic
-   ```
+5. **NEVER Create Duplicate Components**
 
-6. **Functions Subdirectory Structure:**
-   ```
-   src/coding/functions/Options/
-   ├── Options.functions.mjs # Main options functions
-   ├── Options.helpers.mjs   # Options helper functions
-   ├── Options.utils.mjs     # Options utility functions
-   ├── Options.constants.mjs # Options constants
-   └── Options.formatters.mjs # Options data formatters
-   ```
+### Rule 1.5: STRICT COMMON CODE WORKFLOW (NEW - CRITICAL)
 
-### Rule 1.5: AUTOMATIC ORGANIZATION WORKFLOW (NEW - CRITICAL)
+#### **🚨 MANDATORY IMPLEMENTATION WORKFLOW (NON-NEGOTIABLE)**
 
-#### Step 1: Requirement Analysis
+##### **Step 1: Code Search (ALWAYS REQUIRED)**
 **When User Says ANYTHING, Cursor AI MUST:**
 
-1. **Analyze the requirement** - understand what functionality is needed
-2. **Identify all components** - automatically detect what UI elements are required
-3. **Determine dependencies** - figure out what other components are needed
-4. **Plan the structure** - organize everything in ultra-modular fashion
-5. **Create everything automatically** - no need for user to specify individual components
+1. **Search entire project** - look for similar functionality
+2. **Check common code** - see what already exists
+3. **Identify duplicates** - find any code that could be reused
+4. **Plan reuse strategy** - determine how to use existing code
+5. **NEVER create duplicate functionality** - this is a ZERO TOLERANCE RULE
 
 #### Step 1.1: Cursor AI Thinking Process (NEW - CRITICAL)
 **Cursor AI MUST Think Like This:**
 
 **User Input:** "Add some option"
 **Cursor AI Analysis:**
-- "Options need form elements"
-- "Forms need input fields, checkboxes, radio buttons"
-- "Forms need layout containers and spacing"
-- "Forms need interactive elements like buttons"
-- "Each element needs its own component for reusability"
-- "I'll create ALL components automatically"
+- "I need to search for existing form elements first"
+- "Check if input fields, checkboxes, radio buttons already exist"
+- "If they exist: import from common and reuse"
+- "If they don't exist: create in common for future reuse"
+- "NEVER create duplicate form elements"
 
 **User Input:** "Create settings page"
 **Cursor AI Analysis:**
-- "Settings pages need many form elements"
-- "I'll create text inputs, checkboxes, radio buttons, selects, toggles"
-- "I'll create layout components for organization"
-- "I'll create interactive components for actions"
-- "I'll create navigation and structure components"
-- "I'll create ALL components automatically"
+- "I need to search for existing form components first"
+- "Check if text inputs, checkboxes, radio buttons already exist"
+- "If they exist: import from common and reuse"
+- "If they don't exist: create in common for future reuse"
+- "NEVER create duplicate form components"
 
 **User Input:** "Add search functionality"
 **Cursor AI Analysis:**
-- "Search needs input field, button, results container"
-- "Search needs filters, pagination, sorting"
-- "Search needs suggestions and history"
-- "I'll create ALL search-related components automatically"
-- "Each component will be ultra-modular and reusable"
+- "I need to search for existing search components first"
+- "Check if search inputs, buttons, result containers already exist"
+- "If they exist: import from common and reuse"
+- "If they don't exist: create in common for future reuse"
+- "NEVER create duplicate search components"
 
-#### Step 2: Automatic Component Creation
+#### Step 2: Automatic Common Code Detection
 **Example: User Says "Add Some Option"**
 
-**Cursor AI Automatically Creates:**
+**Cursor AI Automatically Checks Common First:**
 
-1. **Form Components:**
-   ```
-   src/components/RadioButton/     # Radio button component
-   src/components/Checkbox/         # Checkbox component
-   src/components/Input/            # Input field component
-   src/components/Select/           # Select dropdown component
-   src/components/Table/            # Table component
-   src/components/Label/            # Label component
+1. **Form Components (Check Common):**
+   ```bash
+   # Search for existing form components
+   grep -r "radio\|checkbox\|input\|select" src/
+   ls src/common/components/ | grep -E "(Radio|Checkbox|Input|Select)"
    ```
 
-2. **Layout Components:**
-   ```
-   src/components/FormContainer/    # Form wrapper
-   src/components/FieldGroup/       # Field grouping
-   src/components/Spacing/          # Spacing utilities
-   src/components/ResponsiveWrapper/ # Responsive container
-   ```
-
-3. **Interactive Components:**
-   ```
-   src/components/Button/           # Action buttons
-   src/components/Toggle/           # Toggle switches
-   src/components/Slider/           # Range sliders
-   src/components/ColorPicker/      # Color selection
+2. **If Components Exist in Common:**
+   ```javascript
+   // ✅ REUSE EXISTING - Import from common
+   import { RadioButton } from '../common/components/RadioButton/RadioButton.mjs';
+   import { Checkbox } from '../common/components/Checkbox/Checkbox.mjs';
+   import { Input } from '../common/components/Input/Input.mjs';
    ```
 
-#### Step 3: Automatic File Organization
-**For EACH Component, Cursor AI Automatically Creates:**
+3. **If Components Don't Exist:**
+   ```javascript
+   // ✅ CREATE IN COMMON - Simple structure
+   src/common/components/RadioButton/  # Radio button component
+   src/common/components/Checkbox/     # Checkbox component
+   src/common/components/Input/        # Input component
+   ```
+
+4. **NEVER Create Duplicate Components**
+
+#### Step 3: Automatic Common Code Organization
+**For EACH Component, Cursor AI Automatically Checks Common First:**
 
 ```
 src/
-├── components/ComponentName/       # Main component directory
-├── coding/html/ComponentName/      # HTML subdirectory with multiple files
-├── coding/css/ComponentName/       # CSS subdirectory with multiple files
-├── coding/javascript/ComponentName/ # JS subdirectory with multiple files
-├── coding/logic/ComponentName/     # Logic subdirectory with multiple files
-└── coding/functions/ComponentName/ # Functions subdirectory with multiple files
+├── common/                         # ALL shared code goes here
+│   ├── components/                # Reusable UI components
+│   ├── utils/                     # Utility functions
+│   ├── services/                  # Business logic services
+│   ├── hooks/                     # Custom hooks
+│   ├── constants/                 # App constants
+│   ├── types/                     # Type definitions
+│   └── styles/                    # Common CSS styles
+├── pages/                         # Page-specific code (imports from common)
+├── content/                       # Content scripts (imports from common)
+└── background/                    # Background scripts (imports from common)
 ```
 
-#### Step 4: Automatic Import/Export Setup
+#### Step 4: Automatic Common Code Import Setup
 **Cursor AI Automatically:**
 
-1. **Creates index.mjs files** for each component
-2. **Sets up proper imports** between components
-3. **Creates main page files** that import all needed components
-4. **Sets up CSS imports** for all component styles
-5. **Configures logic imports** for all component logic
+1. **Searches for existing code** before creating new
+2. **Imports from common** instead of creating duplicates
+3. **Creates in common** if code doesn't exist
+4. **Sets up proper imports** from common to pages
+5. **Configures reuse strategy** for all functionality
 
 #### Step 5: Automatic Creation Examples (NEW - CRITICAL)
 
@@ -647,34 +547,39 @@ src/
 │   └── FilterControl/        # Filter control component
 ```
 
-### Rule 1.1: Chrome Extension File Extension Compliance
+### Rule 1.1: Chrome Extension File Extension Compliance (UPDATED - .mjs FIRST POLICY)
 - **HTML files**: ALWAYS use `.html` extension
 - **CSS files**: ALWAYS use `.css` extension  
-- **JavaScript files**: Use `.js` for regular scripts, `.mjs` for ES6 modules
-- **Logic files**: Use `.js` for regular logic, `.mjs` for module logic
-- **Function files**: Use `.js` for regular functions, `.mjs` for module functions
-- **Background scripts**: Use `.js` for regular, `.mjs` for modules (must be referenced in manifest.json)
-- **Content scripts**: Use `.js` for regular, `.mjs` for modules (must be referenced in manifest.json)
-- **Popup/Options scripts**: Use `.js` for regular, `.mjs` for modules (must be referenced in HTML)
+- **JavaScript files**: **DEFAULT to `.mjs` for ES6 modules**, use `.js` only where `.mjs` is not allowed
+- **Logic files**: **DEFAULT to `.mjs` for ES6 modules**, use `.js` only where `.mjs` is not allowed
+- **Function files**: **DEFAULT to `.mjs` for ES6 modules**, use `.js` only where `.mjs` is not allowed
+- **Background scripts**: **DEFAULT to `.mjs` for ES6 modules**, use `.js` only where `.mjs` is not allowed
+- **Content scripts**: **DEFAULT to `.mjs` for ES6 modules**, use `.js` only where `.mjs` is not allowed
+- **Popup/Options scripts**: **DEFAULT to `.mjs` for ES6 modules**, use `.js` only where `.mjs` is not allowed
+- **Package.json**: Set `"type": "module"` to ensure `.js` files are treated as ES modules when needed
 
-### Rule 1.2: When to Use .js vs .mjs
-- **Use .js extension when:**
-  - File contains regular JavaScript (no import/export statements)
-  - File is a simple utility or helper function
-  - File doesn't need to be imported by other files
-  - File is loaded directly in HTML without module syntax
+### Rule 1.2: When to Use .js vs .mjs (UPDATED - .mjs FIRST POLICY)
+- **Use .mjs extension by DEFAULT (PREFERRED):**
+  - **ALL files that contain ES6 import/export statements**
+  - **ALL files that need to be imported by other files**
+  - **ALL files that are part of modular architecture**
+  - **ALL files that use modern ES6+ module features**
+  - **ALL component files, utility files, service files**
+  - **ALL files that will be reused across the project**
 
-- **Use .mjs extension when:**
-  - File contains ES6 import/export statements
-  - File needs to be imported by other files as a module
-  - File is part of a modular architecture
-  - File uses modern ES6+ module features
+- **Use .js extension ONLY when .mjs is not allowed:**
+  - **Legacy systems that don't support .mjs**
+  - **Build tools that require .js extension**
+  - **Environments with .mjs compatibility issues**
+  - **When explicitly required by external constraints**
 
 - **Chrome Extension Compliance:**
+  - **.mjs is the PREFERRED extension** for all ES6 modules
   - Both .js and .mjs are supported in Chrome 136+
   - Files must be properly referenced in manifest.json
   - No remote code execution allowed
   - All code must be bundled with extension
+  - **Set `"type": "module"` in package.json** for .js files when needed
 
 ### Rule 2: SINGLE CLEAR PROJECT STRUCTURE (NEW - CLEANED UP)
 
@@ -837,6 +742,34 @@ src/
 
 ## 3. 🚨 **AUTOMATIC STRUCTURE ENFORCEMENT RULES (CRITICAL - 100% COMPLIANCE)**
 
+### Rule 3.1: .mjs FIRST POLICY (NEW - CRITICAL)
+- **DEFAULT to .mjs extension** for ALL JavaScript files
+- **Use .mjs for ALL ES6 modules** with import/export statements
+- **Use .mjs for ALL component files** that will be imported
+- **Use .mjs for ALL utility files** that will be imported
+- **Use .mjs for ALL service files** that will be imported
+- **Use .js ONLY when .mjs is explicitly not allowed**
+- **Set `"type": "module"` in package.json** for .js files when needed
+
+#### .mjs File Examples (DEFAULT):
+```
+✅ CORRECT - Use .mjs by default:
+- Button.mjs          # Button component (ES6 module)
+- Modal.mjs           # Modal component (ES6 module)
+- apiService.mjs      # API service (ES6 module)
+- validationUtils.mjs # Validation utilities (ES6 module)
+- useAuth.mjs         # Custom hook (ES6 module)
+- constants.mjs       # App constants (ES6 module)
+```
+
+#### .js File Examples (ONLY when .mjs not allowed):
+```
+⚠️ ONLY when .mjs is not allowed:
+- legacyScript.js     # Legacy system requirement
+- buildTool.js        # Build tool constraint
+- compatibility.js    # Environment compatibility issue
+```
+
 ### Rule 5: Automatic Component Creation Enforcement
 - **When user says "create Search component"**: Automatically create:
   - `src/components/Search/` directory
@@ -849,59 +782,48 @@ src/
 
 - **When user says "create useAuth hook"**: Automatically create:
   - `src/hooks/useAuth/` directory
-  - `src/coding/javascript/useAuth.mjs` file
-  - `src/coding/logic/useAuth.logic.mjs` file
-  - `src/coding/functions/useAuth.functions.mjs` file
-  - `src/hooks/useAuth/index.mjs` export file
+  - `src/hooks/useAuth/useAuth.mjs` file (ES6 module)
+  - `src/hooks/useAuth/index.mjs` export file (ES6 module)
 
 - **When user says "create formatDate utility"**: Automatically create:
   - `src/utils/formatDate/` directory
-  - `src/coding/javascript/formatDate.mjs` file
-  - `src/coding/logic/formatDate.logic.mjs` file
-  - `src/coding/functions/formatDate.functions.mjs` file
-  - `src/utils/formatDate/index.mjs` export file
+  - `src/utils/formatDate/formatDate.mjs` file (ES6 module)
+  - `src/utils/formatDate/index.mjs` export file (ES6 module)
 
 - **When user says "create apiService service"**: Automatically create:
   - `src/services/apiService/` directory
-  - `src/coding/javascript/apiService.mjs` file
-  - `src/coding/logic/apiService.logic.mjs` file
-  - `src/coding/functions/apiService.functions.mjs` file
-  - `src/services/apiService/index.mjs` export file
+  - `src/services/apiService/apiService.mjs` file (ES6 module)
+  - `src/services/apiService/index.mjs` export file (ES6 module)
 
 - **When user says "create AuthContext context"**: Automatically create:
   - `src/context/AuthContext/` directory
-  - `src/coding/javascript/AuthContext.mjs` file
-  - `src/coding/logic/AuthContext.logic.mjs` file
-  - `src/coding/functions/AuthContext.functions.mjs` file
-  - `src/context/AuthContext/index.mjs` export file
+  - `src/context/AuthContext/AuthContext.mjs` file (ES6 module)
+  - `src/context/AuthContext/index.mjs` export file (ES6 module)
 
 - **When user says "create Popup page"**: Automatically create:
   - `src/pages/Popup/` directory
-  - `src/coding/html/Popup.html` file
-  - `src/coding/css/Popup.css` file
-  - `src/coding/javascript/Popup.mjs` file
-  - `src/coding/logic/Popup.logic.mjs` file
-  - `src/coding/functions/Popup.functions.mjs` file
-  - `src/pages/Popup/index.mjs` export file
+  - `src/pages/Popup/popup.html` file
+  - `src/pages/Popup/popup.css` file
+  - `src/pages/Popup/popup.mjs` file (ES6 module)
+  - `src/pages/Popup/index.mjs` export file (ES6 module)
 
 - **When user says "create Modal modal"**: Automatically create:
   - `src/components/Modal/` directory
-  - `src/coding/html/Modal.html` file
-  - `src/coding/css/Modal.css` file
-  - `src/coding/javascript/Modal.mjs` file
-  - `src/coding/logic/Modal.logic.mjs` file
-  - `src/coding/functions/Modal.functions.mjs` file
-  - `src/components/Modal/index.mjs` export file
+  - `src/components/Modal/Modal.html` file
+  - `src/components/Modal/Modal.css` file
+  - `src/components/Modal/Modal.mjs` file (ES6 module)
+  - `src/components/Modal/index.mjs` export file (ES6 module)
 
-### Rule 6: Automatic File Placement Enforcement
-- **HTML files**: ALWAYS go to `src/coding/html/`
-- **CSS files**: ALWAYS go to `src/coding/css/`
-- **JavaScript files**: ALWAYS go to `src/coding/javascript/`
-- **Logic files**: ALWAYS go to `src/coding/logic/`
-- **Function files**: ALWAYS go to `src/coding/functions/`
-- **Common files**: ALWAYS go to `src/coding/common/`
-- **Type files**: ALWAYS go to `src/coding/types/`
-- **Constant files**: ALWAYS go to `src/coding/constants/`
+### Rule 6: Automatic File Placement Enforcement (UPDATED - .mjs FIRST POLICY)
+- **HTML files**: ALWAYS go to appropriate component/page directory
+- **CSS files**: ALWAYS go to appropriate component/page directory
+- **JavaScript files**: **DEFAULT to .mjs extension** and place in appropriate component/page directory
+- **Component files**: ALWAYS go to `src/common/components/ComponentName/`
+- **Utility files**: ALWAYS go to `src/common/utils/utilityName/`
+- **Service files**: ALWAYS go to `src/common/services/serviceName/`
+- **Hook files**: ALWAYS go to `src/common/hooks/hookName/`
+- **Type files**: ALWAYS go to `src/common/types/`
+- **Constant files**: ALWAYS go to `src/common/constants/`
 
 ### Rule 7: Automatic Directory Creation Enforcement
 - **If directory doesn't exist**: Automatically create it
@@ -930,6 +852,35 @@ src/
 - **Environment files**: ALWAYS in root directory with proper naming
 
 ## 4. 🚨 **COMPLETE MODULAR STRUCTURE SUMMARY (CRITICAL - 100% COMPLIANCE)**
+
+### Rule 4.1: Package.json Configuration for .mjs First Policy (NEW - CRITICAL)
+- **Set `"type": "module"` in package.json** to ensure .js files are treated as ES modules when needed
+- **This allows .js files to use import/export syntax** when .mjs is not allowed
+- **Maintains ES6 module compatibility** across the entire project
+- **Enables modern JavaScript features** in all files
+
+#### Package.json Example:
+```json
+{
+  "name": "chrome-extension-project",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development --watch"
+  },
+  "dependencies": {
+    // Project dependencies
+  }
+}
+```
+
+#### Benefits of "type": "module":
+- **.js files can use ES6 import/export** when .mjs is not allowed
+- **Consistent module syntax** across the entire project
+- **Modern JavaScript features** available in all files
+- **Better tooling support** for ES6 modules
+- **Future-proof codebase** with modern standards
 
 ### Complete ULTRA-MEGA-MODULAR Chrome Extension Structure
 ```
@@ -1123,16 +1074,17 @@ chrome-extension-project/
 - **ALWAYS create all required files for components**
 
 ### Rule 10: Automatic Structure Validation
-- **Before creating any file**: Validate it goes to correct directory
-- **Before creating any component**: Validate all required files are created
-- **Before creating any directory**: Validate it follows the structure
-- **After any creation**: Verify structure compliance
+- **Before creating any file**: Search for existing similar functionality
+- **Before creating any component**: Check if it exists in common
+- **Before creating any function**: Check if similar function exists
+- **After any creation**: Verify no duplication exists
+- **NEVER create duplicate functionality** - this is a ZERO TOLERANCE RULE
 
-### Rule 11: Structure Violation Prevention
-- **If structure violation detected**: STOP and correct immediately
-- **If wrong directory used**: Move file to correct location
-- **If missing files**: Create all required files
-- **If structure broken**: Restore proper organization
+### Rule 11: COMMON CODE VIOLATION PREVENTION (NEW - CRITICAL)
+- **If code duplication detected**: STOP and remove duplicate immediately
+- **If common code skipped**: Check common code first before creating new
+- **If duplicate functionality**: Move to common and reuse everywhere
+- **If structure broken**: Restore proper common code organization
 
 ## 5. Code Generation Rules (CRITICAL - 100% Compliance)
 
@@ -1397,7 +1349,7 @@ echo "Actual: Check for context markers and line numbers"
 - [ ] **Provide rollback info** - how to undo if needed
 - [ ] **Confirm completion** - verify all requested changes made
 
-## 11. 🚨 **STRICT PENALTY ENFORCEMENT (NEW - CRITICAL)**
+## 11. 🚨 **STRICT COMMON CODE PENALTY ENFORCEMENT (NEW - CRITICAL)**
 
 ### Penalty Levels (ESCALATING)
 - **First Violation**: Warning + immediate correction required
@@ -1405,7 +1357,42 @@ echo "Actual: Check for context markers and line numbers"
 - **Third Violation**: Complete task restart with user supervision
 - **Fourth Violation**: User must manually approve all future code generation operations
 
+### **🚨 MANDATORY COMMON CODE RULES (NON-NEGOTIABLE)**
+
+#### **Rule 1: Code Duplication Prevention (100% COMPLIANCE)**
+- **BEFORE adding ANY new code**: Search entire project for similar functionality
+- **If similar code exists**: Move it to common location and reuse
+- **If no similar code**: Create in common location for future reuse
+- **NEVER create duplicate functionality** - this is a **ZERO TOLERANCE RULE**
+
+#### **Rule 2: Common Code Organization (100% COMPLIANCE)**
+- **ALL shared code** goes in `src/common/` directory
+- **ALL reusable components** go in `src/common/components/`
+- **ALL utility functions** go in `src/common/utils/`
+- **ALL business logic** goes in `src/common/services/`
+- **ALL shared styles** go in `src/common/styles/`
+
+#### **Rule 3: Code Reuse Verification (100% COMPLIANCE)**
+- **Before implementing ANY feature**: Check common code first
+- **Before creating ANY component**: Check if it exists in common
+- **Before writing ANY function**: Check if similar function exists
+- **Always import from common** instead of creating new
+
 ### Specific Penalties for Each Violation Type
+
+#### **Code Duplication Violation Penalties (NEW - CRITICAL)**
+- **Immediate Action**: STOP all code generation operations
+- **Required Correction**: Remove duplicate code immediately
+- **Verification**: Must prove no duplication exists
+- **Documentation**: Must document violation and correction
+- **User Notification**: Alert user immediately of violation
+
+#### **Common Code Skipping Violation Penalties (NEW - CRITICAL)**
+- **Immediate Action**: STOP all code generation operations
+- **Required Correction**: Check common code first before creating new
+- **Verification**: Must prove common code was checked
+- **Documentation**: Must document violation and correction
+- **User Notification**: Alert user immediately of violation
 
 #### Project Structure Violation Penalties
 - **Immediate Action**: STOP all code generation operations
@@ -1431,8 +1418,22 @@ echo "Actual: Check for context markers and line numbers"
 ### Penalty Enforcement Commands
 ```bash
 # Penalty enforcement verification
-echo "🚨 CODE GENERATION PENALTY ENFORCEMENT VERIFICATION"
-echo "Checking for code generation violations..."
+echo "🚨 COMMON CODE PENALTY ENFORCEMENT VERIFICATION"
+echo "Checking for common code violations..."
+
+# Check for code duplication
+if grep -q "duplicate.*code\|same.*functionality\|copy.*paste" task_execution.log; then
+    echo "🚨 CODE DUPLICATION VIOLATION DETECTED"
+    echo "Penalty: Immediate code generation suspension"
+    echo "Required: Remove duplicate code immediately"
+fi
+
+# Check for common code skipping
+if grep -q "create.*new.*component\|write.*new.*function" task_execution.log | grep -v "check.*common.*first"; then
+    echo "🚨 COMMON CODE SKIPPING VIOLATION DETECTED"
+    echo "Penalty: Immediate code generation suspension"
+    echo "Required: Check common code first before creating new"
+fi
 
 # Check for wrong project structure
 if grep -q "wrong.*structure\|incorrect.*organization" task_execution.log | grep -v "correct.*structure"; then
@@ -1467,9 +1468,9 @@ fi
 
 ## Conclusion
 
-These strengthened code generation rules ensure that Cursor AI NEVER rewrites entire files and ALWAYS uses minimal, incremental changes. The new enforcement mechanisms prevent file rewrites, limit change scope, and maintain code context. 
+These strengthened code generation rules ensure that Cursor AI NEVER rewrites entire files, ALWAYS uses minimal, incremental changes, NEVER creates duplicate code, and **DEFAULTS to .mjs extension** for all JavaScript files. The new **strict common code organization** prevents code duplication and enforces maximum reusability through a simple, professional structure with **.mjs first policy**.
 
-**Remember: NEVER rewrite files, ONLY show specific changes, preserve existing code always!**
+**Remember: NEVER rewrite files, NEVER duplicate code, ALWAYS check common first, reuse existing code always, and DEFAULT to .mjs for all JavaScript files!**
 
 ## Rule Verification Status
 
@@ -1477,9 +1478,12 @@ These strengthened code generation rules ensure that Cursor AI NEVER rewrites en
 - **Change size limits**: ✅ ENFORCED  
 - **Context preservation**: ✅ ENFORCED
 - **Incremental approach**: ✅ ENFORCED
+- **Code duplication prevention**: ✅ ENFORCED
+- **Common code organization**: ✅ ENFORCED
+- **.mjs first policy**: ✅ ENFORCED
 - **Rule violations**: ✅ PENALIZED
 
-**Status: ALL ANTI-REWRITE RULES ACTIVE - FILE REWRITES PREVENTED**
+**Status: ALL ANTI-REWRITE, COMMON CODE, AND .MJS FIRST RULES ACTIVE - FILE REWRITES, CODE DUPLICATION PREVENTED, AND .MJS EXTENSIONS ENFORCED**
 
 
 These code generation and project structure rules ensure that Cursor AI creates maintainable, reusable code with proper organization and no duplication. The strict project structure and import strategy maximize reusability and maintainability.
