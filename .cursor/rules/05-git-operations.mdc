@@ -223,6 +223,74 @@ echo "Test 3: Safety Measures Required for Git Operations"
 echo "If Cursor AI doesn't follow safety measures, rule violation detected"
 ```
 
+## 11. 🚨 **STRICT PENALTY ENFORCEMENT (NEW - CRITICAL)**
+
+### Penalty Levels (ESCALATING)
+- **First Violation**: Warning + immediate correction required
+- **Second Violation**: 24-hour suspension from git operations
+- **Third Violation**: Complete task restart with user supervision
+- **Fourth Violation**: User must manually approve all future git operations
+
+### Specific Penalties for Each Violation Type
+
+#### Git Operation Violation Penalties
+- **Immediate Action**: STOP all git operations
+- **Required Correction**: Ask for user approval immediately
+- **Verification**: Must prove user approval was obtained
+- **Documentation**: Must document violation and correction
+- **User Notification**: Alert user immediately of violation
+
+#### Code Verification Skipping Penalties
+- **Immediate Action**: STOP all operations
+- **Required Correction**: Perform all verification steps immediately
+- **Verification**: Must prove complete verification was done
+- **Documentation**: Must document violation and correction
+- **Verification Audit**: Must audit all verification steps
+
+#### Safety Measure Violation Penalties
+- **Immediate Action**: STOP all operations
+- **Required Correction**: Implement all safety measures immediately
+- **Verification**: Must prove safety compliance
+- **Documentation**: Must document violation and correction
+- **Safety Audit**: Must audit all safety measures
+
+### Penalty Enforcement Commands
+```bash
+# Penalty enforcement verification
+echo "🚨 GIT OPERATIONS PENALTY ENFORCEMENT VERIFICATION"
+echo "Checking for git operation violations..."
+
+# Check for unauthorized git operations
+if grep -q "git.*push\|git.*pull\|git.*merge" task_execution.log | grep -v "user.*approval"; then
+    echo "🚨 GIT OPERATION VIOLATION DETECTED"
+    echo "Penalty: Immediate git operation suspension"
+    echo "Required: Get user approval for all operations"
+fi
+
+# Check for skipped verification
+if grep -q "git.*operation" task_execution.log | grep -v "verification.*complete"; then
+    echo "🚨 VERIFICATION SKIPPING VIOLATION DETECTED"
+    echo "Penalty: Immediate operation suspension"
+    echo "Required: Complete all verification steps"
+fi
+
+# Check for safety measure violations
+if grep -q "git.*operation" task_execution.log | grep -v "safety.*measures.*implemented"; then
+    echo "🚨 SAFETY MEASURE VIOLATION DETECTED"
+    echo "Penalty: Immediate operation suspension"
+    echo "Required: Implement all safety measures"
+fi
+```
+
+### Emergency Penalty Procedures
+1. **Immediate Violation Detection**: Stop all git operations
+2. **User Notification**: Alert user of violation immediately
+3. **Penalty Application**: Apply appropriate penalty level
+4. **Correction Required**: Must correct violation before continuing
+5. **Verification**: Must prove correction was successful
+6. **Documentation**: Must document violation and correction
+7. **User Approval**: Must get user approval to resume
+
 ## Benefits
 - **Prevents accidental deployments** - no git operations without approval
 - **Allows code verification** - time to review and test changes

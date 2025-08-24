@@ -377,6 +377,81 @@ echo "Overall compliance: $compliance_percentage%"
 - **Report violations** to user immediately
 - **Document corrective actions** taken
 
+## 11. 🚨 **STRICT PENALTY ENFORCEMENT (NEW - CRITICAL)**
+
+### Penalty Levels (ESCALATING)
+- **First Violation**: Warning + immediate correction required
+- **Second Violation**: 24-hour suspension from file operations
+- **Third Violation**: Complete task restart with user supervision
+- **Fourth Violation**: User must manually approve all future operations
+
+### Specific Penalties for Each Violation Type
+
+#### File Rewrite Violation Penalties
+- **Immediate Action**: STOP all operations
+- **Required Correction**: Switch to incremental changes only
+- **Verification**: Must prove only specific lines were changed
+- **Documentation**: Must document violation and correction
+- **User Notification**: Alert user immediately of violation
+
+#### Large Change Violation Penalties
+- **Immediate Action**: Break changes into smaller parts
+- **Required Correction**: Maximum 25 lines per change
+- **Verification**: Must prove all changes under 25 lines
+- **Documentation**: Must document violation and correction
+- **Size Reduction**: Must reduce change size by 50% minimum
+
+#### Context Loss Violation Penalties
+- **Immediate Action**: Reread entire file
+- **Required Correction**: Regain complete context
+- **Verification**: Must prove context understanding
+- **Documentation**: Must document violation and correction
+- **Context Restoration**: Must show surrounding code for all changes
+
+#### Missing Markers Violation Penalties
+- **Immediate Action**: Add proper change markers
+- **Required Correction**: Use ADD, REPLACE, REMOVE format
+- **Verification**: Must prove markers used correctly
+- **Documentation**: Must document violation and correction
+- **Marker Standardization**: Must use consistent marker format
+
+### Penalty Enforcement Commands
+```bash
+# Penalty enforcement verification
+echo "🚨 PENALTY ENFORCEMENT VERIFICATION"
+echo "Checking for rule violations..."
+
+# Check for file rewrites
+if grep -q "entire file\|complete rewrite\|full file" task_execution.log; then
+    echo "🚨 FILE REWRITE VIOLATION DETECTED"
+    echo "Penalty: Immediate task suspension"
+    echo "Required: Switch to incremental changes"
+fi
+
+# Check for large changes
+if grep -q "change.*lines.*[5-9][0-9]\|change.*lines.*[0-9][0-9][0-9]" task_execution.log; then
+    echo "🚨 LARGE CHANGE VIOLATION DETECTED"
+    echo "Penalty: Break into smaller changes"
+    echo "Required: Maximum 25 lines per change"
+fi
+
+# Check for missing context
+if grep -q "context.*lost\|context.*missing" task_execution.log; then
+    echo "🚨 CONTEXT LOSS VIOLATION DETECTED"
+    echo "Penalty: Reread entire file"
+    echo "Required: Regain complete context"
+fi
+```
+
+### Emergency Penalty Procedures
+1. **Immediate Violation Detection**: Stop all operations
+2. **User Notification**: Alert user of violation immediately
+3. **Penalty Application**: Apply appropriate penalty level
+4. **Correction Required**: Must correct violation before continuing
+5. **Verification**: Must prove correction was successful
+6. **Documentation**: Must document violation and correction
+7. **User Approval**: Must get user approval to resume
+
 ## Conclusion
 
 These anti-file rewrite enforcement rules ensure that Cursor AI NEVER rewrites entire files and ALWAYS uses minimal, incremental changes. The strict enforcement mechanisms prevent file rewrites, limit change scope, maintain code context, and ensure proper change documentation.

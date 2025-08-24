@@ -59,16 +59,19 @@ newCode();
 - **Focus on specific functionality** rather than complete rewrites
 - **Maintain context** across task segments
 
-## 2. 🚨 **MANDATORY MODULAR PROJECT STRUCTURE ENFORCEMENT (CRITICAL - 100% COMPLIANCE)**
+## 2. 🚨 **ULTRA-MEGA-MODULAR PROJECT STRUCTURE ENFORCEMENT (CRITICAL - 100% COMPLIANCE)**
 
 ### Core Principle
-- **STRICT modular project structure** with mandatory separation of concerns
-- **EVERY component gets its own directory** with separate files for each concern
+- **ULTRA-MEGA-MODULAR project structure** with MAXIMUM separation of concerns
+- **EVERY SINGLE FUNCTION gets its own directory** with multiple files for maximum reusability
+- **EVERY SINGLE STYLE gets its own directory** with multiple files for maximum reusability
+- **EVERY SINGLE COMPONENT gets its own directory** with multiple files for maximum reusability
 - **File type separation** - HTML (.html), CSS (.css), JavaScript (.js/.mjs), Logic (.js/.mjs), Functions (.js/.mjs) in separate directories
 - **Component separation** - Each component maintains its own organization
 - **Professional Chrome extension structure** - follow Manifest V3 best practices
 - **Vanilla JavaScript approach** - NO frameworks, NO libraries, NO TypeScript
 - **Chrome extension compliance** - Use .js for regular scripts, .mjs for ES6 modules as per Chrome 136+ policies
+- **MAXIMUM REUSABILITY** - Every piece of code can be reused anywhere in the project
 
 ### Rule 1: Mandatory File Type Separation
 ```
@@ -82,6 +85,566 @@ src/
 │   ├── common/               # ALL Shared/common files
 │   ├── types/                # ALL Type definitions
 │   └── constants/            # ALL Constants and configuration
+```
+
+### Rule 1.1: ULTRA-MEGA-MODULAR APPROACH (NEW - CRITICAL)
+- **EVERY SINGLE FUNCTION gets its own directory** with multiple files
+- **EVERY SINGLE STYLE gets its own directory** with multiple files
+- **EVERY SINGLE COMPONENT gets its own directory** with multiple files
+- **MAXIMUM REUSABILITY** - if you create a button, you can reuse it everywhere
+- **ULTRA-SEPARATION** - even within options page, every option gets its own directory
+
+#### Example: Button Component Ultra-Modular Structure
+```
+src/
+├── components/
+│   └── Button/                    # Button component directory
+│       ├── Button.html            # Goes to coding/html/Button/
+│       ├── Button.css             # Goes to coding/css/Button/
+│       ├── Button.mjs             # Goes to coding/javascript/Button/
+│       ├── Button.logic.mjs       # Goes to coding/logic/Button/
+│       ├── Button.functions.mjs   # Goes to coding/functions/Button/
+│       └── index.mjs              # Export file
+├── coding/
+│   ├── html/
+│   │   └── Button/                # Button HTML subdirectory
+│   │       ├── Button.html        # Main button HTML
+│   │       ├── Button.icon.html   # Button icon HTML
+│   │       └── Button.text.html   # Button text HTML
+│   ├── css/
+│   │   └── Button/                # Button CSS subdirectory
+│   │       ├── Button.css         # Main button styles
+│   │       ├── Button.states.css  # Button state styles
+│   │       ├── Button.sizes.css   # Button size variations
+│   │       └── Button.themes.css  # Button theme variations
+│   ├── javascript/
+│   │   └── Button/                # Button JS subdirectory
+│   │       ├── Button.mjs         # Main button functionality
+│   │       ├── Button.events.mjs  # Button event handlers
+│   │       ├── Button.animation.mjs # Button animations
+│   │       └── Button.validation.mjs # Button validation
+│   ├── logic/
+│   │   └── Button/                # Button logic subdirectory
+│   │       ├── Button.logic.mjs   # Main button logic
+│   │       ├── Button.state.mjs   # Button state management
+│   │       └── Button.behavior.mjs # Button behavior logic
+│   └── functions/
+│       └── Button/                # Button functions subdirectory
+│           ├── Button.functions.mjs # Main button functions
+│           ├── Button.helpers.mjs  # Button helper functions
+│           ├── Button.utils.mjs    # Button utility functions
+│           └── Button.constants.mjs # Button constants
+```
+
+#### Example: Options Page Ultra-Mega-Modular Structure (NEW)
+```
+src/
+├── pages/
+│   └── Options/                    # Options page directory
+│       ├── Options.html            # Goes to coding/html/Options/
+│       ├── Options.css             # Goes to coding/css/Options/
+│       ├── Options.mjs             # Goes to coding/javascript/Options/
+│       ├── Options.logic.mjs       # Goes to coding/logic/Options/
+│       ├── Options.functions.mjs   # Goes to coding/functions/Options/
+│       └── index.mjs               # Export file
+├── coding/
+│   ├── html/
+│   │   └── Options/                # Options HTML subdirectory
+│   │       ├── Options.html        # Main options page HTML
+│   │       ├── Options.header.html # Options header HTML
+│   │       ├── Options.sidebar.html # Options sidebar HTML
+│   │       ├── Options.content.html # Options content HTML
+│   │       └── Options.footer.html # Options footer HTML
+│   ├── css/
+│   │   └── Options/                # Options CSS subdirectory
+│   │       ├── Options.css         # Main options styles
+│   │       ├── Options.layout.css  # Options layout styles
+│   │       ├── Options.theme.css   # Options theme styles
+│   │       ├── Options.responsive.css # Options responsive styles
+│   │       └── Options.animations.css # Options animation styles
+│   ├── javascript/
+│   │   └── Options/                # Options JS subdirectory
+│   │       ├── Options.mjs         # Main options functionality
+│   │       ├── Options.navigation.mjs # Options navigation
+│   │       ├── Options.settings.mjs # Options settings management
+│   │       ├── Options.validation.mjs # Options validation
+│   │       └── Options.storage.mjs # Options storage handling
+│   ├── logic/
+│   │   └── Options/                # Options logic subdirectory
+│   │       ├── Options.logic.mjs   # Main options logic
+│   │       ├── Options.state.mjs   # Options state management
+│   │       ├── Options.config.mjs  # Options configuration logic
+│   │       └── Options.permissions.mjs # Options permissions logic
+│   └── functions/
+│       └── Options/                # Options functions subdirectory
+│           ├── Options.functions.mjs # Main options functions
+│           ├── Options.helpers.mjs  # Options helper functions
+│           ├── Options.utils.mjs    # Options utility functions
+│           └── Options.constants.mjs # Options constants
+```
+
+### Rule 1.2: ULTRA-MEGA-MODULAR BENEFITS (NEW - CRITICAL)
+- **MAXIMUM REUSABILITY** - Every piece of code can be reused anywhere
+- **EASY MAINTENANCE** - Each function/style/component is isolated
+- **CLEAR ORGANIZATION** - Everything has its logical place
+- **TEAM COLLABORATION** - Multiple developers can work on different parts
+- **VERSION CONTROL** - Easy to track changes to specific functionality
+- **TESTING** - Each piece can be tested independently
+- **SCALABILITY** - Easy to add new features without affecting existing code
+
+#### Example: Reusing Button Component Everywhere
+```
+# In Popup page - reuse Button component
+import { Button } from '../../components/Button/index.mjs';
+
+# In Options page - reuse Button component  
+import { Button } from '../../components/Button/index.mjs';
+
+# In Content script - reuse Button component
+import { Button } from '../../components/Button/index.mjs';
+
+# In Background script - reuse Button logic
+import { ButtonLogic } from '../../components/Button/Button.logic.mjs';
+```
+
+#### Example: Reusing Button Styles Everywhere
+```css
+/* In Popup.css - reuse Button styles */
+@import url('../coding/css/Button/Button.css');
+@import url('../coding/css/Button/Button.states.css');
+
+/* In Options.css - reuse Button styles */
+@import url('../coding/css/Button/Button.css');
+@import url('../coding/css/Button/Button.themes.css');
+
+/* In Content.css - reuse Button styles */
+@import url('../coding/css/Button/Button.css');
+@import url('../coding/css/Button/Button.sizes.css');
+```
+
+### Rule 1.3: ULTRA-MEGA-MODULAR CREATION WORKFLOW (NEW - CRITICAL)
+
+### Rule 1.4: AUTOMATIC ORGANIZATION INTELLIGENCE (NEW - CRITICAL)
+- **Cursor AI MUST automatically detect** what components/elements are needed
+- **NO need for user to specify** individual components like "create button, create checkbox"
+- **Automatically analyze requirements** and create all necessary components
+- **Intelligent component detection** based on functionality description
+- **Automatic dependency creation** for all required UI elements
+
+#### Automatic Component Detection Examples:
+
+**When User Says "Add Some Option":**
+**AUTOMATICALLY DETECT AND CREATE:**
+
+1. **Form Components (Automatically Created):**
+   - Radio buttons for single selection
+   - Checkboxes for multiple selection
+   - Input fields for text input
+   - Select dropdowns for choices
+   - Tables for data display
+   - Labels for accessibility
+
+2. **Layout Components (Automatically Created):**
+   - Form containers
+   - Field groups
+   - Spacing elements
+   - Responsive wrappers
+
+3. **Interactive Components (Automatically Created):**
+   - Buttons for actions
+   - Toggle switches
+   - Sliders for ranges
+   - Color pickers if needed
+
+**When User Says "Create Settings Page":**
+**AUTOMATICALLY DETECT AND CREATE:**
+
+1. **All Form Elements:**
+   - Text inputs
+   - Number inputs
+   - Checkboxes
+   - Radio buttons
+   - Select dropdowns
+   - Toggle switches
+   - Sliders
+   - Color pickers
+   - File uploads
+
+2. **All Layout Elements:**
+   - Headers
+   - Sidebars
+   - Content areas
+   - Footers
+   - Navigation menus
+   - Breadcrumbs
+
+3. **All Interactive Elements:**
+   - Buttons (save, cancel, reset)
+   - Modals for confirmations
+   - Tooltips for help
+   - Progress indicators
+
+**When User Says "Add Search Functionality":**
+**AUTOMATICALLY DETECT AND CREATE:**
+
+1. **Search Components:**
+   - Search input field
+   - Search button
+   - Search results container
+   - Search filters
+   - Search suggestions
+   - Search history
+
+2. **Results Components:**
+   - Result lists
+   - Result cards
+   - Pagination
+   - Sorting controls
+   - Filter controls
+
+#### When User Says "Create Button Component"
+**AUTOMATICALLY CREATE:**
+
+1. **Component Directory Structure:**
+   ```
+   src/components/Button/
+   ├── Button.html
+   ├── Button.css
+   ├── Button.mjs
+   ├── Button.logic.mjs
+   ├── Button.functions.mjs
+   └── index.mjs
+   ```
+
+2. **HTML Subdirectory Structure:**
+   ```
+   src/coding/html/Button/
+   ├── Button.html          # Main button HTML
+   ├── Button.icon.html     # Button icon HTML
+   ├── Button.text.html     # Button text HTML
+   └── Button.wrapper.html  # Button wrapper HTML
+   ```
+
+3. **CSS Subdirectory Structure:**
+   ```
+   src/coding/css/Button/
+   ├── Button.css           # Main button styles
+   ├── Button.states.css    # Button state styles (hover, active, disabled)
+   ├── Button.sizes.css     # Button size variations (small, medium, large)
+   ├── Button.themes.css    # Button theme variations (primary, secondary, danger)
+   ├── Button.layout.css    # Button layout styles
+   └── Button.animations.css # Button animation styles
+   ```
+
+4. **JavaScript Subdirectory Structure:**
+   ```
+   src/coding/javascript/Button/
+   ├── Button.mjs           # Main button functionality
+   ├── Button.events.mjs    # Button event handlers
+   ├── Button.animation.mjs # Button animations
+   ├── Button.validation.mjs # Button validation
+   └── Button.accessibility.mjs # Button accessibility features
+   ```
+
+5. **Logic Subdirectory Structure:**
+   ```
+   src/coding/logic/Button/
+   ├── Button.logic.mjs     # Main button logic
+   ├── Button.state.mjs     # Button state management
+   ├── Button.behavior.mjs  # Button behavior logic
+   └── Button.config.mjs    # Button configuration logic
+   ```
+
+6. **Functions Subdirectory Structure:**
+   ```
+   src/coding/functions/Button/
+   ├── Button.functions.mjs # Main button functions
+   ├── Button.helpers.mjs   # Button helper functions
+   ├── Button.utils.mjs     # Button utility functions
+   └── Button.constants.mjs # Button constants
+   ```
+
+#### When User Says "Create Options Page"
+**AUTOMATICALLY CREATE:**
+
+1. **Page Directory Structure:**
+   ```
+   src/pages/Options/
+   ├── Options.html
+   ├── Options.css
+   ├── Options.mjs
+   ├── Options.logic.mjs
+   ├── Options.functions.mjs
+   └── index.mjs
+   ```
+
+2. **HTML Subdirectory Structure:**
+   ```
+   src/coding/html/Options/
+   ├── Options.html         # Main options page HTML
+   ├── Options.header.html  # Options header HTML
+   ├── Options.sidebar.html # Options sidebar HTML
+   ├── Options.content.html # Options content HTML
+   ├── Options.footer.html  # Options footer HTML
+   └── Options.modal.html   # Options modal HTML
+   ```
+
+3. **CSS Subdirectory Structure:**
+   ```
+   src/coding/css/Options/
+   ├── Options.css          # Main options styles
+   ├── Options.layout.css   # Options layout styles
+   ├── Options.theme.css    # Options theme styles
+   ├── Options.responsive.css # Options responsive styles
+   ├── Options.animations.css # Options animation styles
+   └── Options.print.css    # Options print styles
+   ```
+
+4. **JavaScript Subdirectory Structure:**
+   ```
+   src/coding/javascript/Options/
+   ├── Options.mjs          # Main options functionality
+   ├── Options.navigation.mjs # Options navigation
+   ├── Options.settings.mjs # Options settings management
+   ├── Options.validation.mjs # Options validation
+   ├── Options.storage.mjs  # Options storage handling
+   └── Options.export.mjs   # Options export functionality
+   ```
+
+5. **Logic Subdirectory Structure:**
+   ```
+   src/coding/logic/Options/
+   ├── Options.logic.mjs    # Main options logic
+   ├── Options.state.mjs    # Options state management
+   ├── Options.config.mjs   # Options configuration logic
+   ├── Options.permissions.mjs # Options permissions logic
+   └── Options.sync.mjs     # Options sync logic
+   ```
+
+6. **Functions Subdirectory Structure:**
+   ```
+   src/coding/functions/Options/
+   ├── Options.functions.mjs # Main options functions
+   ├── Options.helpers.mjs   # Options helper functions
+   ├── Options.utils.mjs     # Options utility functions
+   ├── Options.constants.mjs # Options constants
+   └── Options.formatters.mjs # Options data formatters
+   ```
+
+### Rule 1.5: AUTOMATIC ORGANIZATION WORKFLOW (NEW - CRITICAL)
+
+#### Step 1: Requirement Analysis
+**When User Says ANYTHING, Cursor AI MUST:**
+
+1. **Analyze the requirement** - understand what functionality is needed
+2. **Identify all components** - automatically detect what UI elements are required
+3. **Determine dependencies** - figure out what other components are needed
+4. **Plan the structure** - organize everything in ultra-modular fashion
+5. **Create everything automatically** - no need for user to specify individual components
+
+#### Step 1.1: Cursor AI Thinking Process (NEW - CRITICAL)
+**Cursor AI MUST Think Like This:**
+
+**User Input:** "Add some option"
+**Cursor AI Analysis:**
+- "Options need form elements"
+- "Forms need input fields, checkboxes, radio buttons"
+- "Forms need layout containers and spacing"
+- "Forms need interactive elements like buttons"
+- "Each element needs its own component for reusability"
+- "I'll create ALL components automatically"
+
+**User Input:** "Create settings page"
+**Cursor AI Analysis:**
+- "Settings pages need many form elements"
+- "I'll create text inputs, checkboxes, radio buttons, selects, toggles"
+- "I'll create layout components for organization"
+- "I'll create interactive components for actions"
+- "I'll create navigation and structure components"
+- "I'll create ALL components automatically"
+
+**User Input:** "Add search functionality"
+**Cursor AI Analysis:**
+- "Search needs input field, button, results container"
+- "Search needs filters, pagination, sorting"
+- "Search needs suggestions and history"
+- "I'll create ALL search-related components automatically"
+- "Each component will be ultra-modular and reusable"
+
+#### Step 2: Automatic Component Creation
+**Example: User Says "Add Some Option"**
+
+**Cursor AI Automatically Creates:**
+
+1. **Form Components:**
+   ```
+   src/components/RadioButton/     # Radio button component
+   src/components/Checkbox/         # Checkbox component
+   src/components/Input/            # Input field component
+   src/components/Select/           # Select dropdown component
+   src/components/Table/            # Table component
+   src/components/Label/            # Label component
+   ```
+
+2. **Layout Components:**
+   ```
+   src/components/FormContainer/    # Form wrapper
+   src/components/FieldGroup/       # Field grouping
+   src/components/Spacing/          # Spacing utilities
+   src/components/ResponsiveWrapper/ # Responsive container
+   ```
+
+3. **Interactive Components:**
+   ```
+   src/components/Button/           # Action buttons
+   src/components/Toggle/           # Toggle switches
+   src/components/Slider/           # Range sliders
+   src/components/ColorPicker/      # Color selection
+   ```
+
+#### Step 3: Automatic File Organization
+**For EACH Component, Cursor AI Automatically Creates:**
+
+```
+src/
+├── components/ComponentName/       # Main component directory
+├── coding/html/ComponentName/      # HTML subdirectory with multiple files
+├── coding/css/ComponentName/       # CSS subdirectory with multiple files
+├── coding/javascript/ComponentName/ # JS subdirectory with multiple files
+├── coding/logic/ComponentName/     # Logic subdirectory with multiple files
+└── coding/functions/ComponentName/ # Functions subdirectory with multiple files
+```
+
+#### Step 4: Automatic Import/Export Setup
+**Cursor AI Automatically:**
+
+1. **Creates index.mjs files** for each component
+2. **Sets up proper imports** between components
+3. **Creates main page files** that import all needed components
+4. **Sets up CSS imports** for all component styles
+5. **Configures logic imports** for all component logic
+
+#### Step 5: Automatic Creation Examples (NEW - CRITICAL)
+
+**Example 1: User Says "Add Some Option"**
+**Cursor AI Automatically Creates:**
+
+```
+src/
+├── components/
+│   ├── RadioButton/          # Radio button component
+│   ├── Checkbox/             # Checkbox component
+│   ├── Input/                # Input field component
+│   ├── Select/               # Select dropdown component
+│   ├── Table/                # Table component
+│   ├── Label/                # Label component
+│   ├── FormContainer/        # Form wrapper component
+│   ├── FieldGroup/           # Field grouping component
+│   ├── Button/               # Action button component
+│   └── Toggle/               # Toggle switch component
+├── coding/
+│   ├── html/
+│   │   ├── RadioButton/      # Radio button HTML files
+│   │   ├── Checkbox/         # Checkbox HTML files
+│   │   ├── Input/            # Input HTML files
+│   │   ├── Select/           # Select HTML files
+│   │   ├── Table/            # Table HTML files
+│   │   ├── Label/            # Label HTML files
+│   │   ├── FormContainer/    # Form container HTML files
+│   │   ├── FieldGroup/       # Field group HTML files
+│   │   ├── Button/           # Button HTML files
+│   │   └── Toggle/           # Toggle HTML files
+│   ├── css/
+│   │   ├── RadioButton/      # Radio button CSS files
+│   │   ├── Checkbox/         # Checkbox CSS files
+│   │   ├── Input/            # Input CSS files
+│   │   ├── Select/           # Select CSS files
+│   │   ├── Table/            # Table CSS files
+│   │   ├── Label/            # Label CSS files
+│   │   ├── FormContainer/    # Form container CSS files
+│   │   ├── FieldGroup/       # Field group CSS files
+│   │   ├── Button/           # Button CSS files
+│   │   └── Toggle/           # Toggle CSS files
+│   ├── javascript/
+│   │   ├── RadioButton/      # Radio button JS files
+│   │   ├── Checkbox/         # Checkbox JS files
+│   │   ├── Input/            # Input JS files
+│   │   ├── Select/           # Select JS files
+│   │   ├── Table/            # Table JS files
+│   │   ├── Label/            # Label JS files
+│   │   ├── FormContainer/    # Form container JS files
+│   │   ├── FieldGroup/       # Field group JS files
+│   │   ├── Button/           # Button JS files
+│   │   └── Toggle/           # Toggle JS files
+│   ├── logic/
+│   │   ├── RadioButton/      # Radio button logic files
+│   │   ├── Checkbox/         # Checkbox logic files
+│   │   ├── Input/            # Input logic files
+│   │   ├── Select/           # Select logic files
+│   │   ├── Table/            # Table logic files
+│   │   ├── Label/            # Label logic files
+│   │   ├── FormContainer/    # Form container logic files
+│   │   ├── FieldGroup/       # Field group logic files
+│   │   ├── Button/           # Button logic files
+│   │   └── Toggle/           # Toggle logic files
+│   └── functions/
+│       ├── RadioButton/      # Radio button function files
+│       ├── Checkbox/         # Checkbox function files
+│       ├── Input/            # Input function files
+│       ├── Select/           # Select function files
+│       ├── Table/            # Table function files
+│       ├── Label/            # Label function files
+│       ├── FormContainer/    # Form container function files
+│       ├── FieldGroup/       # Field group function files
+│       ├── Button/           # Button function files
+│       └── Toggle/           # Toggle function files
+```
+
+**Example 2: User Says "Create Settings Page"**
+**Cursor AI Automatically Creates:**
+
+```
+src/
+├── pages/Settings/           # Main settings page
+├── components/
+│   ├── TextInput/            # Text input component
+│   ├── NumberInput/          # Number input component
+│   ├── Checkbox/             # Checkbox component
+│   ├── RadioButton/          # Radio button component
+│   ├── Select/               # Select dropdown component
+│   ├── Toggle/               # Toggle switch component
+│   ├── Slider/               # Slider component
+│   ├── ColorPicker/          # Color picker component
+│   ├── FileUpload/           # File upload component
+│   ├── Header/               # Page header component
+│   ├── Sidebar/              # Sidebar navigation component
+│   ├── ContentArea/          # Content area component
+│   ├── Footer/               # Page footer component
+│   ├── Navigation/           # Navigation menu component
+│   ├── Breadcrumb/           # Breadcrumb component
+│   ├── Button/               # Action button component
+│   ├── Modal/                # Confirmation modal component
+│   ├── Tooltip/              # Help tooltip component
+│   └── Progress/             # Progress indicator component
+```
+
+**Example 3: User Says "Add Search Functionality"**
+**Cursor AI Automatically Creates:**
+
+```
+src/
+├── components/
+│   ├── SearchInput/          # Search input field component
+│   ├── SearchButton/         # Search button component
+│   ├── SearchResults/        # Search results container component
+│   ├── SearchFilters/        # Search filters component
+│   ├── SearchSuggestions/    # Search suggestions component
+│   ├── SearchHistory/        # Search history component
+│   ├── ResultList/           # Result list component
+│   ├── ResultCard/           # Result card component
+│   ├── Pagination/           # Pagination component
+│   ├── SortControl/          # Sorting control component
+│   └── FilterControl/        # Filter control component
 ```
 
 ### Rule 1.1: Chrome Extension File Extension Compliance
@@ -113,104 +676,127 @@ src/
   - No remote code execution allowed
   - All code must be bundled with extension
 
-### Rule 2: Mandatory Component Separation
+### Rule 2: SINGLE CLEAR PROJECT STRUCTURE (NEW - CLEANED UP)
+
+**ONE STRUCTURE ONLY - NO CONFUSION - NO DUPLICATES**
+
 ```
-src/
-├── components/               # COMPONENT SEPARATION
-│   ├── Search/              # Search component directory
-│   │   ├── Search.html      # Goes to coding/html/
-│   │   ├── Search.css       # Goes to coding/css/
-│   │   ├── Search.js        # Goes to coding/javascript/
-│   │   ├── Search.logic.js  # Goes to coding/logic/
-│   │   ├── Search.functions.js # Goes to coding/functions/
-│   │   └── index.js         # Export file
-│   ├── Flex/                # Flex component directory
-│   └── Radio/               # Radio component directory
+chrome-extension-project/
+├── src/
+│   ├── coding/                    # MAIN FILE TYPE SEPARATION WITH SUBDIRECTORIES
+│   │   ├── html/                 # ALL HTML files organized by component
+│   │   │   ├── Button/           # Button HTML subdirectory
+│   │   │   ├── Modal/            # Modal HTML subdirectory
+│   │   │   ├── Options/          # Options HTML subdirectory
+│   │   │   ├── Popup/            # Popup HTML subdirectory
+│   │   │   └── ...               # Other component HTML subdirectories
+│   │   ├── css/                  # ALL CSS files organized by component
+│   │   │   ├── Button/           # Button CSS subdirectory
+│   │   │   ├── Modal/            # Modal CSS subdirectory
+│   │   │   ├── Options/          # Options CSS subdirectory
+│   │   │   ├── Popup/            # Popup CSS subdirectory
+│   │   │   └── ...               # Other component CSS subdirectories
+│   │   ├── javascript/           # ALL JavaScript files organized by component
+│   │   │   ├── Button/           # Button JS subdirectory
+│   │   │   ├── Modal/            # Modal JS subdirectory
+│   │   │   ├── Options/          # Options JS subdirectory
+│   │   │   ├── Popup/            # Popup JS subdirectory
+│   │   │   └── ...               # Other component JS subdirectories
+│   │   ├── logic/                # ALL Logic files organized by component
+│   │   │   ├── Button/           # Button logic subdirectory
+│   │   │   ├── Modal/            # Modal logic subdirectory
+│   │   │   ├── Options/          # Options logic subdirectory
+│   │   │   ├── Popup/            # Popup logic subdirectory
+│   │   │   └── ...               # Other component logic subdirectories
+│   │   ├── functions/            # ALL Function files organized by component
+│   │   │   ├── Button/           # Button functions subdirectory
+│   │   │   ├── Modal/            # Modal functions subdirectory
+│   │   │   ├── Options/          # Options functions subdirectory
+│   │   │   ├── Popup/            # Popup functions subdirectory
+│   │   │   └── ...               # Other component functions subdirectories
+│   │   ├── common/               # ALL Shared/common files
+│   │   ├── types/                # ALL Type definitions
+│   │   └── constants/            # ALL Constants and configuration
+│   ├── components/               # Reusable UI components (Button, Modal, etc.)
+│   │   ├── Button/               # Button component directory
+│   │   ├── Modal/                # Modal component directory
+│   │   ├── Input/                # Input component directory
+│   │   └── ...                   # Other component directories
+│   ├── hooks/                    # Custom hooks (useAuth, useFetch, etc.)
+│   │   ├── useAuth/              # useAuth hook directory
+│   │   ├── useFetch/             # useFetch hook directory
+│   │   └── ...                   # Other hook directories
+│   ├── utils/                    # Utility functions (formatDate, calculateSum, etc.)
+│   │   ├── formatDate/           # formatDate utility directory
+│   │   ├── calculateSum/         # calculateSum utility directory
+│   │   └── ...                   # Other utility directories
+│   ├── services/                 # API services and business logic
+│   │   ├── apiService/           # apiService directory
+│   │   ├── authService/          # authService directory
+│   │   └── ...                   # Other service directories
+│   ├── context/                  # Context providers (AuthContext, ThemeContext, etc.)
+│   │   ├── AuthContext/          # AuthContext directory
+│   │   ├── ThemeContext/         # ThemeContext directory
+│   │   └── ...                   # Other context directories
+│   ├── pages/                    # Page components (Popup, Options, etc.)
+│   │   ├── Popup/                # Popup page directory
+│   │   ├── Options/              # Options page directory
+│   │   └── ...                   # Other page directories
+│   ├── background/               # Background service worker
+│   ├── content/                  # Content scripts
+│   ├── popup/                    # Popup interface
+│   ├── options/                  # Options page
+│   └── assets/                   # Static assets (icons, images)
+├── docs/                         # Professional documentation
+├── scripts/                      # Build and deployment scripts
+├── config/                       # Configuration files
+├── tests/                        # Testing infrastructure
+├── .github/                      # GitHub workflows and templates
+├── .vscode/                      # VS Code configuration
+├── manifest.json                 # Extension manifest (Manifest V3)
+├── package.json                  # Project metadata and scripts
+└── .cursor/rules/                # Cursor AI rules
+```
+**DUPLICATE STRUCTURE REMOVED - USE THE SINGLE STRUCTURE ABOVE**
 ```
 
-### Rule 2.1: Complete Modular Directory Structure
+### Rule 2.1: SINGLE STRUCTURE SUMMARY (NEW - CLEANED UP)
+
+**ONE STRUCTURE ONLY - NO CONFUSION - NO DUPLICATES**
+
+The structure above is the **ONLY** structure Cursor AI should follow. Here's how it works:
+
+#### File Organization Rules:
+1. **ALL HTML files** go to `src/coding/html/ComponentName/`
+2. **ALL CSS files** go to `src/coding/css/ComponentName/`
+3. **ALL JavaScript files** go to `src/coding/javascript/ComponentName/`
+4. **ALL Logic files** go to `src/coding/logic/ComponentName/`
+5. **ALL Function files** go to `src/coding/functions/ComponentName/`
+
+#### Component Organization Rules:
+1. **Each component** gets its own directory in `src/components/ComponentName/`
+2. **Each component** gets its own subdirectories in ALL coding folders
+3. **Each component** has its own index.mjs export file
+4. **Maximum reusability** - every component can be used anywhere
+
+#### Example: Button Component Creates:
 ```
-src/
-├── components/               # Reusable UI components
-│   ├── Button/
-│   │   ├── Button.html      # Goes to coding/html/ (.html)
-│   │   ├── Button.css       # Goes to coding/css/ (.css)
-│   │   ├── Button.js        # Goes to coding/javascript/ (.js for regular scripts)
-│   │   ├── Button.logic.js  # Goes to coding/logic/ (.js for regular logic)
-│   │   ├── Button.functions.js # Goes to coding/functions/ (.js for regular functions)
-│   │   └── index.js         # Export file (.js for regular exports)
-│   ├── Modal/
-│   │   ├── Modal.html       # Goes to coding/html/ (.html)
-│   │   ├── Modal.css        # Goes to coding/css/ (.css)
-│   │   ├── Modal.mjs        # Goes to coding/javascript/ (.mjs for ES6 modules)
-│   │   ├── Modal.logic.mjs  # Goes to coding/logic/ (.mjs for module logic)
-│   │   ├── Modal.functions.mjs # Goes to coding/functions/ (.mjs for module functions)
-│   │   └── index.mjs        # Export file (.mjs for module exports)
-│   └── ...                  # Other components
-├── hooks/                    # Custom hooks (vanilla JavaScript organization)
-│   ├── useAuth/
-│   │   ├── useAuth.mjs      # Goes to coding/javascript/
-│   │   ├── useAuth.logic.mjs # Goes to coding/logic/
-│   │   ├── useAuth.functions.mjs # Goes to coding/functions/
-│   │   └── index.mjs        # Export file
-│   ├── useFetch/
-│   │   ├── useFetch.mjs     # Goes to coding/javascript/
-│   │   ├── useFetch.logic.mjs # Goes to coding/logic/
-│   │   ├── useFetch.functions.mjs # Goes to coding/functions/
-│   │   └── index.mjs        # Export file
-│   └── ...                  # Other hooks
-├── utils/                    # Utility functions
-│   ├── formatDate/
-│   │   ├── formatDate.mjs   # Goes to coding/javascript/
-│   │   ├── formatDate.logic.mjs # Goes to coding/logic/
-│   │   ├── formatDate.functions.mjs # Goes to coding/functions/
-│   │   └── index.mjs        # Export file
-│   ├── calculateSum/
-│   │   ├── calculateSum.mjs # Goes to coding/javascript/
-│   │   ├── calculateSum.logic.mjs # Goes to coding/logic/
-│   │   ├── calculateSum.functions.mjs # Goes to coding/functions/
-│   │   └── index.mjs        # Export file
-│   └── ...                  # Other utilities
-├── services/                 # API services and business logic
-│   ├── apiService/
-│   │   ├── apiService.mjs   # Goes to coding/javascript/
-│   │   ├── apiService.logic.mjs # Goes to coding/logic/
-│   │   ├── apiService.functions.mjs # Goes to coding/functions/
-│   │   └── index.mjs        # Export file
-│   ├── authService/
-│   │   ├── authService.mjs  # Goes to coding/javascript/
-│   │   ├── authService.logic.mjs # Goes to coding/logic/
-│   │   ├── authService.functions.mjs # Goes to coding/functions/
-│   │   └── index.mjs        # Export file
-│   └── ...                  # Other services
-├── context/                  # Context providers (vanilla JavaScript organization)
-│   ├── AuthContext/
-│   │   ├── AuthContext.mjs  # Goes to coding/javascript/
-│   │   ├── AuthContext.logic.mjs # Goes to coding/logic/
-│   │   ├── AuthContext.functions.mjs # Goes to coding/functions/
-│   │   └── index.mjs        # Export file
-│   ├── ThemeContext/
-│   │   ├── ThemeContext.mjs # Goes to coding/javascript/
-│   │   ├── ThemeContext.logic.mjs # Goes to coding/logic/
-│   │   ├── ThemeContext.functions.mjs # Goes to coding/functions/
-│   │   └── index.mjs        # Export file
-│   └── ...                  # Other contexts
-├── pages/                    # Page components
-│   ├── Popup/
-│   │   ├── Popup.html       # Goes to coding/html/
-│   │   ├── Popup.css        # Goes to coding/css/
-│   │   ├── Popup.mjs        # Goes to coding/javascript/
-│   │   ├── Popup.logic.mjs  # Goes to coding/logic/
-│   │   ├── Popup.functions.mjs # Goes to coding/functions/
-│   │   └── index.mjs        # Export file
-│   ├── Options/
-│   │   ├── Options.html     # Goes to coding/html/
-│   │   ├── Options.css      # Goes to coding/css/
-│   │   ├── Options.mjs      # Goes to coding/javascript/
-│   │   ├── Options.logic.mjs # Goes to coding/logic/
-│   │   ├── Options.functions.mjs # Goes to coding/functions/
-│   │   └── index.mjs        # Export file
-│   └── ...                  # Other pages
+src/components/Button/                    # Main component directory
+src/coding/html/Button/                  # Button HTML files
+src/coding/css/Button/                   # Button CSS files
+src/coding/javascript/Button/            # Button JS files
+src/coding/logic/Button/                 # Button logic files
+src/coding/functions/Button/             # Button function files
+```
+
+#### Example: Options Page Creates:
+```
+src/pages/Options/                       # Main page directory
+src/coding/html/Options/                 # Options HTML files
+src/coding/css/Options/                  # Options CSS files
+src/coding/javascript/Options/           # Options JS files
+src/coding/logic/Options/                # Options logic files
+src/coding/functions/Options/            # Options function files
 ```
 
 ### Rule 3: Automatic File Organization Enforcement
@@ -345,25 +931,69 @@ src/
 
 ## 4. 🚨 **COMPLETE MODULAR STRUCTURE SUMMARY (CRITICAL - 100% COMPLIANCE)**
 
-### Complete Professional Chrome Extension Structure
+### Complete ULTRA-MEGA-MODULAR Chrome Extension Structure
 ```
 chrome-extension-project/
 ├── src/
-│   ├── coding/                    # MAIN FILE TYPE SEPARATION
-│   │   ├── html/                 # ALL HTML files from all components
-│   │   ├── css/                  # ALL CSS files from all components
-│   │   ├── javascript/           # ALL JavaScript files from all components
-│   │   ├── logic/                # ALL Business logic files from all components
-│   │   ├── functions/            # ALL Utility functions from all components
+│   ├── coding/                    # MAIN FILE TYPE SEPARATION WITH SUBDIRECTORIES
+│   │   ├── html/                 # ALL HTML files organized by component
+│   │   │   ├── Button/           # Button HTML subdirectory
+│   │   │   ├── Modal/            # Modal HTML subdirectory
+│   │   │   ├── Options/          # Options HTML subdirectory
+│   │   │   ├── Popup/            # Popup HTML subdirectory
+│   │   │   └── ...               # Other component HTML subdirectories
+│   │   ├── css/                  # ALL CSS files organized by component
+│   │   │   ├── Button/           # Button CSS subdirectory
+│   │   │   ├── Modal/            # Modal CSS subdirectory
+│   │   │   ├── Options/          # Options CSS subdirectory
+│   │   │   ├── Popup/            # Popup CSS subdirectory
+│   │   │   └── ...               # Other component CSS subdirectories
+│   │   ├── javascript/           # ALL JavaScript files organized by component
+│   │   │   ├── Button/           # Button JS subdirectory
+│   │   │   ├── Modal/            # Modal JS subdirectory
+│   │   │   ├── Options/          # Options JS subdirectory
+│   │   │   ├── Popup/            # Popup JS subdirectory
+│   │   │   └── ...               # Other component JS subdirectories
+│   │   ├── logic/                # ALL Logic files organized by component
+│   │   │   ├── Button/           # Button logic subdirectory
+│   │   │   ├── Modal/            # Modal logic subdirectory
+│   │   │   ├── Options/          # Options logic subdirectory
+│   │   │   ├── Popup/            # Popup logic subdirectory
+│   │   │   └── ...               # Other component logic subdirectories
+│   │   ├── functions/            # ALL Function files organized by component
+│   │   │   ├── Button/           # Button functions subdirectory
+│   │   │   ├── Modal/            # Modal functions subdirectory
+│   │   │   ├── Options/          # Options functions subdirectory
+│   │   │   ├── Popup/            # Popup functions subdirectory
+│   │   │   └── ...               # Other component functions subdirectories
 │   │   ├── common/               # ALL Shared/common files
 │   │   ├── types/                # ALL Type definitions
 │   │   └── constants/            # ALL Constants and configuration
 │   ├── components/               # Reusable UI components (Button, Modal, etc.)
+│   │   ├── Button/               # Button component directory
+│   │   ├── Modal/                # Modal component directory
+│   │   ├── Input/                # Input component directory
+│   │   └── ...                   # Other component directories
 │   ├── hooks/                    # Custom hooks (useAuth, useFetch, etc.)
+│   │   ├── useAuth/              # useAuth hook directory
+│   │   ├── useFetch/             # useFetch hook directory
+│   │   └── ...                   # Other hook directories
 │   ├── utils/                    # Utility functions (formatDate, calculateSum, etc.)
+│   │   ├── formatDate/           # formatDate utility directory
+│   │   ├── calculateSum/         # calculateSum utility directory
+│   │   └── ...                   # Other utility directories
 │   ├── services/                 # API services and business logic
+│   │   ├── apiService/           # apiService directory
+│   │   ├── authService/          # authService directory
+│   │   └── ...                   # Other service directories
 │   ├── context/                  # Context providers (AuthContext, ThemeContext, etc.)
+│   │   ├── AuthContext/          # AuthContext directory
+│   │   ├── ThemeContext/         # ThemeContext directory
+│   │   └── ...                   # Other context directories
 │   ├── pages/                    # Page components (Popup, Options, etc.)
+│   │   ├── Popup/                # Popup page directory
+│   │   ├── Options/              # Options page directory
+│   │   └── ...                   # Other page directories
 │   ├── background/               # Background service worker
 │   ├── content/                  # Content scripts
 │   ├── popup/                    # Popup interface
@@ -766,6 +1396,74 @@ echo "Actual: Check for context markers and line numbers"
 - [ ] **Document violations** - if any rules were broken
 - [ ] **Provide rollback info** - how to undo if needed
 - [ ] **Confirm completion** - verify all requested changes made
+
+## 11. 🚨 **STRICT PENALTY ENFORCEMENT (NEW - CRITICAL)**
+
+### Penalty Levels (ESCALATING)
+- **First Violation**: Warning + immediate correction required
+- **Second Violation**: 24-hour suspension from code generation operations
+- **Third Violation**: Complete task restart with user supervision
+- **Fourth Violation**: User must manually approve all future code generation operations
+
+### Specific Penalties for Each Violation Type
+
+#### Project Structure Violation Penalties
+- **Immediate Action**: STOP all code generation operations
+- **Required Correction**: Follow single clear structure immediately
+- **Verification**: Must prove correct project structure
+- **Documentation**: Must document violation and correction
+- **User Notification**: Alert user immediately of violation
+
+#### File Organization Violation Penalties
+- **Immediate Action**: STOP all file operations
+- **Required Correction**: Organize files correctly immediately
+- **Verification**: Must prove proper file organization
+- **Documentation**: Must document violation and correction
+- **Organization Audit**: Must audit all file organization
+
+#### Component Creation Violation Penalties
+- **Immediate Action**: STOP all component operations
+- **Required Correction**: Create components with proper structure immediately
+- **Verification**: Must prove proper component structure
+- **Documentation**: Must document violation and correction
+- **Component Audit**: Must audit all component creation
+
+### Penalty Enforcement Commands
+```bash
+# Penalty enforcement verification
+echo "🚨 CODE GENERATION PENALTY ENFORCEMENT VERIFICATION"
+echo "Checking for code generation violations..."
+
+# Check for wrong project structure
+if grep -q "wrong.*structure\|incorrect.*organization" task_execution.log | grep -v "correct.*structure"; then
+    echo "🚨 PROJECT STRUCTURE VIOLATION DETECTED"
+    echo "Penalty: Immediate code generation suspension"
+    echo "Required: Follow single clear structure"
+fi
+
+# Check for wrong file organization
+if grep -q "wrong.*directory\|incorrect.*placement" task_execution.log | grep -v "correct.*organization"; then
+    echo "🚨 FILE ORGANIZATION VIOLATION DETECTED"
+    echo "Penalty: Immediate file operation suspension"
+    echo "Required: Organize files correctly"
+fi
+
+# Check for wrong component creation
+if grep -q "missing.*component.*structure\|incomplete.*component" task_execution.log | grep -v "proper.*component.*structure"; then
+    echo "🚨 COMPONENT CREATION VIOLATION DETECTED"
+    echo "Penalty: Immediate component operation suspension"
+    echo "Required: Create components with proper structure"
+fi
+```
+
+### Emergency Penalty Procedures
+1. **Immediate Violation Detection**: Stop all code generation operations
+2. **User Notification**: Alert user of violation immediately
+3. **Penalty Application**: Apply appropriate penalty level
+4. **Correction Required**: Must correct violation before continuing
+5. **Verification**: Must prove correction was successful
+6. **Documentation**: Must document violation and correction
+7. **User Approval**: Must get user approval to resume
 
 ## Conclusion
 

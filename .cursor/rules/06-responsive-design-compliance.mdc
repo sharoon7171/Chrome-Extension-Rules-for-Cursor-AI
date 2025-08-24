@@ -509,6 +509,74 @@ echo "Test 3: Touch-Friendly Design Required"
 echo "If Cursor AI creates non-touch interfaces, rule violation detected"
 ```
 
+## 12. 🚨 **STRICT PENALTY ENFORCEMENT (NEW - CRITICAL)**
+
+### Penalty Levels (ESCALATING)
+- **First Violation**: Warning + immediate correction required
+- **Second Violation**: 24-hour suspension from UI design operations
+- **Third Violation**: Complete task restart with user supervision
+- **Fourth Violation**: User must manually approve all future UI design operations
+
+### Specific Penalties for Each Violation Type
+
+#### Responsive Design Violation Penalties
+- **Immediate Action**: STOP all UI design operations
+- **Required Correction**: Implement responsive design immediately
+- **Verification**: Must prove cross-device compatibility
+- **Documentation**: Must document violation and correction
+- **User Notification**: Alert user immediately of violation
+
+#### Mobile-First Violation Penalties
+- **Immediate Action**: STOP all design operations
+- **Required Correction**: Redesign with mobile-first approach immediately
+- **Verification**: Must prove mobile-first implementation
+- **Documentation**: Must document violation and correction
+- **Design Audit**: Must audit all design decisions
+
+#### Touch-Friendly Violation Penalties
+- **Immediate Action**: STOP all interface operations
+- **Required Correction**: Implement touch-friendly design immediately
+- **Verification**: Must prove touch compatibility
+- **Documentation**: Must document violation and correction
+- **Touch Audit**: Must audit all touch interactions
+
+### Penalty Enforcement Commands
+```bash
+# Penalty enforcement verification
+echo "🚨 RESPONSIVE DESIGN PENALTY ENFORCEMENT VERIFICATION"
+echo "Checking for responsive design violations..."
+
+# Check for non-responsive interfaces
+if grep -q "fixed.*width\|fixed.*height\|px.*width\|px.*height" task_execution.log | grep -v "responsive.*design"; then
+    echo "🚨 RESPONSIVE DESIGN VIOLATION DETECTED"
+    echo "Penalty: Immediate UI design suspension"
+    echo "Required: Implement responsive design"
+fi
+
+# Check for non-mobile-first approach
+if grep -q "desktop.*first\|large.*screen.*first" task_execution.log | grep -v "mobile.*first"; then
+    echo "🚨 MOBILE-FIRST VIOLATION DETECTED"
+    echo "Penalty: Immediate design suspension"
+    echo "Required: Implement mobile-first approach"
+fi
+
+# Check for non-touch-friendly interfaces
+if grep -q "small.*button\|tiny.*link\|hover.*only" task_execution.log | grep -v "touch.*friendly"; then
+    echo "🚨 TOUCH-FRIENDLY VIOLATION DETECTED"
+    echo "Penalty: Immediate interface suspension"
+    echo "Required: Implement touch-friendly design"
+fi
+```
+
+### Emergency Penalty Procedures
+1. **Immediate Violation Detection**: Stop all UI design operations
+2. **User Notification**: Alert user of violation immediately
+3. **Penalty Application**: Apply appropriate penalty level
+4. **Correction Required**: Must correct violation before continuing
+5. **Verification**: Must prove correction was successful
+6. **Documentation**: Must document violation and correction
+7. **User Approval**: Must get user approval to resume
+
 ## Benefits of Responsive Design Compliance
 
 ### User Experience
