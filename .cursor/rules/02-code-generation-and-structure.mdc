@@ -64,9 +64,10 @@ newCode();
 ### Core Principle
 - **STRICT modular project structure** with mandatory separation of concerns
 - **EVERY component gets its own directory** with separate files for each concern
-- **File type separation** - HTML, CSS, JavaScript, Logic, Functions in separate directories
+- **File type separation** - HTML, CSS, JavaScript (.mjs), Logic (.mjs), Functions (.mjs) in separate directories
 - **Component separation** - Each component maintains its own organization
 - **Professional Chrome extension structure** - follow Manifest V3 best practices
+- **Vanilla JavaScript approach** - NO frameworks, NO libraries, NO TypeScript, ONLY .mjs ES6+ modules
 
 ### Rule 1: Mandatory File Type Separation
 ```
@@ -104,81 +105,81 @@ src/
 │   ├── Button/
 │   │   ├── Button.html      # Goes to coding/html/
 │   │   ├── Button.css       # Goes to coding/css/
-│   │   ├── Button.js        # Goes to coding/javascript/
-│   │   ├── Button.logic.js  # Goes to coding/logic/
-│   │   ├── Button.functions.js # Goes to coding/functions/
-│   │   └── index.js         # Export file
+│   │   ├── Button.mjs       # Goes to coding/javascript/
+│   │   ├── Button.logic.mjs # Goes to coding/logic/
+│   │   ├── Button.functions.mjs # Goes to coding/functions/
+│   │   └── index.mjs        # Export file
 │   ├── Modal/
 │   │   ├── Modal.html       # Goes to coding/html/
 │   │   ├── Modal.css        # Goes to coding/css/
-│   │   ├── Modal.js         # Goes to coding/javascript/
-│   │   ├── Modal.logic.js   # Goes to coding/logic/
-│   │   ├── Modal.functions.js # Goes to coding/functions/
-│   │   └── index.js         # Export file
+│   │   ├── Modal.mjs        # Goes to coding/javascript/
+│   │   ├── Modal.logic.mjs  # Goes to coding/logic/
+│   │   ├── Modal.functions.mjs # Goes to coding/functions/
+│   │   └── index.mjs        # Export file
 │   └── ...                  # Other components
-├── hooks/                    # Custom hooks (React-style organization)
+├── hooks/                    # Custom hooks (vanilla JavaScript organization)
 │   ├── useAuth/
-│   │   ├── useAuth.js       # Goes to coding/javascript/
-│   │   ├── useAuth.logic.js # Goes to coding/logic/
-│   │   ├── useAuth.functions.js # Goes to coding/functions/
-│   │   └── index.js         # Export file
+│   │   ├── useAuth.mjs      # Goes to coding/javascript/
+│   │   ├── useAuth.logic.mjs # Goes to coding/logic/
+│   │   ├── useAuth.functions.mjs # Goes to coding/functions/
+│   │   └── index.mjs        # Export file
 │   ├── useFetch/
-│   │   ├── useFetch.js      # Goes to coding/javascript/
-│   │   ├── useFetch.logic.js # Goes to coding/logic/
-│   │   ├── useFetch.functions.js # Goes to coding/functions/
-│   │   └── index.js         # Export file
+│   │   ├── useFetch.mjs     # Goes to coding/javascript/
+│   │   ├── useFetch.logic.mjs # Goes to coding/logic/
+│   │   ├── useFetch.functions.mjs # Goes to coding/functions/
+│   │   └── index.mjs        # Export file
 │   └── ...                  # Other hooks
 ├── utils/                    # Utility functions
 │   ├── formatDate/
-│   │   ├── formatDate.js    # Goes to coding/javascript/
-│   │   ├── formatDate.logic.js # Goes to coding/logic/
-│   │   ├── formatDate.functions.js # Goes to coding/functions/
-│   │   └── index.js         # Export file
+│   │   ├── formatDate.mjs   # Goes to coding/javascript/
+│   │   ├── formatDate.logic.mjs # Goes to coding/logic/
+│   │   ├── formatDate.functions.mjs # Goes to coding/functions/
+│   │   └── index.mjs        # Export file
 │   ├── calculateSum/
-│   │   ├── calculateSum.js  # Goes to coding/javascript/
-│   │   ├── calculateSum.logic.js # Goes to coding/logic/
-│   │   ├── calculateSum.functions.js # Goes to coding/functions/
-│   │   └── index.js         # Export file
+│   │   ├── calculateSum.mjs # Goes to coding/javascript/
+│   │   ├── calculateSum.logic.mjs # Goes to coding/logic/
+│   │   ├── calculateSum.functions.mjs # Goes to coding/functions/
+│   │   └── index.mjs        # Export file
 │   └── ...                  # Other utilities
 ├── services/                 # API services and business logic
 │   ├── apiService/
-│   │   ├── apiService.js    # Goes to coding/javascript/
-│   │   ├── apiService.logic.js # Goes to coding/logic/
-│   │   ├── apiService.functions.js # Goes to coding/functions/
-│   │   └── index.js         # Export file
+│   │   ├── apiService.mjs   # Goes to coding/javascript/
+│   │   ├── apiService.logic.mjs # Goes to coding/logic/
+│   │   ├── apiService.functions.mjs # Goes to coding/functions/
+│   │   └── index.mjs        # Export file
 │   ├── authService/
-│   │   ├── authService.js   # Goes to coding/javascript/
-│   │   ├── authService.logic.js # Goes to coding/logic/
-│   │   ├── authService.functions.js # Goes to coding/functions/
-│   │   └── index.js         # Export file
+│   │   ├── authService.mjs  # Goes to coding/javascript/
+│   │   ├── authService.logic.mjs # Goes to coding/logic/
+│   │   ├── authService.functions.mjs # Goes to coding/functions/
+│   │   └── index.mjs        # Export file
 │   └── ...                  # Other services
-├── context/                  # Context providers (React-style organization)
+├── context/                  # Context providers (vanilla JavaScript organization)
 │   ├── AuthContext/
-│   │   ├── AuthContext.js   # Goes to coding/javascript/
-│   │   ├── AuthContext.logic.js # Goes to coding/logic/
-│   │   ├── AuthContext.functions.js # Goes to coding/functions/
-│   │   └── index.js         # Export file
+│   │   ├── AuthContext.mjs  # Goes to coding/javascript/
+│   │   ├── AuthContext.logic.mjs # Goes to coding/logic/
+│   │   ├── AuthContext.functions.mjs # Goes to coding/functions/
+│   │   └── index.mjs        # Export file
 │   ├── ThemeContext/
-│   │   ├── ThemeContext.js  # Goes to coding/javascript/
-│   │   ├── ThemeContext.logic.js # Goes to coding/logic/
-│   │   ├── ThemeContext.functions.js # Goes to coding/functions/
-│   │   └── index.js         # Export file
+│   │   ├── ThemeContext.mjs # Goes to coding/javascript/
+│   │   ├── ThemeContext.logic.mjs # Goes to coding/logic/
+│   │   ├── ThemeContext.functions.mjs # Goes to coding/functions/
+│   │   └── index.mjs        # Export file
 │   └── ...                  # Other contexts
 ├── pages/                    # Page components
 │   ├── Popup/
 │   │   ├── Popup.html       # Goes to coding/html/
 │   │   ├── Popup.css        # Goes to coding/css/
-│   │   ├── Popup.js         # Goes to coding/javascript/
-│   │   ├── Popup.logic.js   # Goes to coding/logic/
-│   │   ├── Popup.functions.js # Goes to coding/functions/
-│   │   └── index.js         # Export file
+│   │   ├── Popup.mjs        # Goes to coding/javascript/
+│   │   ├── Popup.logic.mjs  # Goes to coding/logic/
+│   │   ├── Popup.functions.mjs # Goes to coding/functions/
+│   │   └── index.mjs        # Export file
 │   ├── Options/
 │   │   ├── Options.html     # Goes to coding/html/
 │   │   ├── Options.css      # Goes to coding/css/
-│   │   ├── Options.js       # Goes to coding/javascript/
-│   │   ├── Options.logic.js # Goes to coding/logic/
-│   │   ├── Options.functions.js # Goes to coding/functions/
-│   │   └── index.js         # Export file
+│   │   ├── Options.mjs      # Goes to coding/javascript/
+│   │   ├── Options.logic.mjs # Goes to coding/logic/
+│   │   ├── Options.functions.mjs # Goes to coding/functions/
+│   │   └── index.mjs        # Export file
 │   └── ...                  # Other pages
 ```
 
@@ -225,56 +226,56 @@ src/
   - `src/components/Search/` directory
   - `src/coding/html/Search.html` file
   - `src/coding/css/Search.css` file
-  - `src/coding/javascript/Search.js` file
-  - `src/coding/logic/Search.logic.js` file
-  - `src/coding/functions/Search.functions.js` file
-  - `src/components/Search/index.js` export file
+  - `src/coding/javascript/Search.mjs` file
+  - `src/coding/logic/Search.logic.mjs` file
+  - `src/coding/functions/Search.functions.mjs` file
+  - `src/components/Search/index.mjs` export file
 
 - **When user says "create useAuth hook"**: Automatically create:
   - `src/hooks/useAuth/` directory
-  - `src/coding/javascript/useAuth.js` file
-  - `src/coding/logic/useAuth.logic.js` file
-  - `src/coding/functions/useAuth.functions.js` file
-  - `src/hooks/useAuth/index.js` export file
+  - `src/coding/javascript/useAuth.mjs` file
+  - `src/coding/logic/useAuth.logic.mjs` file
+  - `src/coding/functions/useAuth.functions.mjs` file
+  - `src/hooks/useAuth/index.mjs` export file
 
 - **When user says "create formatDate utility"**: Automatically create:
   - `src/utils/formatDate/` directory
-  - `src/coding/javascript/formatDate.js` file
-  - `src/coding/logic/formatDate.logic.js` file
-  - `src/coding/functions/formatDate.functions.js` file
-  - `src/utils/formatDate/index.js` export file
+  - `src/coding/javascript/formatDate.mjs` file
+  - `src/coding/logic/formatDate.logic.mjs` file
+  - `src/coding/functions/formatDate.functions.mjs` file
+  - `src/utils/formatDate/index.mjs` export file
 
 - **When user says "create apiService service"**: Automatically create:
   - `src/services/apiService/` directory
-  - `src/coding/javascript/apiService.js` file
-  - `src/coding/logic/apiService.logic.js` file
-  - `src/coding/functions/apiService.functions.js` file
-  - `src/services/apiService/index.js` export file
+  - `src/coding/javascript/apiService.mjs` file
+  - `src/coding/logic/apiService.logic.mjs` file
+  - `src/coding/functions/apiService.functions.mjs` file
+  - `src/services/apiService/index.mjs` export file
 
 - **When user says "create AuthContext context"**: Automatically create:
   - `src/context/AuthContext/` directory
-  - `src/coding/javascript/AuthContext.js` file
-  - `src/coding/logic/AuthContext.logic.js` file
-  - `src/coding/functions/AuthContext.functions.js` file
-  - `src/context/AuthContext/index.js` export file
+  - `src/coding/javascript/AuthContext.mjs` file
+  - `src/coding/logic/AuthContext.logic.mjs` file
+  - `src/coding/functions/AuthContext.functions.mjs` file
+  - `src/context/AuthContext/index.mjs` export file
 
 - **When user says "create Popup page"**: Automatically create:
   - `src/pages/Popup/` directory
   - `src/coding/html/Popup.html` file
   - `src/coding/css/Popup.css` file
-  - `src/coding/javascript/Popup.js` file
-  - `src/coding/logic/Popup.logic.js` file
-  - `src/coding/functions/Popup.functions.js` file
-  - `src/pages/Popup/index.js` export file
+  - `src/coding/javascript/Popup.mjs` file
+  - `src/coding/logic/Popup.logic.mjs` file
+  - `src/coding/functions/Popup.functions.mjs` file
+  - `src/pages/Popup/index.mjs` export file
 
 - **When user says "create Modal modal"**: Automatically create:
   - `src/components/Modal/` directory
   - `src/coding/html/Modal.html` file
   - `src/coding/css/Modal.css` file
-  - `src/coding/javascript/Modal.js` file
-  - `src/coding/logic/Modal.logic.js` file
-  - `src/coding/functions/Modal.functions.js` file
-  - `src/components/Modal/index.js` export file
+  - `src/coding/javascript/Modal.mjs` file
+  - `src/coding/logic/Modal.logic.mjs` file
+  - `src/coding/functions/Modal.functions.mjs` file
+  - `src/components/Modal/index.mjs` export file
 
 ### Rule 6: Automatic File Placement Enforcement
 - **HTML files**: ALWAYS go to `src/coding/html/`
@@ -355,7 +356,7 @@ chrome-extension-project/
 │   ├── babel/                    # Babel configuration
 │   ├── eslint/                   # ESLint configuration
 │   ├── prettier/                 # Prettier configuration
-│   └── typescript/               # TypeScript configuration
+│   └── javascript/               # JavaScript configuration
 ├── tests/                        # Testing infrastructure
 │   ├── unit/                     # Unit tests
 │   ├── integration/              # Integration tests
@@ -371,7 +372,7 @@ chrome-extension-project/
 │   └── launch.json               # Debug configuration
 ├── manifest.json                 # Extension manifest (Manifest V3)
 ├── package.json                  # Project metadata and scripts
-├── tsconfig.json                 # TypeScript configuration
+├── jsconfig.json                  # JavaScript configuration
 ├── webpack.config.js             # Webpack build configuration
 ├── .eslintrc.js                  # ESLint configuration
 ├── .prettierrc                   # Prettier configuration
@@ -386,12 +387,12 @@ chrome-extension-project/
 
 ### Automatic Creation Examples
 - **"create Button component"** → Creates Button directory + all file types
-- **"create useAuth hook"** → Creates useAuth directory + JS/Logic/Functions files
-- **"create formatDate utility"** → Creates formatDate directory + JS/Logic/Functions files
-- **"create apiService service"** → Creates apiService directory + JS/Logic/Functions files
-- **"create AuthContext context"** → Creates AuthContext directory + JS/Logic/Functions files
-- **"create Popup page"** → Creates Popup directory + HTML/CSS/JS/Logic/Functions files
-- **"create Modal modal"** → Creates Modal directory + HTML/CSS/JS/Logic/Functions files
+- **"create useAuth hook"** → Creates useAuth directory + MJS/Logic/Functions files
+- **"create formatDate utility"** → Creates formatDate directory + MJS/Logic/Functions files
+- **"create apiService service"** → Creates apiService directory + MJS/Logic/Functions files
+- **"create AuthContext context"** → Creates AuthContext directory + MJS/Logic/Functions files
+- **"create Popup page"** → Creates Popup directory + HTML/CSS/MJS/Logic/Functions files
+- **"create Modal modal"** → Creates Modal directory + HTML/CSS/MJS/Logic/Functions files
 
 - **"create API documentation"** → Creates docs/api/ structure + documentation files
 - **"create component docs"** → Creates docs/components/ structure + documentation files
