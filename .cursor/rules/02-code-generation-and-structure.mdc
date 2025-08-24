@@ -64,24 +64,54 @@ newCode();
 ### Core Principle
 - **STRICT modular project structure** with mandatory separation of concerns
 - **EVERY component gets its own directory** with separate files for each concern
-- **File type separation** - HTML, CSS, JavaScript (.mjs), Logic (.mjs), Functions (.mjs) in separate directories
+- **File type separation** - HTML (.html), CSS (.css), JavaScript (.js/.mjs), Logic (.js/.mjs), Functions (.js/.mjs) in separate directories
 - **Component separation** - Each component maintains its own organization
 - **Professional Chrome extension structure** - follow Manifest V3 best practices
-- **Vanilla JavaScript approach** - NO frameworks, NO libraries, NO TypeScript, ONLY .mjs ES6+ modules
+- **Vanilla JavaScript approach** - NO frameworks, NO libraries, NO TypeScript
+- **Chrome extension compliance** - Use .js for regular scripts, .mjs for ES6 modules as per Chrome 136+ policies
 
 ### Rule 1: Mandatory File Type Separation
 ```
 src/
 ├── coding/                    # MAIN FILE TYPE SEPARATION
-│   ├── html/                 # ALL HTML files from all components
-│   ├── css/                  # ALL CSS files from all components
-│   ├── javascript/           # ALL JavaScript files from all components
-│   ├── logic/                # ALL Business logic files from all components
-│   ├── functions/            # ALL Utility functions from all components
+│   ├── html/                 # ALL HTML files from all components (.html)
+│   ├── css/                  # ALL CSS files from all components (.css)
+│   ├── javascript/           # ALL JavaScript files from all components (.js/.mjs)
+│   ├── logic/                # ALL Business logic files from all components (.js/.mjs)
+│   ├── functions/            # ALL Utility functions from all components (.js/.mjs)
 │   ├── common/               # ALL Shared/common files
 │   ├── types/                # ALL Type definitions
 │   └── constants/            # ALL Constants and configuration
 ```
+
+### Rule 1.1: Chrome Extension File Extension Compliance
+- **HTML files**: ALWAYS use `.html` extension
+- **CSS files**: ALWAYS use `.css` extension  
+- **JavaScript files**: Use `.js` for regular scripts, `.mjs` for ES6 modules
+- **Logic files**: Use `.js` for regular logic, `.mjs` for module logic
+- **Function files**: Use `.js` for regular functions, `.mjs` for module functions
+- **Background scripts**: Use `.js` for regular, `.mjs` for modules (must be referenced in manifest.json)
+- **Content scripts**: Use `.js` for regular, `.mjs` for modules (must be referenced in manifest.json)
+- **Popup/Options scripts**: Use `.js` for regular, `.mjs` for modules (must be referenced in HTML)
+
+### Rule 1.2: When to Use .js vs .mjs
+- **Use .js extension when:**
+  - File contains regular JavaScript (no import/export statements)
+  - File is a simple utility or helper function
+  - File doesn't need to be imported by other files
+  - File is loaded directly in HTML without module syntax
+
+- **Use .mjs extension when:**
+  - File contains ES6 import/export statements
+  - File needs to be imported by other files as a module
+  - File is part of a modular architecture
+  - File uses modern ES6+ module features
+
+- **Chrome Extension Compliance:**
+  - Both .js and .mjs are supported in Chrome 136+
+  - Files must be properly referenced in manifest.json
+  - No remote code execution allowed
+  - All code must be bundled with extension
 
 ### Rule 2: Mandatory Component Separation
 ```
@@ -103,19 +133,19 @@ src/
 src/
 ├── components/               # Reusable UI components
 │   ├── Button/
-│   │   ├── Button.html      # Goes to coding/html/
-│   │   ├── Button.css       # Goes to coding/css/
-│   │   ├── Button.mjs       # Goes to coding/javascript/
-│   │   ├── Button.logic.mjs # Goes to coding/logic/
-│   │   ├── Button.functions.mjs # Goes to coding/functions/
-│   │   └── index.mjs        # Export file
+│   │   ├── Button.html      # Goes to coding/html/ (.html)
+│   │   ├── Button.css       # Goes to coding/css/ (.css)
+│   │   ├── Button.js        # Goes to coding/javascript/ (.js for regular scripts)
+│   │   ├── Button.logic.js  # Goes to coding/logic/ (.js for regular logic)
+│   │   ├── Button.functions.js # Goes to coding/functions/ (.js for regular functions)
+│   │   └── index.js         # Export file (.js for regular exports)
 │   ├── Modal/
-│   │   ├── Modal.html       # Goes to coding/html/
-│   │   ├── Modal.css        # Goes to coding/css/
-│   │   ├── Modal.mjs        # Goes to coding/javascript/
-│   │   ├── Modal.logic.mjs  # Goes to coding/logic/
-│   │   ├── Modal.functions.mjs # Goes to coding/functions/
-│   │   └── index.mjs        # Export file
+│   │   ├── Modal.html       # Goes to coding/html/ (.html)
+│   │   ├── Modal.css        # Goes to coding/css/ (.css)
+│   │   ├── Modal.mjs        # Goes to coding/javascript/ (.mjs for ES6 modules)
+│   │   ├── Modal.logic.mjs  # Goes to coding/logic/ (.mjs for module logic)
+│   │   ├── Modal.functions.mjs # Goes to coding/functions/ (.mjs for module functions)
+│   │   └── index.mjs        # Export file (.mjs for module exports)
 │   └── ...                  # Other components
 ├── hooks/                    # Custom hooks (vanilla JavaScript organization)
 │   ├── useAuth/
@@ -386,13 +416,15 @@ chrome-extension-project/
 ```
 
 ### Automatic Creation Examples
-- **"create Button component"** → Creates Button directory + all file types
-- **"create useAuth hook"** → Creates useAuth directory + MJS/Logic/Functions files
-- **"create formatDate utility"** → Creates formatDate directory + MJS/Logic/Functions files
-- **"create apiService service"** → Creates apiService directory + MJS/Logic/Functions files
-- **"create AuthContext context"** → Creates AuthContext directory + MJS/Logic/Functions files
-- **"create Popup page"** → Creates Popup directory + HTML/CSS/MJS/Logic/Functions files
-- **"create Modal modal"** → Creates Modal directory + HTML/CSS/MJS/Logic/Functions files
+- **"create Button component"** → Creates Button directory + HTML/CSS/JS/Logic/Functions files
+- **"create Modal component"** → Creates Modal directory + HTML/CSS/MJS/Logic/Functions files (ES6 modules)
+- **"create useAuth hook"** → Creates useAuth directory + JS/Logic/Functions files (regular scripts)
+- **"create useFetch hook"** → Creates useFetch directory + MJS/Logic/Functions files (ES6 modules)
+- **"create formatDate utility"** → Creates formatDate directory + JS/Logic/Functions files (regular scripts)
+- **"create apiService service"** → Creates apiService directory + MJS/Logic/Functions files (ES6 modules)
+- **"create AuthContext context"** → Creates AuthContext directory + MJS/Logic/Functions files (ES6 modules)
+- **"create Popup page"** → Creates Popup directory + HTML/CSS/JS/Logic/Functions files (regular scripts)
+- **"create Options page"** → Creates Options directory + HTML/CSS/MJS/Logic/Functions files (ES6 modules)
 
 - **"create API documentation"** → Creates docs/api/ structure + documentation files
 - **"create component docs"** → Creates docs/components/ structure + documentation files
