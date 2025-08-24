@@ -25,6 +25,7 @@ Transform your Cursor AI into a **professional Chrome extension development powe
 - ✅ **Professional Code Quality** - Enterprise-grade development standards
 
 ---
+- ✅ **Project Structure Standards** - Logical file separation and professional organization
 
 ## 🚀 **Key Features & Benefits**
 
@@ -127,7 +128,7 @@ function newFunction() {
 
 ## 📋 **Complete Rule Coverage**
 
-Our comprehensive rule system includes 8 essential rule files:
+Our comprehensive rule system includes 9 essential rule files:
 
 ### **Core Rules**
 - **00-essential-rules-enforcement.mdc** - Foundation and rule verification system
@@ -142,11 +143,12 @@ Our comprehensive rule system includes 8 essential rule files:
 ### **Modern Development Rules**
 - **06-responsive-design-compliance.mdc** - Mobile-first, cross-device responsive design
 - **07-anti-file-rewrite-enforcement.mdc** - Prevents file rewrites, enforces incremental changes
+- **08-project-structure-standards.mdc** - Logical file separation and professional organization standards
 
-**Total: 2,957 lines of comprehensive development rules**
+**Total: 3,754 lines of comprehensive development rules**
 
 ### **Rule-Based AI Behavior**
-1. **AI Startup Check** - Verifies all 8 critical rules are present
+1. **AI Startup Check** - Verifies all 9 critical rules are present
 2. **User Approval Required** - Every action waits for your explicit permission
 3. **Terminal Verification** - All changes verified through command execution
 4. **Complete Analysis** - No shortcuts, no skipped sections, no missed details
@@ -380,6 +382,21 @@ This project is licensed under the [MIT License](LICENSE) - see the LICENSE file
   <p><strong>Built with ❤️ by <a href="https://sqtech.dev">sqtech.dev</a></strong></p>
   <p><em>Professional development tools for the modern web</em></p>
 </div>
+
+## 🏗️ **Project Structure Standards (NEW - CRITICAL)**
+
+### **Professional File Organization**
+- **🚨 Strict File Separation** - One component/function per file
+- **📁 Logical Directory Structure** - Organized by functionality
+- **🔄 No Duplication** - Reuse existing code, never duplicate
+- **📱 Chrome Extension Ready** - Follows industry best practices
+
+### **Key Benefits**
+- **Maintainability** - Easy to find and modify specific functionality
+- **Reusability** - Components and functions can be used anywhere
+- **Team Collaboration** - Clear ownership and reduced merge conflicts
+- **Professional Standards** - Impresses Chrome Web Store reviewers
+
 ## 🔍 **Post-Editing Verification Rules (NEW - 100% COMPLIANCE)**
 
 ### Core Principle
