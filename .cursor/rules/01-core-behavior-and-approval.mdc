@@ -142,30 +142,30 @@ grep -n "import" filename.mjs
 - **Immediate results** - See file structure instantly
 - **Version control friendly** - Easy to track what was scanned
 
-## 7. Terminal-Only Operations (CRITICAL - 100% Compliance)
+## 7. New Workflow: Terminal Scanning + Cursor AI Editor (CRITICAL - 100% Compliance)
 
-### MANDATORY Terminal-Only Usage for All Operations
-- **ALWAYS use terminal** for ALL operations
-- **Terminal scanning is for understanding AND all operations including editing**
-- **Use terminal for** adding, editing, deleting, or modifying code
-- **Terminal is the ONLY way** to perform all operations
-- **Terminal commands are REQUIRED for ALL operations including code modifications**
+### MANDATORY Workflow Steps
+1. **Terminal scanning** - Complete codebase understanding
+2. **Terminal scanning** - Related files analysis  
+3. **Terminal scanning** - Target file analysis
+4. **Code analysis** - Identify exact changes needed
+5. **Cursor AI editor** - Make changes with 2-lines context
+6. **Divide large changes** - Multiple focused parts
 
-### Terminal Actions (MANDATORY)
-- **✅ File creation** - Use terminal for new files
-- **✅ Code writing** - Use terminal for code changes
-- **✅ File modification** - Use terminal for edits
-- **✅ Content generation** - Use terminal for new content
-- **✅ Code refactoring** - Use terminal for restructuring
+### Terminal Usage (SCANNING ONLY)
+- **✅ File scanning** - Use terminal for understanding codebase
+- **✅ File reading** - Use terminal for reading file contents
+- **✅ Code analysis** - Use terminal for finding specific content
+- **❌ File editing** - NEVER use terminal for code changes
+- **❌ File creation** - NEVER use terminal for creating files
 
-### Terminal Commands Actions (ALLOWED for All Operations)
-- **✅ File creation** - Use terminal for creating files with content
-- **✅ Code writing** - Use terminal for writing code
-- **✅ File modification** - Use terminal for editing code
-- **✅ Content generation** - Use terminal for generating content
-- **✅ Code refactoring** - Use terminal for restructuring code
+### Cursor AI Editor Usage (CHANGES ONLY)
+- **✅ Code changes** - Use Cursor AI editor for all modifications
+- **✅ File creation** - Use Cursor AI editor for new files
+- **✅ Code refactoring** - Use Cursor AI editor for restructuring
+- **✅ Content generation** - Use Cursor AI editor for new content
 
-## 8. Workflow: Terminal-Only Operations
+## 8. Workflow: Terminal Scanning + Cursor AI Editor
 
 ### Step 1: Terminal Scanning and Understanding (MANDATORY)
 ```bash
@@ -177,13 +177,19 @@ tail -50 filename.mjs                 # Read end
 grep -n "pattern" filename.mjs        # Find specific content
 ```
 
-### Step 2: Terminal Operations (MANDATORY)
-- **After terminal scanning**, use terminal for all operations
-- **Terminal scanning provides context** for what needs to be changed
-- **Terminal implements all changes** based on scanning understanding
-- **All operations through terminal** - no external editors needed
+### Step 2: Code Analysis and Planning (MANDATORY)
+- **After terminal scanning**, analyze what needs to be changed
+- **Identify exact lines** that need modification
+- **Plan changes** with 2-lines-above, 2-lines-below context
+- **Divide large changes** into multiple focused parts
 
-### Step 3: Verification (MANDATORY)
+### Step 3: Cursor AI Editor Implementation (MANDATORY)
+- **Use Cursor AI editor** for all code changes
+- **Show 2 lines above and below** the actual change
+- **Use incremental approach** - one change at a time
+- **Preserve existing code** - only modify what's needed
+
+### Step 4: Verification (MANDATORY)
 - **Use terminal commands** to verify changes were applied correctly
 - **Check file content** using terminal commands
 - **Verify no errors** in the modified files
@@ -210,7 +216,7 @@ grep -n "pattern" filename.mjs        # Find specific content
 - **EXISTING FILES ARE OFF-LIMITS** for complete rewrites
 - **ONLY modify specific lines** that need changes
 - **PRESERVE ALL existing code** unless explicitly told to remove
-- **USE terminal** for targeted modifications
+- **USE Cursor AI editor** for targeted modifications
 - **SHOW ONLY what needs to change** - never the entire file
 
 ### Rule 2: Mandatory Change Format
@@ -268,7 +274,7 @@ newCode();
 
 ## Conclusion
 
-These core behavior and user approval rules ensure that Cursor AI always acts with proper user approval, uses terminal commands for all operations including scanning, understanding, and code changes. The clear separation prevents confusion and ensures proper workflow.
+These core behavior and user approval rules ensure that Cursor AI always acts with proper user approval, uses terminal commands for scanning and understanding, and uses Cursor AI editor for all code changes. The clear separation prevents confusion and ensures proper workflow.
 
-**Remember: Terminal for everything, user approval always required!**
+**Remember: Terminal for scanning, Cursor AI editor for changes, user approval always required!**
 

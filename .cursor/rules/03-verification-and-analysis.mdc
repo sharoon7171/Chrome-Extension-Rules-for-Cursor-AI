@@ -162,15 +162,33 @@ grep -n -A 5 -B 5 "pattern" filename.mjs
   - **Verification**: Must prove complete file reading
   - **Documentation**: Must document the violation
 
-## 2. Comprehensive Verification Requirements (CRITICAL - 100% Compliance)
+## 2. 🚨 **MANDATORY WORKFLOW STEPS (100% COMPLIANCE)**
 
-## 🚨 **NEW CRITICAL RULE: MANDATORY FILE SCANNING BEFORE ANY OPERATIONS (100% COMPLIANCE)**
+### Core Workflow (MANDATORY - NO EXCEPTIONS)
+1. **Terminal scanning** - Complete codebase understanding
+2. **Terminal scanning** - Related files analysis  
+3. **Terminal scanning** - Target file analysis
+4. **Code analysis** - Identify exact changes needed
+5. **Cursor AI editor** - Make changes with 2-lines context
+6. **Divide large changes** - Multiple focused parts
+
+### Workflow Enforcement
+- **ALL 6 steps must be completed** before any task completion
+- **Terminal scanning is mandatory** for understanding
+- **Cursor AI editor is mandatory** for changes
+- **2-lines context is mandatory** for all changes
+- **Large changes must be divided** into multiple parts
+
+## 3. Comprehensive Verification Requirements (CRITICAL - 100% Compliance)
+
+## 🚨 **NEW CRITICAL RULE: MANDATORY TERMINAL SCANNING + CURSOR AI EDITOR WORKFLOW (100% COMPLIANCE)**
 
 ### Rule 1: Complete File Understanding Required
-- **ALWAYS scan files completely** before making any changes
+- **ALWAYS scan files completely** using terminal before making any changes
 - **Understand current structure** and content before modifying
 - **Identify exact locations** for changes using proper scanning
 - **NEVER operate blindly** without understanding the file
+- **USE Cursor AI editor** for all code changes after scanning
 
 ### Rule 2: File Scanning Workflow
 ```bash
@@ -184,7 +202,7 @@ tail -50 filename.mjs                 # Read end
 grep -n "pattern" filename.mjs        # Find specific content
 
 # Step 3: Understand structure before any operations
-# Only after complete understanding, proceed with changes
+# Only after complete understanding, proceed with Cursor AI editor changes
 ```
 
 ### Rule 3: File Scanning Violation Penalties
@@ -192,6 +210,13 @@ grep -n "pattern" filename.mjs        # Find specific content
   - **Penalty**: Must immediately stop and scan file completely
   - **Verification**: Must prove complete file understanding
   - **Documentation**: Must document the violation and correction
+
+### Rule 4: Workflow Violation Penalties
+- **Workflow Violation**: If Cursor AI doesn't follow terminal scanning + Cursor AI editor workflow
+  - **Penalty**: Must immediately restart with proper workflow
+  - **Verification**: Must prove all workflow steps were followed
+  - **Documentation**: Must document the violation and correction
+  - **Workflow Restart**: Must complete all required steps
 
 
 ### Core Principle
@@ -599,7 +624,8 @@ echo "✅ Settings correct: $(grep -c "alwaysApply: true" .cursor/rules/*.mdc)/8
 # Step 2: Verify Core Behavior Rules
 echo "🎯 VERIFYING CORE BEHAVIOR RULES..."
 echo "✅ User approval: $(grep -c "user.*approval" task_execution.log 2>/dev/null || echo "0")"
-echo "✅ Terminal usage: $(grep -c "terminal.*command" task_execution.log 2>/dev/null || echo "0")"
+echo "✅ Terminal scanning: $(grep -c "terminal.*scanning" task_execution.log 2>/dev/null || echo "0")"
+echo "✅ Cursor AI editor usage: $(grep -c "cursor.*ai.*editor" task_execution.log 2>/dev/null || echo "0")"
 echo "✅ Complete file reading: $(grep -c "complete.*file.*reading" task_execution.log 2>/dev/null || echo "0")"
 
 # Step 3: Verify Code Generation Rules
@@ -630,13 +656,22 @@ echo "✅ Touch-friendly: $(grep -c "touch.*friendly" task_execution.log 2>/dev/
 echo "🎯 VERIFYING ANTI-FILE REWRITE RULES..."
 echo "✅ No file rewrites: $(grep -c "no.*file.*rewrite" task_execution.log 2>/dev/null || echo "0")"
 echo "✅ Minimal changes: $(grep -c "minimal.*change" task_execution.log 2>/dev/null || echo "0")"
-echo "✅ Context preservation: $(grep -c "context.*preservation" task_execution.log 2>/dev/null || echo "0")"
+echo "✅ 2-lines context: $(grep -c "2.*lines.*context" task_execution.log 2>/dev/null || echo "0")"
+echo "✅ Cursor AI editor usage: $(grep -c "cursor.*ai.*editor" task_execution.log 2>/dev/null || echo "0")"
 
-# Step 8: Final Compliance Report
+# Step 8: Verify Workflow Compliance
+echo "🎯 VERIFYING WORKFLOW COMPLIANCE..."
+echo "✅ Terminal scanning: $(grep -c "terminal.*scanning" task_execution.log 2>/dev/null || echo "0")"
+echo "✅ Code analysis: $(grep -c "code.*analysis" task_execution.log 2>/dev/null || echo "0")"
+echo "✅ Cursor AI editor changes: $(grep -c "cursor.*ai.*editor.*changes" task_execution.log 2>/dev/null || echo "0")"
+echo "✅ Large changes divided: $(grep -c "large.*changes.*divided" task_execution.log 2>/dev/null || echo "0")"
+
+# Step 9: Final Compliance Report
 echo "🎯 FINAL COMPLIANCE REPORT"
-echo "Total rules checked: 8"
+echo "Total rules checked: 9"
 echo "Rules followed: $(grep -c "rule.*followed" task_execution.log 2>/dev/null || echo "0")"
 echo "Rules violated: $(grep -c "rule.*violation" task_execution.log 2>/dev/null || echo "0")"
+echo "Workflow compliance: $(grep -c "workflow.*compliant" task_execution.log 2>/dev/null || echo "0")"
 ```
 
 ### Rule 3: Post-Task Verification Requirements
@@ -690,9 +725,9 @@ echo "Corrective Actions: [Actions Taken]"
 ```bash
 # Quick compliance check commands
 echo "🎯 QUICK COMPLIANCE CHECK"
-echo "Rule files: $(find .cursor/rules -name "*.mdc" | wc -l)/8"
-echo "Always apply: $(grep -c "alwaysApply: true" .cursor/rules/*.mdc)/8"
-echo "Globs pattern: $(grep -c "globs: \['\*\*/\*'\]" .cursor/rules/*.mdc)/8"
+echo "Rule files: $(find .cursor/rules -name "*.mdc" | wc -l)/9"
+echo "Always apply: $(grep -c "alwaysApply: true" .cursor/rules/*.mdc)/9"
+echo "Globs pattern: $(grep -c "globs: \['\*\*/\*'\]" .cursor/rules/*.mdc)/9"
 
 # Detailed compliance verification
 echo "🎯 DETAILED COMPLIANCE VERIFICATION"
@@ -738,6 +773,14 @@ echo "If Cursor AI skips verification, rule violation detected"
 # Test 3: Context Maintenance
 echo "Test 3: Context Maintenance Required"
 echo "If Cursor AI loses context, rule violation detected"
+
+# Test 4: Workflow Compliance
+echo "Test 4: Workflow Compliance Required"
+echo "If Cursor AI doesn't follow 6-step workflow, rule violation detected"
+
+# Test 5: Cursor AI Editor Usage
+echo "Test 5: Cursor AI Editor Usage Required"
+echo "If Cursor AI doesn't use Cursor AI editor for changes, rule violation detected"
 ```
 
 ## Benefits of Strict Verification and Analysis
@@ -756,9 +799,9 @@ echo "If Cursor AI loses context, rule violation detected"
 
 ## Conclusion
 
-These verification and analysis rules ensure that Cursor AI never skips code analysis, always reads complete files, and maintains proper verification processes. Complete understanding is mandatory before any code modifications.
+These verification and analysis rules ensure that Cursor AI never skips code analysis, always reads complete files using terminal, and maintains proper verification processes. Complete understanding is mandatory before any code modifications using Cursor AI editor.
 
-**Remember: Complete file reading mandatory, verification always required, context never lost!**
+**Remember: Terminal scanning mandatory, Cursor AI editor for changes, verification always required, workflow compliance mandatory!**
 
 
 ## 🚨 **MAXIMUM SCANNING DEPTH ADVANCED TECHNIQUES**

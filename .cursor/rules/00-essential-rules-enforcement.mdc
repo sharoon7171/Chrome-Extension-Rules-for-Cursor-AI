@@ -25,7 +25,8 @@ alwaysApply: true
 5. **04-chrome-extension-compliance.mdc** - Chrome extension specific requirements
 6. **05-git-operations.mdc** - Version control and repository management
 7. **06-responsive-design-compliance.mdc** - Responsive design requirements
-8. **07-anti-file-rewrite-enforcement.mdc** - Anti-file rewrite enforcement (NEW)
+8. **07-anti-file-rewrite-enforcement.mdc** - Anti-file rewrite enforcement
+9. **08-project-structure-standards.mdc** - Project structure and organization standards
 
 ### Rule Loading Verification
 - **Check rule file existence** before starting any AI operations
@@ -177,6 +178,7 @@ find . -name "*.mdc" -exec echo "Rule applies to: {}" \;
 ✅ Git Operations: ACTIVE
 ✅ Responsive Design: ACTIVE
 ✅ Anti-File Rewrite: ACTIVE
+✅ Project Structure: ACTIVE
 
 📋 **RESPONSE STARTING...**
 ```
@@ -187,12 +189,13 @@ find . -name "*.mdc" -exec echo "Rule applies to: {}" \;
 2. **01-core-behavior-and-approval.mdc** - User approval requirement
 3. **04-chrome-extension-compliance.mdc** - Chrome extension compliance
 4. **03-verification-and-analysis.mdc** - Terminal verification requirement
-5. **07-anti-file-rewrite-enforcement.mdc** - Anti-file rewrite enforcement (NEW)
+5. **07-anti-file-rewrite-enforcement.mdc** - Anti-file rewrite enforcement
+6. **08-project-structure-standards.mdc** - Project structure standards
 
 **IMPORTANT RULES (Must be followed 95% of the time):**
-6. **02-code-generation-and-structure.mdc** - .mjs module compliance
-7. **05-git-operations.mdc** - Git operations approval
-8. **06-responsive-design-compliance.mdc** - Responsive design requirements
+7. **02-code-generation-and-structure.mdc** - .mjs module compliance
+8. **05-git-operations.mdc** - Git operations approval
+9. **06-responsive-design-compliance.mdc** - Responsive design requirements
 
 ### Rule Testing Commands
 ```bash
@@ -200,6 +203,12 @@ find . -name "*.mdc" -exec echo "Rule applies to: {}" \;
 echo "🎯 TESTING RULE COMPLIANCE..."
 echo "If Cursor AI responds without the rule compliance header,"
 echo "the rules are NOT being followed properly."
+
+# Test new workflow rules
+echo "🎯 TESTING NEW WORKFLOW RULES..."
+echo "If Cursor AI doesn't follow terminal scanning + Cursor AI editor workflow,"
+echo "rule violation detected"
+echo "Expected: Terminal scanning first, then Cursor AI editor for changes"
 
 # Test anti-file rewrite rules
 echo "🎯 TESTING ANTI-FILE REWRITE RULES..."
@@ -216,11 +225,17 @@ for rule in .cursor/rules/*.mdc; do
         echo "❌ Rule is NOT set to always apply"
     fi
 done
+
+# Verify new workflow rules
+echo "=== NEW WORKFLOW TEST ==="
+echo "Testing terminal scanning + Cursor AI editor workflow..."
+echo "Expected: Terminal for scanning, Cursor AI editor for changes"
+echo "Status: $(grep -c "terminal.*scanning\|cursor.*ai.*editor" .cursor/rules/*.mdc) rules found"
 ```
 
 ### Rule Compliance Monitoring
 **Daily Rule Check:**
-- [ ] All 8 rules are present
+- [ ] All 9 rules are present
 - [ ] All rules have valid YAML frontmatter
 - [ ] All rules have `alwaysApply: true`
 - [ ] All rules have `globs: ['**/*']`
@@ -231,11 +246,15 @@ done
 - [ ] Rules are being followed in practice
 - [ ] No rule bypassing detected
 - [ ] User approval is always requested
-- [ ] Terminal verification is always used
+- [ ] Terminal scanning is always used
+- [ ] Cursor AI editor is always used for changes
+- [ ] 2-lines context is always shown
+- [ ] Large changes are always divided
 - [ ] .mjs module usage is always followed
 - [ ] Chrome extension compliance is maintained
 - [ ] Responsive design requirements are met
 - [ ] Anti-file rewrite rules are enforced
+- [ ] Project structure standards are followed
 
 ## Conclusion
 
@@ -245,32 +264,32 @@ This essential rules enforcement file ensures that Cursor AI cannot operate with
 
 ## Rule Verification Status
 
-- **Rule files present**: ✅ 8/8
-- **Frontmatter complete**: ✅ 8/8
-- **Settings correct**: ✅ 8/8
-- **Rules loadable**: ✅ 8/8
-- **Rules active**: ✅ 8/8
+- **Rule files present**: ✅ 9/9
+- **Frontmatter complete**: ✅ 9/9
+- **Settings correct**: ✅ 9/9
+- **Rules loadable**: ✅ 9/9
+- **Rules active**: ✅ 9/9
 
 **Status: ALL RULES VERIFIED - CURSOR AI CAN START**
 
-## 🚨 **CRITICAL RULE: TERMINAL-ONLY OPERATIONS (100% COMPLIANCE)**
+## 🚨 **CRITICAL RULE: TERMINAL SCANNING + CURSOR AI EDITOR (100% COMPLIANCE)**
 
 ### Core Principle
-- **ALWAYS use terminal for ALL operations** - no exceptions
-- **NEVER use external editors** for code changes
-- **Terminal is the ONLY tool** for all tasks
+- **ALWAYS use terminal for scanning and understanding** - no exceptions
+- **ALWAYS use Cursor AI editor for code changes** - no exceptions
+- **Terminal for scanning, Cursor AI editor for changes** - clear separation
 - **Complete file reading mandatory** before any operations
 - **Verify everything through terminal** commands
 
-### Rule 1: Terminal-Only Enforcement (CRITICAL)
-- **NO CURSOR EDITOR USAGE** under any circumstances
-- **NO AI CODE GENERATION** without terminal execution
-- **ALL CODE CHANGES** must go through terminal commands
-- **ALL FILE OPERATIONS** must use terminal commands
+### Rule 1: Terminal Scanning + Cursor AI Editor Enforcement (CRITICAL)
+- **TERMINAL SCANNING MANDATORY** before any operations
+- **CURSOR AI EDITOR REQUIRED** for all code changes
+- **ALL CODE CHANGES** must go through Cursor AI editor
+- **ALL FILE OPERATIONS** must use Cursor AI editor
 - **Terminal scanning mandatory** before any operations
 
-### Rule 2: Strict Penalty System for Editor Usage
-- **FIRST VIOLATION**: Warning + immediate switch to terminal
+### Rule 2: Strict Penalty System for Workflow Violations
+- **FIRST VIOLATION**: Warning + immediate workflow restart
 - **SECOND VIOLATION**: 24-hour suspension from all operations
 - **THIRD VIOLATION**: Complete task restart with user supervision
 - **FOURTH VIOLATION**: User must manually approve all future operations
@@ -295,8 +314,8 @@ echo "Action Required: [Warning/Suspension/Restart/Manual Approval]"
 ### Rule 5: Emergency Enforcement
 ```bash
 # Emergency enforcement commands
-echo "🚨 ENFORCING TERMINAL-ONLY OPERATIONS"
-echo "Cursor AI must use terminal for ALL operations"
+echo "🚨 ENFORCING TERMINAL SCANNING + CURSOR AI EDITOR WORKFLOW"
+echo "Cursor AI must use terminal for scanning, Cursor AI editor for changes"
 echo "No exceptions allowed"
 echo "Penalties enforced immediately"
 ```

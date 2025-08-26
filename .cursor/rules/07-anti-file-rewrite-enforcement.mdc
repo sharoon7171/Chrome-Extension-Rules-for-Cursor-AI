@@ -61,6 +61,14 @@ function newFunction() {
 - **Files > 1000 lines**: Maximum 15 lines per change
 - **Large modifications**: Break into multiple small changes
 
+### Rule 3.1: 🚨 **CRITICAL STRING FINDING & LINE COUNTING (100% COMPLIANCE)**
+- **BEFORE ANY EDITING**: Count total lines to be modified using terminal
+- **BEFORE ANY EDITING**: Find exact strings to be changed using terminal
+- **AUTOMATIC DIVISION**: If > 25 lines, divide into multiple parts automatically
+- **TIMEOUT PREVENTION**: Never attempt large edits that could cause timeouts
+- **PERFORMANCE PROTECTION**: Prevent Cursor AI crashes and freezing
+- **STRING VERIFICATION**: Always verify exact string exists before replacement
+
 ## 2. 🚨 **MINIMAL CHANGE ENFORCEMENT (100% COMPLIANCE)**
 
 ### Rule 4: Change Scope Limitations
@@ -70,10 +78,11 @@ function newFunction() {
 - **File rewrites**: NEVER allowed without explicit permission
 
 ### Rule 5: Context Preservation Requirements
-- **Show surrounding context**: 2-3 lines before and after changes
+- **Show surrounding context**: 2 lines above and 2 lines below changes (MANDATORY)
 - **Use line numbers**: Reference specific line numbers for changes
 - **Maintain file structure**: Don't break existing organization
 - **Preserve imports**: Keep all existing import statements
+- **Use Cursor AI editor**: All changes must be made through Cursor AI editor
 
 ### Rule 6: Change Documentation Standards
 - **Document every change**: What was changed and why
@@ -81,7 +90,40 @@ function newFunction() {
 - **Reference line numbers**: Always specify where changes go
 - **Explain purpose**: Why the change is needed
 
-## 3. 🚨 **ANTI-REWRITE ENFORCEMENT MECHANISMS**
+### Rule 6.1: 🚨 **CRITICAL STRING REPLACEMENT ERROR PREVENTION (100% COMPLIANCE)**
+- **EXACT STRING MATCHING**: Always find exact string before replacement
+- **LINE NUMBER VERIFICATION**: Verify line numbers before making changes
+- **CONTEXT PRESERVATION**: Never remove working code unexpectedly
+- **DUPLICATION PREVENTION**: Replace existing code, don't add duplicates
+- **ERROR HANDLING**: If string not found, stop and ask user for clarification
+- **SAFETY FIRST**: Always backup or verify before large string operations
+
+## 3. 🚨 **MANDATORY WORKFLOW ENFORCEMENT (100% COMPLIANCE)**
+
+### Rule 7: Mandatory Workflow Steps
+1. **Terminal scanning** - Complete codebase understanding (MANDATORY)
+2. **Terminal scanning** - Related files analysis (MANDATORY)
+3. **Terminal scanning** - Target file analysis (MANDATORY)
+4. **Code analysis** - Identify exact changes needed (MANDATORY)
+5. **Cursor AI editor** - Make changes with 2-lines context (MANDATORY)
+6. **Divide large changes** - Multiple focused parts (MANDATORY)
+
+### Rule 8: 2-Lines Context Requirement
+- **ALWAYS show 2 lines above** the change location
+- **ALWAYS show 2 lines below** the change location
+- **NEVER show more context** than necessary
+- **USE Cursor AI editor** for all modifications
+- **DIVIDE large changes** into multiple parts
+
+### Rule 8.1: 🚨 **CRITICAL TIMEOUT & PERFORMANCE PROTECTION (100% COMPLIANCE)**
+- **LINE COUNT LIMITS**: Maximum 25 lines per change to prevent timeouts
+- **AUTOMATIC DIVISION**: Break large changes into 25-line chunks automatically
+- **PERFORMANCE MONITORING**: Stop if Cursor AI shows signs of slowdown
+- **CRASH PREVENTION**: Never attempt operations that could freeze Cursor AI
+- **SESSION MANAGEMENT**: Restart AI session if performance degrades
+- **ERROR RECOVERY**: If timeout occurs, immediately divide into smaller parts
+
+## 4. 🚨 **ANTI-REWRITE ENFORCEMENT MECHANISMS**
 
 ### Mechanism 1: File Existence Check
 ```bash
@@ -132,6 +174,52 @@ if [[ "$proposed_change" != *"// ... existing code ..."* ]] && \
 fi
 ```
 
+### Mechanism 5: 🚨 **CRITICAL STRING FINDING & LINE COUNTING (100% COMPLIANCE)**
+```bash
+# ALWAYS count lines and find exact strings before editing
+echo "🚨 CRITICAL: STRING FINDING & LINE COUNTING REQUIRED"
+
+# Step 1: Count total lines to be modified
+total_lines=$(echo "$proposed_change" | wc -l)
+echo "📊 Total lines to modify: $total_lines"
+
+# Step 2: Find exact strings to be changed
+echo "🔍 Finding exact strings to be changed..."
+grep -n "oldString" target_file.mjs
+
+# Step 3: Automatic division if > 25 lines
+if [ "$total_lines" -gt 25 ]; then
+    echo "🚨 CHANGE TOO LARGE - AUTOMATIC DIVISION REQUIRED"
+    echo "❌ Current size: $total_lines lines (exceeds 25-line limit)"
+    echo "✅ Required: Break into $(($total_lines / 25 + 1)) parts"
+    echo "🚫 STOPPING - Must divide into smaller parts"
+    exit 1
+fi
+
+echo "✅ String finding and line counting completed"
+echo "✅ Change size within limits ($total_lines lines)"
+echo "✅ Proceeding with safe, small change"
+```
+
+### Mechanism 6: 🚨 **TIMEOUT PREVENTION & PERFORMANCE PROTECTION**
+```bash
+# Prevent timeouts and performance issues
+echo "🚨 CRITICAL: TIMEOUT PREVENTION & PERFORMANCE PROTECTION"
+
+# Check if change could cause timeout
+if [ "$total_lines" -gt 15 ]; then
+    echo "⚠️ WARNING: Change may cause performance issues"
+    echo "📊 Lines: $total_lines (recommended: ≤15)"
+    echo "🔄 Consider dividing into smaller parts"
+fi
+
+# Performance monitoring
+echo "📱 Monitoring Cursor AI performance..."
+echo "🛑 Stop immediately if Cursor AI shows slowdown"
+echo "🔄 Restart AI session if performance degrades"
+echo "✅ Performance protection active"
+```
+
 ## 4. 🚨 **RULE VIOLATION PENALTIES (ENFORCED)**
 
 ### Penalties for File Rewrites
@@ -162,23 +250,50 @@ fi
   - **Documentation**: Must document the violation and correction
   - **Marker Standardization**: Must use consistent marker format
 
+### Penalties for Workflow Violations
+- **Workflow Violation**: If Cursor AI doesn't follow the 6-step workflow
+  - **Penalty**: Must immediately restart with proper workflow
+  - **Verification**: Must prove all 6 steps were followed
+  - **Documentation**: Must document violation and correction
+  - **Workflow Restart**: Must complete all workflow steps
+
+### Penalties for Context Violations
+- **Context Violation**: If Cursor AI doesn't show 2-lines context
+  - **Penalty**: Must immediately show proper 2-lines context
+  - **Verification**: Must prove 2 lines above and below shown
+  - **Documentation**: Must document violation and correction
+  - **Context Restoration**: Must show exact context required
+
+### Penalties for String Replacement Violations
+- **String Finding Violation**: If Cursor AI doesn't find exact strings before editing
+  - **Penalty**: Must immediately stop and find exact strings using terminal
+  - **Verification**: Must prove exact string exists before replacement
+  - **Documentation**: Must document violation and correction
+  - **String Verification**: Must verify string before any replacement
+
+### Penalties for Timeout and Performance Violations
+- **Timeout Violation**: If Cursor AI attempts changes > 25 lines
+  - **Penalty**: Must immediately divide into 25-line chunks
+  - **Verification**: Must prove all changes under 25 lines
+  - **Documentation**: Must document violation and correction
+  - **Performance Protection**: Must prevent Cursor AI crashes
+
 ## 5. 🚨 **MINIMAL CHANGE EXAMPLES**
 
-### Example 1: Adding a Function
+### Example 1: Adding a Function (2-Lines Context)
 ```javascript
 // ADD: New function after line 45
-// ... existing code ...
+function existingFunction() {
+    // Existing implementation
+}
 
-/**
- * Validates user input data
- * @param {Object} data - User input data
- * @returns {boolean} - Validation result
- */
 function validateUserData(data) {
     return data && typeof data === 'object' && data.name && data.email;
 }
 
-// ... existing code ...
+function nextFunction() {
+    // Next implementation
+}
 ```
 
 ### Example 2: Modifying Existing Code
@@ -268,7 +383,7 @@ echo "Violation: Missing markers - add proper documentation"
 ### If File Rewrite is Detected
 1. **STOP immediately** - don't continue with rewrite
 2. **Switch to incremental changes** - show only what needs to change
-3. **Use terminal** - target specific lines only
+3. **Use Cursor AI editor** - target specific lines only
 4. **Preserve existing code** - don't remove working functionality
 5. **Document the violation** - record what went wrong
 6. **Apply penalties** - follow violation correction procedures
@@ -454,9 +569,15 @@ fi
 
 ## Conclusion
 
-These anti-file rewrite enforcement rules ensure that Cursor AI NEVER rewrites entire files and ALWAYS uses minimal, incremental changes. The strict enforcement mechanisms prevent file rewrites, limit change scope, maintain code context, and ensure proper change documentation.
+These anti-file rewrite enforcement rules ensure that Cursor AI NEVER rewrites entire files and ALWAYS uses minimal, incremental changes through Cursor AI editor. The strict enforcement mechanisms prevent file rewrites, limit change scope, maintain 2-lines context, and ensure proper workflow compliance.
 
-**Remember: NO FILE REWRITES EVER, MINIMAL CHANGES ONLY, CONTEXT PRESERVATION MANDATORY!**
+**🚨 NEW CRITICAL RULES ADDED:**
+- **String Finding & Line Counting**: Always find exact strings and count lines before editing
+- **Timeout Prevention**: Maximum 25 lines per change to prevent Cursor AI crashes
+- **Performance Protection**: Automatic division of large changes to prevent freezing
+- **String Replacement Safety**: Verify exact strings exist before any replacement
+
+**Remember: NO FILE REWRITES EVER, MINIMAL CHANGES ONLY, 2-LINES CONTEXT MANDATORY, CURSOR AI EDITOR REQUIRED, STRING FINDING MANDATORY, TIMEOUT PREVENTION CRITICAL!**
 
 ## Rule Verification Status
 
