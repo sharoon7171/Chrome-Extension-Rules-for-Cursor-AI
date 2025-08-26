@@ -11,6 +11,7 @@ alwaysApply: true
 - **ALWAYS ask for permission** before any git operations that modify remote repositories
 - **Allow code verification first** before proceeding with git operations
 - **Prevent accidental code deployment** or repository synchronization
+- **🚨 CRITICAL: EVERY git operation requires individual approval** - no "approve once for all future" operations
 
 ## 1. Required User Approval for Git Operations
 
@@ -40,6 +41,12 @@ alwaysApply: true
 3. **Ask specific permission** - "Should I proceed with git [operation]?"
 4. **Wait for user confirmation** before executing
 5. **Allow code verification** if user requests it
+
+### 🚨 **CRITICAL APPROVAL RULE (100% COMPLIANCE)**
+- **EVERY git operation requires individual approval** - no exceptions
+- **No "approve once for all future"** - this is strictly forbidden
+- **No "remember my choice"** - each operation must be individually approved
+- **Approval is per-operation, not per-session or per-project**
 
 ### Approval Questions Format
 ```
@@ -225,11 +232,17 @@ echo "If Cursor AI doesn't follow safety measures, rule violation detected"
 
 ## 11. 🚨 **STRICT PENALTY ENFORCEMENT (NEW - CRITICAL)**
 
+### 🚨 **CRITICAL RULE: NO AUTOMATIC FUTURE OPERATIONS (100% COMPLIANCE)**
+- **EVERY git operation requires explicit approval** - no exceptions, no "future automatic" operations
+- **Approval is per-operation** - not per-session, not per-day, not per-project
+- **No "remember my choice"** - each git operation must be individually approved
+- **No "approve once for all future"** - this is strictly forbidden
+
 ### Penalty Levels (ESCALATING)
 - **First Violation**: Warning + immediate correction required
 - **Second Violation**: 24-hour suspension from git operations
 - **Third Violation**: Complete task restart with user supervision
-- **Fourth Violation**: User must manually approve all future git operations
+- **Fourth Violation**: User must manually approve EVERY SINGLE git operation (no automatic operations ever)
 
 ### Specific Penalties for Each Violation Type
 
@@ -291,6 +304,16 @@ fi
 6. **Documentation**: Must document violation and correction
 7. **User Approval**: Must get user approval to resume
 
+### 🚨 **CRITICAL RULE ENFORCEMENT MECHANISM**
+```bash
+# Prevent automatic future operations
+echo "🚨 CRITICAL: NO AUTOMATIC FUTURE OPERATIONS ALLOWED"
+echo "Every git operation requires individual approval"
+echo "No 'approve once for all future' operations"
+echo "No 'remember my choice' for git operations"
+echo "Each git push, pull, merge requires separate approval"
+```
+
 ## Benefits
 - **Prevents accidental deployments** - no git operations without approval
 - **Allows code verification** - time to review and test changes
@@ -303,4 +326,6 @@ fi
 
 These Git operations approval rules ensure that Cursor AI never executes git operations without explicit user approval, always allows code verification, and follows proper safety measures. User control and safety are paramount for all version control operations.
 
-**Remember: User approval first, code verification always, safety measures mandatory!**
+**🚨 CRITICAL: EVERY git operation requires individual approval - no "approve once for all future" operations!**
+
+**Remember: User approval first, code verification always, safety measures mandatory, per-operation approval required!**
